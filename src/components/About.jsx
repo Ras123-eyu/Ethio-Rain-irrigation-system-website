@@ -53,7 +53,7 @@ export default function About() {
             <span className="gradient-text">Behind Ethio-Rain</span>
           </h2>
           <p className="text-gray-500 dark:text-white/60 leading-relaxed mb-10 transition-colors text-lg">
-            Ethio-Rain is Ethiopia's premier irrigation solutions provider. Founded with a mission to transform 
+            AEthio-Rain is Ethiopia's premier irrigation solutions provider. Founded with a mission to transform 
             subsistence farming into high-yield agribusiness, we deliver cutting-edge technology 
             tailored for African soil and climate.
           </p>
