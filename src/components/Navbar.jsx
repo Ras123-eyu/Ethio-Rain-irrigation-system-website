@@ -30,7 +30,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
           <img 
-            src="/src/assets/logo.png" 
+            src="https://www.image2url.com/r2/default/images/1776446803908-1a0fb0a4-83a0-45e7-a562-6f6d629fc2b8.blob" 
             alt="Ethio-Rain Logo" 
             className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
           />
