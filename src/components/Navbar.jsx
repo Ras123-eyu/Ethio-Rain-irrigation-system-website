@@ -34,7 +34,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
             alt="Ethio-Rain Logo" 
             className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
           />
-          <div className="hidden sm:block">
+          <div className="sm:block">
             <span className={`font-bold text-xl tracking-tight transition-colors ${scrolled || pathname !== '/' ? 'gradient-text dark:gradient-text' : 'gradient-text'}`}>
               Ethio-Rain
             </span>
