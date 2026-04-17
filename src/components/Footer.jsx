@@ -114,7 +114,7 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-4">
               <Phone className="w-5 h-5 text-brand-cyan shrink-0" />
-              +251 911 234 567
+              +251 910 61 57 57 / +251 912 88 28 81
             </li>
             <li className="flex items-center gap-4">
               <Mail className="w-5 h-5 text-brand-cyan shrink-0" />
