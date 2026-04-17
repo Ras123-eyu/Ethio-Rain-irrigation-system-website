@@ -99,7 +99,7 @@ export default function Footer() {
         <div>
           <h4 className="font-black text-[10px] uppercase tracking-[0.2em] text-brand-cyan mb-8">Our Company</h4>
           <ul className="space-y-4 text-sm font-bold text-white/40">
-            {['About Us', 'Our Projects', 'Contact'].map(s => (
+            {['About Us', 'Our Projects', 'Products', 'Contact'].map(s => (
               <li key={s}><a href={`#${s.toLowerCase().replace(' ', '')}`} className="hover:text-white transition-all flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-white/5 group-hover:bg-white" /> {s}</a></li>
             ))}
           </ul>

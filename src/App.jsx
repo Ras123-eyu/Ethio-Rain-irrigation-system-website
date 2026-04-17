@@ -4,6 +4,7 @@ import './index.css'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import ServiceDetail from './pages/ServiceDetail'
+import Products from './pages/Products'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/service/:slug" element={<ServiceDetail />} />
+            <Route path="/products" element={<Products />} />
           </Routes>
         </main>
         <Footer />

@@ -6,6 +6,7 @@ const navLinks = [
   { label: 'Home', href: '/#home' },
   { label: 'About', href: '/#about' },
   { label: 'Services', href: '/#services' },
+  { label: 'Products', href: '/products' },
   { label: 'Projects', href: '/#projects' },
   { label: 'Contact', href: '/#contact' },
 ]
@@ -47,12 +48,21 @@ export default function Navbar({ darkMode, setDarkMode }) {
         <ul className="hidden md:flex items-center gap-8">
           {navLinks.map(link => (
             <li key={link.label}>
-              <a href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-brand-cyan/80 dark:hover:text-brand-cyan/80 ${
-                  scrolled || pathname !== '/' ? 'text-gray-700 dark:text-gray-200' : 'text-white/90'
-                }`}>
-                {link.label}
-              </a>
+              {link.href.startsWith('/') && !link.href.startsWith('/#') ? (
+                <Link to={link.href}
+                  className={`text-sm font-medium transition-colors hover:text-brand-cyan/80 dark:hover:text-brand-cyan/80 ${
+                    scrolled || pathname !== '/' ? 'text-gray-700 dark:text-gray-200' : 'text-white/90'
+                  }`}>
+                  {link.label}
+                </Link>
+              ) : (
+                <a href={link.href}
+                  className={`text-sm font-medium transition-colors hover:text-brand-cyan/80 dark:hover:text-brand-cyan/80 ${
+                    scrolled || pathname !== '/' ? 'text-gray-700 dark:text-gray-200' : 'text-white/90'
+                  }`}>
+                  {link.label}
+                </a>
+              )}
             </li>
           ))}
         </ul>
@@ -91,13 +101,21 @@ export default function Navbar({ darkMode, setDarkMode }) {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden dark:bg-gray-900 bg-white shadow-xl px-6 py-6 flex flex-col gap-4 animate-fade-in border-t dark:border-gray-800 border-gray-100">
-          {navLinks.map(link => (
-            <a key={link.label} href={link.href}
-              className="text-gray-700 dark:text-gray-200 font-medium text-sm hover:text-green-600 dark:hover:text-green-400"
-              onClick={() => setMenuOpen(false)}>
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map(link =>
+            link.href.startsWith('/') && !link.href.startsWith('/#') ? (
+              <Link key={link.label} to={link.href}
+                className="text-gray-700 dark:text-gray-200 font-medium text-sm hover:text-green-600 dark:hover:text-green-400"
+                onClick={() => setMenuOpen(false)}>
+                {link.label}
+              </Link>
+            ) : (
+              <a key={link.label} href={link.href}
+                className="text-gray-700 dark:text-gray-200 font-medium text-sm hover:text-green-600 dark:hover:text-green-400"
+                onClick={() => setMenuOpen(false)}>
+                {link.label}
+              </a>
+            )
+          )}
           <a href="#contact" className="btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full text-center" onClick={() => setMenuOpen(false)}>
             Get a Quote
           </a>
