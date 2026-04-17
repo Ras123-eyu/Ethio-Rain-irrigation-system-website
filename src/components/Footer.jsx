@@ -57,7 +57,7 @@ export default function Footer() {
         <div className="animate-fade-in">
           <div className="flex items-center gap-4 mb-8">
             <img 
-              src="/src/assets/logo.png" 
+              src="https://www.image2url.com/r2/default/images/1776446803908-1a0fb0a4-83a0-45e7-a562-6f6d629fc2b8.blob" 
               alt="Ethio-Rain Logo" 
               className="h-14 w-auto object-contain"
             />
