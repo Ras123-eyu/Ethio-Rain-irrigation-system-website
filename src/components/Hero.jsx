@@ -8,9 +8,9 @@ export default function Hero() {
         <img
           src="https://images.unsplash.com/photo-1655048425771-daa9087aaa00?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Modern Irrigation System"
-          className="w-full h-full object-cover grayscale-20"
+          className="w-full h-full object-fill object-center md:object-center"
         />
-        <div className="hero-overlay absolute inset-0 opacity-80" />
+        <div className="hero-overlay absolute inset-0 opacity-60 md:opacity-75" />
       </div>
 
       {/* Animated Water Drops */}
