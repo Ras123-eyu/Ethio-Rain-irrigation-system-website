@@ -41,9 +41,9 @@ export default function Hero() {
               Explore Solutions
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a href="#gallery" className="glass text-white font-semibold px-8 py-4 rounded-full flex items-center gap-2 hover:translate-x-0.5 transition-transform border-white/6">
+            <a href="#projects" className="glass text-white font-semibold px-8 py-4 rounded-full flex items-center gap-2 hover:translate-x-0.5 transition-transform border-white/6">
               <Play className="w-4 h-4 stroke-3" />
-              Watch Project Demos
+              View Our Projects
             </a>
           </div>
 
