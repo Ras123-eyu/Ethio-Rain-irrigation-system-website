@@ -102,11 +102,11 @@ export default function ServiceDetail() {
                 </div>
                 <span>info@ethiorain.et</span>
               </a>
-              <a href="tel:+251911234567" className="flex items-center gap-4 dark:text-white/80 text-gray-700 hover:text-brand-cyan font-bold transition-all group">
+              <a href="tel:+251910615757" className="flex items-center gap-4 dark:text-white/80 text-gray-700 hover:text-brand-cyan font-bold transition-all group">
                 <div className="bg-brand-cyan/10 p-2.5 rounded-xl border border-brand-cyan/20 group-hover:bg-brand-cyan/20 transition-all">
                   <Phone className="w-5 h-5 text-brand-cyan" />
                 </div>
-                <span>+251 911 234 567</span>
+                <span>+251 910 61 57 57 / +251 912 88 28 81</span>
               </a>
             </div>
 

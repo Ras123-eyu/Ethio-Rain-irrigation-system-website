@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import ServiceDetail from './pages/ServiceDetail'
 import Products from './pages/Products'
 import Footer from './components/Footer'
+import CookieConsent from './components/CookieConsent'
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -36,6 +37,7 @@ export default function App() {
           </Routes>
         </main>
         <Footer />
+        <CookieConsent />
       </div>
     </BrowserRouter>
   )

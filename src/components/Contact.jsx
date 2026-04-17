@@ -29,8 +29,8 @@ export default function Contact() {
 
           <div className="space-y-8">
             {[
-              { icon: MapPin, label: 'Address', value: 'Bole Road, Addis Ababa, Ethiopia' },
-              { icon: Phone, label: 'Phone', value: '+251 911 234 567' },
+              { icon: MapPin, label: 'Address', value: 'Near Dembel city center, M.K.A.AS Business center, Addis Ababa Ethiopia' },
+              { icon: Phone, label: 'Phone', value: '+251 910 61 57 57 / +251 912 88 28 81' },
               { icon: Mail, label: 'Email', value: 'info@ethiorain.et' },
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className="flex items-center gap-5 group/item">
@@ -50,7 +50,7 @@ export default function Contact() {
         <div className="h-[500px] rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl transition-all duration-500 animate-fade-in group/map relative">
           <div className="absolute inset-0 bg-brand-blue/5 pointer-events-none group-hover/map:opacity-0 transition-opacity" />
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126115.1152431!2d38.706173!3d8.9806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85cef5ab402d%3A0x8467b6b037a24b40!2sAddis+Ababa%2C+Ethiopia!5e0!3m2!1sen!2set!4v1712128000000!5m2!1sen!2set"
+         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d495.1485019125002!2d38.767233235229625!3d9.003057398062387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b857367dd87b5%3A0x8edd7a5d87f3f4ca!2sEthio%20Rain%20Irrigation%20Systems%20PLC!5e1!3m2!1sen!2set!4v1776456424804!5m2!1sen!2set" 
             width="100%" 
             height="100%" 
             style={{ border: 0, filter: 'grayscale(0.6) contrast(1.1) brightness(0.8)' }} 

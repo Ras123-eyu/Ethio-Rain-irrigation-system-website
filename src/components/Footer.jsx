@@ -45,7 +45,7 @@ export default function Footer() {
             <a href="#contact" className="bg-white text-brand-blue font-black px-10 py-5 rounded-full hover:scale-105 transition-all shadow-2xl flex items-center gap-2">
               Get Started Free
             </a>
-            <a href="tel:+251911234567" className="border-2 border-white/30 text-white font-black px-10 py-5 rounded-full hover:bg-white/10 transition-all backdrop-blur-sm">
+            <a href="tel:+251910615757" className="border-2 border-white/30 text-white font-black px-10 py-5 rounded-full hover:bg-white/10 transition-all backdrop-blur-sm">
               Call Us Now
             </a>
           </div>
