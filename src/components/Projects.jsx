@@ -1,37 +1,5 @@
-const projects = [
-  {
-    title: 'Awash Valley Irrigation Scheme',
-    location: 'Afar Region',
-    area: '1,200 ha',
-    type: 'Drip System',
-    img: 'https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?w=700&q=80',
-    tag: 'Completed',
-  },
-  {
-    title: 'Rift Valley Vegetable Farms',
-    location: 'Oromia Region',
-    area: '850 ha',
-    type: 'Sprinkler + Drip',
-    img: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=700&q=80',
-    tag: 'Ongoing',
-  },
-  {
-    title: 'Tigray Highland Terrace Project',
-    location: 'Tigray Region',
-    area: '420 ha',
-    type: 'Design & Installation',
-    img: 'https://images.unsplash.com/photo-1530083548-bc29856e2d57?w=700&q=80',
-    tag: 'Completed',
-  },
-  {
-    title: 'Amhara Smallholder Program',
-    location: 'Amhara Region',
-    area: '3,000 ha',
-    type: 'Water Supply Systems',
-    img: 'https://images.unsplash.com/photo-1473973266408-ed4e27abdd47?w=700&q=80',
-    tag: 'Ongoing',
-  },
-]
+import { Link } from 'react-router-dom';
+import { projectsData } from '../data/projects';
 
 export default function Projects() {
   return (
@@ -49,8 +17,8 @@ export default function Projects() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-10">
-          {projects.map(({ title, location, area, type, img, tag }) => (
-            <div key={title} className="card-hover group rounded-[2.5rem] overflow-hidden dark:bg-brand-dark bg-white shadow-xl border dark:border-white/5 border-gray-100 transition-all duration-300">
+          {projectsData.map(({ slug, title, location, area, type, img, tag }) => (
+            <div key={slug} className="card-hover group rounded-[2.5rem] overflow-hidden dark:bg-brand-dark bg-white shadow-xl border dark:border-white/5 border-gray-100 transition-all duration-300">
               <div className="relative overflow-hidden h-72">
                 <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-linear-to-t from-brand-black/90 via-brand-black/20 to-transparent" />
@@ -74,9 +42,9 @@ export default function Projects() {
                   <div className="text-white/30 text-[10px] uppercase tracking-widest mb-2 font-bold">System</div>
                   <div className="font-bold text-gray-800 dark:text-white/80 transition-colors">{type}</div>
                 </div>
-                <button className="text-brand-cyan font-black text-xs uppercase tracking-widest hover:underline justify-self-end">
+                <Link to={`/project/${slug}`} className="text-brand-cyan font-black text-xs uppercase tracking-widest hover:underline justify-self-end">
                   Details →
-                </button>
+                </Link>
               </div>
             </div>
           ))}

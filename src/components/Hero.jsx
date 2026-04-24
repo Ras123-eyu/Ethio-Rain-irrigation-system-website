@@ -17,6 +17,22 @@ export default function Hero() {
       <div className="absolute top-20 right-20 w-64 h-64 rounded-full bg-brand-blue/10 animate-float blur-3xl" />
       <div className="absolute bottom-20 left-10 w-40 h-40 rounded-full bg-brand-cyan/10 animate-float blur-2xl" style={{animationDelay:'2s'}} />
 
+      {/* Rain Effect */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        {[...Array(40)].map((_, i) => (
+          <div
+            key={i}
+            className="rain-drop"
+            style={{
+              left: `${Math.random() * 100}%`,
+              animationDuration: `${0.6 + Math.random() * 0.6}s`,
+              animationDelay: `${Math.random() * 2}s`,
+              opacity: 0.3 + Math.random() * 0.7
+            }}
+          />
+        ))}
+      </div>
+
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16">
         <div className="animate-fade-in-up">

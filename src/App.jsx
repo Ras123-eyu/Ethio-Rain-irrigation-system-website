@@ -4,6 +4,7 @@ import './index.css'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import ServiceDetail from './pages/ServiceDetail'
+import ProjectDetail from './pages/ProjectDetail'
 import Products from './pages/Products'
 import Footer from './components/Footer'
 import CookieConsent from './components/CookieConsent'
@@ -33,6 +34,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/service/:slug" element={<ServiceDetail />} />
+            <Route path="/project/:slug" element={<ProjectDetail />} />
             <Route path="/products" element={<Products />} />
           </Routes>
         </main>
