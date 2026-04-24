@@ -47,7 +47,7 @@ export default function Stats() {
           <div className="section-divider mx-auto mt-6" />
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map(({ icon: Icon, value, suffix, label }) => (
             <div key={label} className="card-hover text-center p-10 rounded-3xl dark:bg-brand-dark bg-gray-50 border dark:border-white/5 border-gray-100 transition-colors">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6 bg-brand-blue/10 border border-brand-blue/20">
