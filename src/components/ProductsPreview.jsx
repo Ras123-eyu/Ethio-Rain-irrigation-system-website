@@ -62,11 +62,7 @@ export default function ProductsPreview() {
                     {product.inStock ? 'In Stock' : 'Order'}
                   </div>
 
-                  <div className="absolute bottom-3 right-3">
-                    <span className="bg-black/60 backdrop-blur-md text-white text-xs font-black px-2.5 py-1 rounded-lg border border-white/10">
-                      {product.price}
-                    </span>
-                  </div>
+
                 </div>
 
                 {/* Info */}

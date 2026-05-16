@@ -27,7 +27,7 @@ export default function About() {
                 className="rounded-3xl object-cover h-40 w-full shadow-lg dark:shadow-green-900/10"
               />
               <img
-                src="https://images.unsplash.com/photo-1566375638485-8db74d8bbee5?w=500&q=80"
+                src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=700&q=80"
                 alt="Lush crops"
                 className="rounded-3xl object-cover h-[116px] w-full shadow-lg dark:shadow-green-900/10"
               />

@@ -14,6 +14,7 @@ const navLinks = [
 export default function Navbar({ darkMode, setDarkMode }) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
   const { pathname } = useLocation()
 
   useEffect(() => {
@@ -21,6 +22,32 @@ export default function Navbar({ darkMode, setDarkMode }) {
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    if (pathname !== '/') {
+      setActiveSection(pathname)
+      return
+    }
+
+    const handleScrollSpy = () => {
+      const sections = ['home', 'about', 'services', 'projects', 'contact']
+      let current = '/#home'
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          if (rect.top <= 150) {
+            current = `/#${section}`
+          }
+        }
+      }
+      setActiveSection(current)
+    }
+
+    window.addEventListener('scroll', handleScrollSpy)
+    handleScrollSpy()
+    return () => window.removeEventListener('scroll', handleScrollSpy)
+  }, [pathname])
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -50,15 +77,23 @@ export default function Navbar({ darkMode, setDarkMode }) {
             <li key={link.label}>
               {link.href.startsWith('/') && !link.href.startsWith('/#') ? (
                 <Link to={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-brand-cyan/80 dark:hover:text-brand-cyan/80 ${
-                    scrolled || pathname !== '/' ? 'text-gray-700 dark:text-gray-200' : 'text-white/90'
+                  className={`text-sm transition-colors ${
+                    activeSection === link.href
+                      ? 'text-brand-cyan dark:text-brand-cyan font-bold'
+                      : `font-medium hover:text-brand-cyan/80 dark:hover:text-brand-cyan/80 ${
+                          scrolled || pathname !== '/' ? 'text-gray-700 dark:text-gray-200' : 'text-white/90'
+                        }`
                   }`}>
                   {link.label}
                 </Link>
               ) : (
                 <a href={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-brand-cyan/80 dark:hover:text-brand-cyan/80 ${
-                    scrolled || pathname !== '/' ? 'text-gray-700 dark:text-gray-200' : 'text-white/90'
+                  className={`text-sm transition-colors ${
+                    activeSection === link.href
+                      ? 'text-brand-cyan dark:text-brand-cyan font-bold'
+                      : `font-medium hover:text-brand-cyan/80 dark:hover:text-brand-cyan/80 ${
+                          scrolled || pathname !== '/' ? 'text-gray-700 dark:text-gray-200' : 'text-white/90'
+                        }`
                   }`}>
                   {link.label}
                 </a>
@@ -104,13 +139,21 @@ export default function Navbar({ darkMode, setDarkMode }) {
           {navLinks.map(link =>
             link.href.startsWith('/') && !link.href.startsWith('/#') ? (
               <Link key={link.label} to={link.href}
-                className="text-gray-700 dark:text-gray-200 font-medium text-sm hover:text-green-600 dark:hover:text-green-400"
+                className={`text-sm ${
+                  activeSection === link.href
+                    ? 'text-brand-cyan dark:text-brand-cyan font-bold'
+                    : 'text-gray-700 dark:text-gray-200 font-medium hover:text-brand-cyan dark:hover:text-brand-cyan'
+                }`}
                 onClick={() => setMenuOpen(false)}>
                 {link.label}
               </Link>
             ) : (
               <a key={link.label} href={link.href}
-                className="text-gray-700 dark:text-gray-200 font-medium text-sm hover:text-green-600 dark:hover:text-green-400"
+                className={`text-sm ${
+                  activeSection === link.href
+                    ? 'text-brand-cyan dark:text-brand-cyan font-bold'
+                    : 'text-gray-700 dark:text-gray-200 font-medium hover:text-brand-cyan dark:hover:text-brand-cyan'
+                }`}
                 onClick={() => setMenuOpen(false)}>
                 {link.label}
               </a>

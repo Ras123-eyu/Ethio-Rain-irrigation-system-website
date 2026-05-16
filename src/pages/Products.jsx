@@ -158,12 +158,7 @@ export default function Products() {
                       {product.inStock ? 'In Stock' : 'Order'}
                     </div>
 
-                    {/* Price tag */}
-                    <div className="absolute bottom-4 right-4">
-                      <span className="bg-black/60 backdrop-blur-md text-white text-sm font-black px-3 py-1.5 rounded-xl border border-white/10">
-                        {product.price}
-                      </span>
-                    </div>
+
                   </div>
 
                   {/* Info */}
@@ -187,12 +182,7 @@ export default function Products() {
                       <span className="text-brand-cyan text-xs font-bold uppercase tracking-widest flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
                         View Details <ArrowRight className="w-3 h-3" />
                       </span>
-                      <button
-                        className="bg-brand-blue/10 p-2 rounded-xl border border-brand-blue/20 hover:bg-brand-blue hover:border-brand-blue transition-all group/cart"
-                        onClick={e => { e.stopPropagation(); /* future cart logic */ }}
-                      >
-                        <ShoppingCart className="w-4 h-4 text-brand-cyan group-hover/cart:text-white transition-colors" />
-                      </button>
+
                     </div>
                   </div>
                 </div>
@@ -277,11 +267,7 @@ export default function Products() {
                   </div>
                 </div>
               </div>
-              <div className="absolute bottom-6 right-6">
-                <span className="bg-black/60 backdrop-blur-md text-white text-xl font-black px-4 py-2 rounded-xl border border-white/10">
-                  {selectedProduct.price}
-                </span>
-              </div>
+
             </div>
 
             {/* Modal Content */}
