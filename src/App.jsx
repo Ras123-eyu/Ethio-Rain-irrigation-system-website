@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import ServiceDetail from './pages/ServiceDetail'
 import ProjectDetail from './pages/ProjectDetail'
+import ProjectsPage from './pages/ProjectsPage'
 import Products from './pages/Products'
 import Footer from './components/Footer'
 import CookieConsent from './components/CookieConsent'
@@ -35,6 +36,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/service/:slug" element={<ServiceDetail />} />
             <Route path="/project/:slug" element={<ProjectDetail />} />
+            <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/products" element={<Products />} />
           </Routes>
         </main>
