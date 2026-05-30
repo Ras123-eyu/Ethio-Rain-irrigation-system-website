@@ -35,25 +35,24 @@ export default function ProjectsPage() {
       {/* Projects Grid */}
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-10">
-          {projectsData.map(({ slug, title, location, area, type, img, tag }) => (
+          {projectsData.map(({ slug, title, location, type, img, tag }) => (
             <div key={slug} className="card-hover group rounded-[2.5rem] overflow-hidden dark:bg-brand-dark bg-white shadow-xl border dark:border-white/5 border-gray-100 transition-all duration-300">
               <div className="relative overflow-hidden h-72">
                 <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-linear-to-t from-brand-black/90 via-brand-black/20 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
-                  <span className={`text-[10px] uppercase tracking-widest font-black px-4 py-1.5 rounded-full mb-3 inline-block shadow-2xl backdrop-blur-md ${
-                    tag === 'Completed' ? 'bg-brand-blue text-white' : 'bg-brand-cyan text-brand-black'
-                  }`}>{tag}</span>
+                  <span className={`text-[10px] uppercase tracking-widest font-black px-4 py-1.5 rounded-full mb-3 inline-block shadow-2xl backdrop-blur-md ${tag === 'Completed' ? 'bg-brand-blue text-white' : 'bg-brand-cyan text-brand-black'
+                    }`}>{tag}</span>
                   <h3 className="text-white font-extrabold text-2xl leading-tight drop-shadow-2xl">{title}</h3>
                 </div>
               </div>
-              <div className="p-8 grid grid-cols-2 lg:grid-cols-4 gap-6 text-sm items-end">
+              <div className="p-8 grid grid-cols-2 lg:grid-cols-2 gap-6 text-sm items-end">
                 <div>
-                  <div className="text-white/30 text-[10px] uppercase tracking-widest mb-2 font-bold">Location</div>
+                  <div className="text-gray-400 text-[10px] uppercase tracking-widest mb-2 font-bold">Location</div>
                   <div className="font-bold text-gray-800 dark:text-white/80 transition-colors">{location}</div>
                 </div>
                 <div>
-                  <div className="text-white/30 text-[10px] uppercase tracking-widest mb-2 font-bold">System</div>
+                  <div className="text-gray-400 text-[10px] uppercase tracking-widest mb-2 font-bold">System</div>
                   <div className="font-bold text-gray-800 dark:text-white/80 transition-colors">{type}</div>
                 </div>
                 <div className="col-span-2 flex justify-end">
