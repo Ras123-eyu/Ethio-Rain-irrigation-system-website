@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import ScrollReveal from './ScrollReveal'
 
 const partners = [
   { name: 'Valley Irrigation', logo: 'https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.valleyirrigation.com&size=128' },
@@ -37,7 +38,7 @@ export default function Partners() {
     <section className="py-20 transition-colors duration-300 dark:bg-gray-900 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-14 animate-fade-in">
+        <ScrollReveal animation="fade-up" className="text-center mb-14">
           <p className="text-brand-cyan font-bold text-[10px] uppercase tracking-widest mb-4">Trusted Partners</p>
           <h2 className="text-3xl md:text-4xl font-extrabold dark:text-white text-gray-900 mb-4 transition-colors">
             Our <span className="gradient-text">Global Partners</span>
@@ -46,11 +47,11 @@ export default function Partners() {
           <p className="text-gray-500 dark:text-white/50 mt-6 max-w-lg mx-auto transition-colors text-base">
             We partner with world-leading irrigation and agricultural technology brands to deliver the best solutions.
           </p>
-        </div>
+        </ScrollReveal>
       </div>
 
       {/* Scrolling Marquee */}
-      <div className="relative">
+      <ScrollReveal animation="fade-up" delay={200} className="relative">
         {/* Fade edges */}
         <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-linear-to-r dark:from-gray-900 from-white to-transparent pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-linear-to-l dark:from-gray-900 from-white to-transparent pointer-events-none" />
@@ -81,7 +82,7 @@ export default function Partners() {
             ))}
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   )
 }

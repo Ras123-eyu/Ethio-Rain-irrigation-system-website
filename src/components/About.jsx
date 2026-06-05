@@ -1,4 +1,5 @@
 import { CheckCircle, ArrowRight } from 'lucide-react'
+import ScrollReveal from './ScrollReveal'
 
 const points = [
   'Over 15 years of field experience in Ethiopia',
@@ -13,7 +14,7 @@ export default function About() {
     <section id="about" className="py-24 transition-colors duration-300 dark:bg-gray-900 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
         {/* Images collage */}
-        <div className="relative animate-fade-in">
+        <ScrollReveal animation="fade-right" className="relative">
           <div className="grid grid-cols-2 gap-4">
             <img
               src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=700&q=80"
@@ -43,10 +44,10 @@ export default function About() {
           {/* Green circle decoration */}
           <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-green-100 dark:bg-green-900/20 -z-10" />
           <div className="absolute top-1/2 -right-4 w-12 h-12 rounded-full bg-yellow-300/40 dark:bg-yellow-600/20 -z-10" />
-        </div>
+        </ScrollReveal>
 
         {/* Content */}
-        <div className="animate-fade-in-up">
+        <ScrollReveal animation="fade-left" className="w-full">
           <p className="text-brand-cyan font-bold text-[10px] uppercase tracking-widest mb-4">Who We Are</p>
           <h2 className="text-4xl md:text-5xl font-extrabold dark:text-white text-gray-900 mb-8 leading-tight transition-colors">
             Precision Engineering<br />
@@ -83,7 +84,7 @@ export default function About() {
             Partner With Us
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   )

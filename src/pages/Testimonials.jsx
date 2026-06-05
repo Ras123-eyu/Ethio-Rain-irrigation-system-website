@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { testimonials, stats } from '../data/testimonials'
 import { Star, Quote, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
+import ScrollReveal from '../components/ScrollReveal'
 
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -22,7 +23,7 @@ export default function Testimonials() {
         <div className="absolute bottom-0 right-10 w-48 h-48 rounded-full bg-brand-cyan/5 animate-float blur-2xl" style={{ animationDelay: '2s' }} />
 
         <div className="max-w-7xl mx-auto px-6 py-20 relative z-10">
-          <div className="animate-fade-in-up">
+          <ScrollReveal animation="fade-up">
             <div className="inline-flex items-center gap-2 bg-brand-blue/10 border border-brand-blue/20 rounded-full px-4 py-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-brand-cyan animate-pulse" />
               <span className="dark:text-white/70 text-gray-600 text-xs font-bold uppercase tracking-widest">Client Stories</span>
@@ -34,23 +35,25 @@ export default function Testimonials() {
             <p className="dark:text-white/50 text-gray-500 text-lg leading-relaxed max-w-2xl transition-colors">
               Hear from the farmers, agribusinesses, and organizations who trust Ethio-Rain to power their irrigation infrastructure.
             </p>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Stats Bar */}
       <div className="max-w-7xl mx-auto px-6 mb-20">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center p-8 rounded-3xl dark:bg-gray-900 bg-gray-50 border dark:border-white/5 border-gray-100 shadow-sm">
+          {stats.map((stat, i) => (
+            <ScrollReveal key={stat.label} staggerIndex={i} animation="fade-up"
+              className="text-center p-8 rounded-3xl dark:bg-gray-900 bg-gray-50 border dark:border-white/5 border-gray-100 shadow-sm">
               <div className="text-3xl md:text-4xl font-black gradient-text mb-2">{stat.value}</div>
               <div className="text-sm dark:text-white/40 text-gray-500 font-bold uppercase tracking-widest">{stat.label}</div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
 
       {/* Featured Testimonial Carousel */}
+      <ScrollReveal animation="fade-up">
       <section className="max-w-7xl mx-auto px-6 mb-24">
         <div className="relative rounded-[2.5rem] overflow-hidden">
           <div className="absolute inset-0 bg-linear-to-br from-brand-blue/90 to-teal-600/90" />
@@ -115,22 +118,24 @@ export default function Testimonials() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* All Testimonials Grid */}
       <section className="max-w-7xl mx-auto px-6 mb-24">
-        <div className="text-center mb-14">
+        <ScrollReveal animation="fade-up" className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-black dark:text-white text-gray-900 mb-4 transition-colors">
             More <span className="gradient-text">Success Stories</span>
           </h2>
           <div className="section-divider mx-auto" />
-        </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((t, i) => (
-            <div
+            <ScrollReveal
               key={t.id}
-              className="card-hover group p-8 rounded-3xl dark:bg-gray-900 bg-white border dark:border-white/5 border-gray-100 shadow-sm transition-all animate-fade-in-up"
-              style={{ animationDelay: `${i * 0.07}s` }}
+              staggerIndex={i}
+              animation="fade-up"
+              className="card-hover group p-8 rounded-3xl dark:bg-gray-900 bg-white border dark:border-white/5 border-gray-100 shadow-sm transition-all"
             >
               {/* Stars */}
               <div className="flex gap-1 mb-5">
@@ -171,6 +176,7 @@ export default function Testimonials() {
       </section>
 
       {/* CTA */}
+      <ScrollReveal animation="fade-up">
       <section className="max-w-7xl mx-auto px-6">
         <div className="relative rounded-[2.5rem] overflow-hidden">
           <div className="absolute inset-0 bg-linear-to-r from-brand-blue to-teal-500 opacity-90" />

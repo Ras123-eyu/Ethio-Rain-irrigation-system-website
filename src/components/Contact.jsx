@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail } from 'lucide-react'
+import ScrollReveal from './ScrollReveal'
 
 export default function Contact() {
 
@@ -16,7 +17,7 @@ export default function Contact() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
         {/* Info */}
-        <div className="animate-fade-in-up">
+        <ScrollReveal animation="fade-right" className="w-full">
           <p className="text-brand-cyan font-bold text-[10px] uppercase tracking-widest mb-4 transition-colors">Get In Touch</p>
           <h2 className="text-4xl font-extrabold text-white mb-6 transition-colors tracking-tight">
             Our <span className="gradient-text">Location</span>
@@ -44,10 +45,10 @@ export default function Contact() {
               </div>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Map Container */}
-        <div className="h-[500px] rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl transition-all duration-500 animate-fade-in group/map relative">
+        <ScrollReveal animation="fade-left" delay={200} className="h-[500px] rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl transition-all duration-500 group/map relative w-full">
           <div className="absolute inset-0 bg-brand-blue/5 pointer-events-none group-hover/map:opacity-0 transition-opacity" />
           <iframe 
          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d495.1485019125002!2d38.767233235229625!3d9.003057398062387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b857367dd87b5%3A0x8edd7a5d87f3f4ca!2sEthio%20Rain%20Irrigation%20Systems%20PLC!5e1!3m2!1sen!2set!4v1776456424804!5m2!1sen!2set" 
@@ -59,7 +60,7 @@ export default function Contact() {
             referrerPolicy="no-referrer-when-downgrade"
             className="grayscale group-hover/map:grayscale-0 transition-all duration-1000 invert-[0.9] hue-rotate-180 brightness-75 group-hover/map:invert-0 group-hover/map:brightness-100"
           ></iframe>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   )

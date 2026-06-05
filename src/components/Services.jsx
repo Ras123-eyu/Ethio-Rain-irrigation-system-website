@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 import { services } from '../data/services'
+import ScrollReveal from './ScrollReveal'
 
 export default function Services() {
   return (
     <section id="services" className="py-24 transition-colors duration-300 dark:bg-linear-to-b dark:from-gray-950 dark:to-gray-900 bg-linear-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16 animate-fade-in">
+        <ScrollReveal animation="fade-up" className="text-center mb-16">
           <p className="text-brand-cyan font-bold text-[10px] uppercase tracking-widest mb-4">What We Offer</p>
           <h2 className="text-4xl md:text-5xl font-extrabold dark:text-white text-gray-900 mb-6 transition-colors">
             Comprehensive Irrigation<br />
@@ -15,11 +16,16 @@ export default function Services() {
           <p className="text-gray-500 dark:text-white/60 mt-8 max-w-xl mx-auto transition-colors text-lg">
             From small farms to large-scale agribusiness — we design, install, and maintain systems that work.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map(({ icon: ServiceIcon, title, shortDesc, img, tag, slug }) => (
-            <div key={title} className="card-hover group rounded-3xl overflow-hidden dark:bg-gray-800 bg-white border dark:border-gray-700 border-gray-100 shadow-sm transition-all duration-300">
+          {services.map(({ icon: ServiceIcon, title, shortDesc, img, tag, slug }, i) => (
+            <ScrollReveal
+              key={title}
+              staggerIndex={i}
+              animation="fade-up"
+              className="card-hover group rounded-3xl overflow-hidden dark:bg-gray-800 bg-white border dark:border-gray-700 border-gray-100 shadow-sm transition-all duration-300"
+            >
               <div className="relative overflow-hidden h-48">
                 <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-linear-to-t from-black/80 to-transparent" />
@@ -40,7 +46,7 @@ export default function Services() {
                   <span className="text-lg">→</span>
                 </Link>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { testimonials } from '../data/testimonials'
+import ScrollReveal from './ScrollReveal'
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react'
 
 export default function TestimonialsPreview() {
@@ -21,17 +22,17 @@ export default function TestimonialsPreview() {
     <section id="testimonials" className="py-24 transition-colors duration-300 dark:bg-gray-950 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
+        <ScrollReveal animation="fade-up" className="text-center mb-16">
           <p className="text-brand-cyan font-bold text-[10px] uppercase tracking-widest mb-4">Testimonials</p>
           <h2 className="text-4xl md:text-5xl font-extrabold dark:text-white text-gray-900 mb-6 transition-colors">
             What Our Clients{' '}
             <span className="gradient-text">Say</span>
           </h2>
           <div className="section-divider mx-auto mt-4" />
-        </div>
+        </ScrollReveal>
 
         {/* Slide Card */}
-        <div className="relative max-w-4xl mx-auto">
+        <ScrollReveal animation="fade-up" delay={200} className="relative max-w-4xl mx-auto">
           <div className="rounded-[2.5rem] overflow-hidden relative">
             {/* Gradient background */}
             <div className="absolute inset-0 bg-linear-to-br from-brand-blue/90 to-teal-600/90" />
@@ -120,7 +121,7 @@ export default function TestimonialsPreview() {
               </button>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   )

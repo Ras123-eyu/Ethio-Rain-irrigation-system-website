@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import { projectsData } from '../data/projects';
+import ScrollReveal from './ScrollReveal';
 
 export default function Projects() {
   return (
     <section id="projects" className="py-24 transition-colors duration-300 dark:bg-linear-to-b dark:from-gray-950 dark:to-gray-900 bg-linear-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16 animate-fade-in">
+        <ScrollReveal animation="fade-up" className="text-center mb-16">
           <p className="text-brand-cyan font-bold text-[10px] uppercase tracking-widest mb-4 transition-colors">Our Work</p>
           <h2 className="text-4xl md:text-5xl font-extrabold dark:text-white text-gray-900 mb-6 transition-colors">
             Featured <span className="gradient-text">Projects</span>
@@ -14,11 +15,16 @@ export default function Projects() {
           <p className="text-gray-500 dark:text-white/60 mt-8 max-w-lg mx-auto transition-colors text-lg">
             Real results across Ethiopia's diverse agricultural regions.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-2 gap-10">
-          {projectsData.slice(0, 4).map(({ slug, title, location, area, type, img, tag }) => (
-            <div key={slug} className="card-hover group rounded-[2.5rem] overflow-hidden dark:bg-brand-dark bg-white shadow-xl border dark:border-white/5 border-gray-100 transition-all duration-300">
+          {projectsData.slice(0, 4).map(({ slug, title, location, type, img, tag }, i) => (
+            <ScrollReveal
+              key={slug}
+              staggerIndex={i}
+              animation="fade-up"
+              className="card-hover group rounded-[2.5rem] overflow-hidden dark:bg-brand-dark bg-white shadow-xl border dark:border-white/5 border-gray-100 transition-all duration-300"
+            >
               <div className="relative overflow-hidden h-72">
                 <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-linear-to-t from-brand-black/90 via-brand-black/20 to-transparent" />
@@ -43,16 +49,16 @@ export default function Projects() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 
-        <div className="mt-16 text-center animate-fade-in-up">
+        <ScrollReveal animation="fade-up" className="mt-16 text-center">
           <Link to="/projects" className="btn-primary text-white text-sm font-bold px-8 py-4 rounded-full inline-flex items-center gap-2 hover:scale-105 transition-all shadow-xl">
             View All Projects
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
           </Link>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   )

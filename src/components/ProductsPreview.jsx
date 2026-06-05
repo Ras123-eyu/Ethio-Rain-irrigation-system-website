@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { products, categories } from '../data/products'
+import ScrollReveal from './ScrollReveal'
 import { ArrowRight, CheckCircle, XCircle, ShoppingCart } from 'lucide-react'
 
 const featured = products.filter(p => p.badge).slice(0, 4)
@@ -9,7 +10,7 @@ export default function ProductsPreview() {
     <section id="products" className="py-24 transition-colors duration-300 dark:bg-gray-950 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
+        <ScrollReveal animation="fade-up" className="text-center mb-16">
           <p className="text-brand-cyan font-bold text-[10px] uppercase tracking-widest mb-4">Our Products</p>
           <h2 className="text-4xl md:text-5xl font-extrabold dark:text-white text-gray-900 mb-6 transition-colors">
             Professional-Grade <br />
@@ -19,18 +20,20 @@ export default function ProductsPreview() {
           <p className="text-gray-500 dark:text-white/60 mt-8 max-w-xl mx-auto transition-colors text-lg">
             Browse our curated selection of top-rated products for every irrigation need.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Featured Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
           {featured.map((product, i) => {
             const Icon = product.icon
             return (
-              <Link
+              <ScrollReveal
+                as={Link}
                 to="/products"
                 key={product.id}
-                className="card-hover group rounded-3xl overflow-hidden dark:bg-gray-900 bg-white border dark:border-white/5 border-gray-100 shadow-sm transition-all duration-300 animate-fade-in-up block"
-                style={{ animationDelay: `${i * 0.1}s` }}
+                staggerIndex={i}
+                animation="fade-up"
+                className="card-hover group rounded-3xl overflow-hidden dark:bg-gray-900 bg-white border dark:border-white/5 border-gray-100 shadow-sm transition-all duration-300 block"
               >
                 {/* Image */}
                 <div className="relative overflow-hidden h-48">
@@ -82,13 +85,13 @@ export default function ProductsPreview() {
                     {product.shortDesc}
                   </p>
                 </div>
-              </Link>
+              </ScrollReveal>
             )
           })}
         </div>
 
         {/* View All CTA */}
-        <div className="text-center">
+        <ScrollReveal animation="fade-up" className="text-center">
           <Link
             to="/products"
             className="btn-primary inline-flex items-center gap-2 text-white font-bold px-8 py-4 rounded-full group text-sm uppercase tracking-widest"
@@ -96,7 +99,7 @@ export default function ProductsPreview() {
             View All Products
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   )

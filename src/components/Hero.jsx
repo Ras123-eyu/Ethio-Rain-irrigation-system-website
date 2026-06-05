@@ -1,4 +1,5 @@
 import { ArrowRight, Play } from 'lucide-react'
+import ScrollReveal from './ScrollReveal'
 
 export default function Hero() {
   return (
@@ -35,7 +36,7 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16">
-        <div className="animate-fade-in-up">
+        <ScrollReveal animation="fade-up" duration={900}>
           <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 mb-6">
             <span className="w-2 h-2 rounded-full bg-brand-cyan animate-pulse" />
             <span className="text-white/80 text-xs font-semibold uppercase tracking-widest">Ethio-Rain Irrigation Systems</span>
@@ -76,8 +77,7 @@ export default function Hero() {
               </div>
             ))}
           </div>
-        </div>
-
+        </ScrollReveal>
       
       </div>
 
