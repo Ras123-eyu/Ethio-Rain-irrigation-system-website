@@ -169,7 +169,7 @@ export default function Testimonials() {
                   <div className="dark:text-white/40 text-gray-500 text-xs font-medium">{t.role}, {t.company}</div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </section>
@@ -198,6 +198,7 @@ export default function Testimonials() {
             </div>
           </div>
         </section>
+      </ScrollReveal>
     </div>
   )
 }
