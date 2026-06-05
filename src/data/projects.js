@@ -4,7 +4,7 @@ export const projectsData = [
     title: 'SNNPR Water, Energy & Mine Development Bureau',
     location: 'Bureau , Oromia Region',
 
-    type: 'Drip System'67,
+    type: 'Drip System',
     img: 'https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?w=700&q=80',
     tag: 'Completed',
     client: 'Awash Agricultural Enterprise',

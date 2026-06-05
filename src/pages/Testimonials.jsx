@@ -54,70 +54,69 @@ export default function Testimonials() {
 
       {/* Featured Testimonial Carousel */}
       <ScrollReveal animation="fade-up">
-      <section className="max-w-7xl mx-auto px-6 mb-24">
-        <div className="relative rounded-[2.5rem] overflow-hidden">
-          <div className="absolute inset-0 bg-linear-to-br from-brand-blue/90 to-teal-600/90" />
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
+        <section className="max-w-7xl mx-auto px-6 mb-24">
+          <div className="relative rounded-[2.5rem] overflow-hidden">
+            <div className="absolute inset-0 bg-linear-to-br from-brand-blue/90 to-teal-600/90" />
+            <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
 
-          <div className="relative z-10 p-10 md:p-16">
-            <Quote className="w-12 h-12 text-white/20 mb-8" />
+            <div className="relative z-10 p-10 md:p-16">
+              <Quote className="w-12 h-12 text-white/20 mb-8" />
 
-            <div className="min-h-[200px] transition-all duration-500">
-              <p className="text-white text-xl md:text-2xl lg:text-3xl font-medium leading-relaxed mb-10 max-w-4xl">
-                "{testimonials[activeIndex].text}"
-              </p>
+              <div className="min-h-[200px] transition-all duration-500">
+                <p className="text-white text-xl md:text-2xl lg:text-3xl font-medium leading-relaxed mb-10 max-w-4xl">
+                  "{testimonials[activeIndex].text}"
+                </p>
 
-              <div className="flex items-center gap-5">
-                <img
-                  src={testimonials[activeIndex].avatar}
-                  alt={testimonials[activeIndex].name}
-                  className="w-16 h-16 rounded-full object-cover border-3 border-white/30 shadow-xl"
-                />
-                <div>
-                  <div className="text-white font-black text-lg">{testimonials[activeIndex].name}</div>
-                  <div className="text-white/60 text-sm font-medium">{testimonials[activeIndex].role}, {testimonials[activeIndex].company}</div>
-                  <div className="text-white/40 text-xs font-bold mt-1">{testimonials[activeIndex].location}</div>
+                <div className="flex items-center gap-5">
+                  <img
+                    src={testimonials[activeIndex].avatar}
+                    alt={testimonials[activeIndex].name}
+                    className="w-16 h-16 rounded-full object-cover border-3 border-white/30 shadow-xl"
+                  />
+                  <div>
+                    <div className="text-white font-black text-lg">{testimonials[activeIndex].name}</div>
+                    <div className="text-white/60 text-sm font-medium">{testimonials[activeIndex].role}, {testimonials[activeIndex].company}</div>
+                    <div className="text-white/40 text-xs font-bold mt-1">{testimonials[activeIndex].location}</div>
+                  </div>
+                  <div className="ml-auto hidden md:flex items-center gap-1">
+                    {Array.from({ length: testimonials[activeIndex].rating }).map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
                 </div>
-                <div className="ml-auto hidden md:flex items-center gap-1">
-                  {Array.from({ length: testimonials[activeIndex].rating }).map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+              </div>
+
+              {/* Controls */}
+              <div className="flex items-center justify-between mt-10 pt-8 border-t border-white/10">
+                <div className="flex gap-2">
+                  {testimonials.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActiveIndex(i)}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${i === activeIndex ? 'w-8 bg-white' : 'w-3 bg-white/30 hover:bg-white/50'
+                        }`}
+                    />
                   ))}
                 </div>
-              </div>
-            </div>
-
-            {/* Controls */}
-            <div className="flex items-center justify-between mt-10 pt-8 border-t border-white/10">
-              <div className="flex gap-2">
-                {testimonials.map((_, i) => (
+                <div className="flex gap-3">
                   <button
-                    key={i}
-                    onClick={() => setActiveIndex(i)}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      i === activeIndex ? 'w-8 bg-white' : 'w-3 bg-white/30 hover:bg-white/50'
-                    }`}
-                  />
-                ))}
-              </div>
-              <div className="flex gap-3">
-                <button
-                  onClick={prevSlide}
-                  className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={nextSlide}
-                  className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
+                    onClick={prevSlide}
+                    className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={nextSlide}
+                    className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
       </ScrollReveal>
 
       {/* All Testimonials Grid */}
@@ -177,28 +176,28 @@ export default function Testimonials() {
 
       {/* CTA */}
       <ScrollReveal animation="fade-up">
-      <section className="max-w-7xl mx-auto px-6">
-        <div className="relative rounded-[2.5rem] overflow-hidden">
-          <div className="absolute inset-0 bg-linear-to-r from-brand-blue to-teal-500 opacity-90" />
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
-          <div className="relative z-10 p-12 md:p-16 text-center">
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight">
-              Ready to Join Our Success Stories?
-            </h2>
-            <p className="text-white/70 text-lg font-medium max-w-lg mx-auto mb-10">
-              Let us design the perfect irrigation solution for your farm or agribusiness.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/#contact" className="bg-white text-brand-blue font-black px-8 py-4 rounded-full hover:scale-105 transition-all shadow-2xl flex items-center gap-2">
-                Start Your Project <ArrowRight className="w-4 h-4" />
-              </Link>
-              <a href="tel:+251911234567" className="border-2 border-white/30 text-white font-black px-8 py-4 rounded-full hover:bg-white/10 transition-all backdrop-blur-sm">
-                Call Us Now
-              </a>
+        <section className="max-w-7xl mx-auto px-6">
+          <div className="relative rounded-[2.5rem] overflow-hidden">
+            <div className="absolute inset-0 bg-linear-to-r from-brand-blue to-teal-500 opacity-90" />
+            <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
+            <div className="relative z-10 p-12 md:p-16 text-center">
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight">
+                Ready to Join Our Success Stories?
+              </h2>
+              <p className="text-white/70 text-lg font-medium max-w-lg mx-auto mb-10">
+                Let us design the perfect irrigation solution for your farm or agribusiness.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link to="/#contact" className="bg-white text-brand-blue font-black px-8 py-4 rounded-full hover:scale-105 transition-all shadow-2xl flex items-center gap-2">
+                  Start Your Project <ArrowRight className="w-4 h-4" />
+                </Link>
+                <a href="tel:+251911234567" className="border-2 border-white/30 text-white font-black px-8 py-4 rounded-full hover:bg-white/10 transition-all backdrop-blur-sm">
+                  Call Us Now
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
     </div>
   )
 }
