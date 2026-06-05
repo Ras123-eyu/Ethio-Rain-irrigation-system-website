@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { products, categories } from '../data/products'
-import { Search, ShoppingCart, ArrowRight, CheckCircle, XCircle, ChevronDown, X, Star } from 'lucide-react'
+import { Search, ArrowRight, CheckCircle, XCircle, ChevronDown, X, Star } from 'lucide-react'
 
 export default function Products() {
   const [activeCategory, setActiveCategory] = useState('all')
@@ -75,8 +75,8 @@ export default function Products() {
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
                 className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${activeCategory === cat.id
-                    ? 'btn-primary text-white border-transparent shadow-lg shadow-brand-blue/20'
-                    : 'dark:bg-gray-900 bg-gray-50 dark:text-white/50 text-gray-500 dark:border-white/10 border-gray-200 hover:border-brand-cyan/30 hover:text-brand-cyan'
+                  ? 'btn-primary text-white border-transparent shadow-lg shadow-brand-blue/20'
+                  : 'dark:bg-gray-900 bg-gray-50 dark:text-white/50 text-gray-500 dark:border-white/10 border-gray-200 hover:border-brand-cyan/30 hover:text-brand-cyan'
                   }`}
               >
                 {cat.label}
@@ -135,25 +135,18 @@ export default function Products() {
                     {/* Badge */}
                     {product.badge && (
                       <span className={`absolute top-4 left-4 text-[10px] font-black uppercase tracking-[0.15em] px-3 py-1.5 rounded-full backdrop-blur-md shadow-lg ${product.badge === 'Best Seller' ? 'bg-amber-500/90 text-white' :
-                          product.badge === 'New' ? 'bg-emerald-500/90 text-white' :
-                            product.badge === 'Premium' ? 'bg-purple-500/90 text-white' :
-                              product.badge === 'Eco' ? 'bg-green-500/90 text-white' :
-                                product.badge === 'Top Rated' ? 'bg-orange-500/90 text-white' :
-                                  product.badge === 'Industrial' ? 'bg-slate-600/90 text-white' :
-                                    'bg-brand-blue/90 text-white'
+                        product.badge === 'New' ? 'bg-emerald-500/90 text-white' :
+                          product.badge === 'Premium' ? 'bg-purple-500/90 text-white' :
+                            product.badge === 'Eco' ? 'bg-green-500/90 text-white' :
+                              product.badge === 'Top Rated' ? 'bg-orange-500/90 text-white' :
+                                product.badge === 'Industrial' ? 'bg-slate-600/90 text-white' :
+                                  'bg-brand-blue/90 text-white'
                         }`}>
                         {product.badge}
                       </span>
                     )}
 
-                    {/* Stock indicator */}
-                    <div className={`absolute top-4 right-4 flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full backdrop-blur-md ${product.inStock
-                        ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-400/30'
-                        : 'bg-red-500/20 text-red-400 border border-red-400/30'
-                      }`}>
-                      {product.inStock ? <CheckCircle className="w-3 h-3" /> : <XCircle className="w-3 h-3" />}
-                      {product.inStock ? 'In Stock' : 'Order'}
-                    </div>
+
 
 
                   </div>
@@ -207,7 +200,7 @@ export default function Products() {
               <Link to="/#contact" className="bg-white text-brand-blue font-black px-8 py-4 rounded-full hover:scale-105 transition-all shadow-2xl flex items-center gap-2">
                 Request Quote <ArrowRight className="w-4 h-4" />
               </Link>
-              <a href="tel:+251911234567" className="border-2 border-white/30 text-white font-black px-8 py-4 rounded-full hover:bg-white/10 transition-all backdrop-blur-sm">
+              <a href="tel:+251910615757" className="border-2 border-white/30 text-white font-black px-8 py-4 rounded-full hover:bg-white/10 transition-all backdrop-blur-sm">
                 Call Us
               </a>
             </div>
@@ -244,24 +237,14 @@ export default function Products() {
               <div className="absolute inset-0 bg-linear-to-t from-gray-900/90 via-transparent to-transparent" />
               {selectedProduct.badge && (
                 <span className={`absolute top-6 left-6 text-[10px] font-black uppercase tracking-[0.15em] px-3 py-1.5 rounded-full backdrop-blur-md ${selectedProduct.badge === 'Best Seller' ? 'bg-amber-500/90 text-white' :
-                    selectedProduct.badge === 'Premium' ? 'bg-purple-500/90 text-white' :
-                      selectedProduct.badge === 'Eco' ? 'bg-green-500/90 text-white' :
-                        'bg-brand-blue/90 text-white'
+                  selectedProduct.badge === 'Premium' ? 'bg-purple-500/90 text-white' :
+                    selectedProduct.badge === 'Eco' ? 'bg-green-500/90 text-white' :
+                      'bg-brand-blue/90 text-white'
                   }`}>
                   {selectedProduct.badge}
                 </span>
               )}
-              <div className="absolute bottom-6 left-6">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className={`flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full ${selectedProduct.inStock
-                      ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-400/30'
-                      : 'bg-red-500/20 text-red-400 border border-red-400/30'
-                    }`}>
-                    {selectedProduct.inStock ? <CheckCircle className="w-3 h-3" /> : <XCircle className="w-3 h-3" />}
-                    {selectedProduct.inStock ? 'In Stock' : 'Made to Order'}
-                  </div>
-                </div>
-              </div>
+
 
             </div>
 
@@ -303,7 +286,7 @@ export default function Products() {
                   Request Quote <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a
-                  href="tel:+251911234567"
+                  href="tel:+251910615757"
                   className="dark:bg-gray-800 bg-gray-100 dark:text-white text-gray-900 font-black px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:scale-105 transition-all border dark:border-white/10 border-gray-200"
                 >
                   Call to Order

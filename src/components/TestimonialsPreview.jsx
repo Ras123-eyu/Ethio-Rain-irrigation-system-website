@@ -53,11 +53,7 @@ export default function TestimonialsPreview() {
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-5">
                   <div className="flex items-center gap-4">
-                    <img
-                      src={t.avatar}
-                      alt={t.name}
-                      className="w-14 h-14 rounded-full object-cover border-2 border-white/30 shadow-xl"
-                    />
+
                     <div>
                       <div className="text-white font-black text-base">{t.name}</div>
                       <div className="text-white/60 text-sm font-medium">{t.role}, {t.company}</div>
@@ -93,11 +89,10 @@ export default function TestimonialsPreview() {
                 <button
                   key={i}
                   onClick={() => setActive(i)}
-                  className={`h-2 rounded-full transition-all duration-500 ${
-                    i === active
-                      ? 'w-8 bg-brand-cyan'
-                      : 'w-2 dark:bg-white/20 bg-gray-300 hover:bg-brand-cyan/50'
-                  }`}
+                  className={`h-2 rounded-full transition-all duration-500 ${i === active
+                    ? 'w-8 bg-brand-cyan'
+                    : 'w-2 dark:bg-white/20 bg-gray-300 hover:bg-brand-cyan/50'
+                    }`}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />
               ))}

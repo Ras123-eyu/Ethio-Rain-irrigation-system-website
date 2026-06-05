@@ -6,7 +6,7 @@ const navLinks = [
   { label: 'Home', href: '/#home' },
   { label: 'About', href: '/#about' },
   { label: 'Services', href: '/#services' },
-  { label: 'Products', href: '/products' },
+  { label: 'Products', href: '/#products' },
   { label: 'Projects', href: '/#projects' },
   { label: 'Contact', href: '/#contact' },
 ]
@@ -50,15 +50,14 @@ export default function Navbar({ darkMode, setDarkMode }) {
   }, [pathname])
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'dark:bg-gray-900/90 bg-white/90 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-5'
-    }`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'dark:bg-gray-900/90 bg-white/90 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-5'
+      }`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
-          <img 
-            src="https://www.image2url.com/r2/default/images/1776446803908-1a0fb0a4-83a0-45e7-a562-6f6d629fc2b8.blob" 
-            alt="Ethio-Rain Logo" 
+          <img
+            src="https://www.image2url.com/r2/default/images/1776446803908-1a0fb0a4-83a0-45e7-a562-6f6d629fc2b8.blob"
+            alt="Ethio-Rain Logo"
             className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
           />
           <div className="sm:block">
@@ -77,24 +76,20 @@ export default function Navbar({ darkMode, setDarkMode }) {
             <li key={link.label}>
               {link.href.startsWith('/') && !link.href.startsWith('/#') ? (
                 <Link to={link.href}
-                  className={`text-sm transition-colors ${
-                    activeSection === link.href
+                  className={`text-sm transition-colors ${activeSection === link.href
                       ? 'text-brand-cyan dark:text-brand-cyan font-bold'
-                      : `font-medium hover:text-brand-cyan/80 dark:hover:text-brand-cyan/80 ${
-                          scrolled || pathname !== '/' ? 'text-gray-700 dark:text-gray-200' : 'text-white/90'
-                        }`
-                  }`}>
+                      : `font-medium hover:text-brand-cyan/80 dark:hover:text-brand-cyan/80 ${scrolled || pathname !== '/' ? 'text-gray-700 dark:text-gray-200' : 'text-white/90'
+                      }`
+                    }`}>
                   {link.label}
                 </Link>
               ) : (
                 <a href={link.href}
-                  className={`text-sm transition-colors ${
-                    activeSection === link.href
+                  className={`text-sm transition-colors ${activeSection === link.href
                       ? 'text-brand-cyan dark:text-brand-cyan font-bold'
-                      : `font-medium hover:text-brand-cyan/80 dark:hover:text-brand-cyan/80 ${
-                          scrolled || pathname !== '/' ? 'text-gray-700 dark:text-gray-200' : 'text-white/90'
-                        }`
-                  }`}>
+                      : `font-medium hover:text-brand-cyan/80 dark:hover:text-brand-cyan/80 ${scrolled || pathname !== '/' ? 'text-gray-700 dark:text-gray-200' : 'text-white/90'
+                      }`
+                    }`}>
                   {link.label}
                 </a>
               )}
@@ -106,9 +101,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
         <div className="hidden md:flex items-center gap-6">
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className={`p-2 rounded-xl transition-all group ${
-              scrolled || pathname !== '/' ? 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' : 'text-white hover:bg-white/10'
-            }`}
+            className={`p-2 rounded-xl transition-all group ${scrolled || pathname !== '/' ? 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' : 'text-white hover:bg-white/10'
+              }`}
             aria-label="Toggle Theme"
           >
             {darkMode ? <Sun className="w-5 h-5 group-hover:rotate-45 transition-transform" /> : <Moon className="w-5 h-5 group-hover:-rotate-12 transition-transform" />}
@@ -139,21 +133,19 @@ export default function Navbar({ darkMode, setDarkMode }) {
           {navLinks.map(link =>
             link.href.startsWith('/') && !link.href.startsWith('/#') ? (
               <Link key={link.label} to={link.href}
-                className={`text-sm ${
-                  activeSection === link.href
+                className={`text-sm ${activeSection === link.href
                     ? 'text-brand-cyan dark:text-brand-cyan font-bold'
                     : 'text-gray-700 dark:text-gray-200 font-medium hover:text-brand-cyan dark:hover:text-brand-cyan'
-                }`}
+                  }`}
                 onClick={() => setMenuOpen(false)}>
                 {link.label}
               </Link>
             ) : (
               <a key={link.label} href={link.href}
-                className={`text-sm ${
-                  activeSection === link.href
+                className={`text-sm ${activeSection === link.href
                     ? 'text-brand-cyan dark:text-brand-cyan font-bold'
                     : 'text-gray-700 dark:text-gray-200 font-medium hover:text-brand-cyan dark:hover:text-brand-cyan'
-                }`}
+                  }`}
                 onClick={() => setMenuOpen(false)}>
                 {link.label}
               </a>

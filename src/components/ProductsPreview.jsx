@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { products, categories } from '../data/products'
 import ScrollReveal from './ScrollReveal'
-import { ArrowRight, CheckCircle, XCircle, ShoppingCart } from 'lucide-react'
+import { ArrowRight, CheckCircle, XCircle } from 'lucide-react'
 
 const featured = products.filter(p => p.badge).slice(0, 4)
 
@@ -45,25 +45,17 @@ export default function ProductsPreview() {
                   <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
 
                   {product.badge && (
-                    <span className={`absolute top-3 left-3 text-[9px] font-black uppercase tracking-[0.15em] px-2.5 py-1 rounded-full backdrop-blur-md shadow-lg ${
-                      product.badge === 'Best Seller' ? 'bg-amber-500/90 text-white' :
+                    <span className={`absolute top-3 left-3 text-[9px] font-black uppercase tracking-[0.15em] px-2.5 py-1 rounded-full backdrop-blur-md shadow-lg ${product.badge === 'Best Seller' ? 'bg-amber-500/90 text-white' :
                       product.badge === 'Premium' ? 'bg-purple-500/90 text-white' :
-                      product.badge === 'Eco' ? 'bg-green-500/90 text-white' :
-                      product.badge === 'Top Rated' ? 'bg-orange-500/90 text-white' :
-                      'bg-brand-blue/90 text-white'
-                    }`}>
+                        product.badge === 'Eco' ? 'bg-green-500/90 text-white' :
+                          product.badge === 'Top Rated' ? 'bg-orange-500/90 text-white' :
+                            'bg-brand-blue/90 text-white'
+                      }`}>
                       {product.badge}
                     </span>
                   )}
 
-                  <div className={`absolute top-3 right-3 flex items-center gap-1 text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full backdrop-blur-md ${
-                    product.inStock
-                      ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-400/30'
-                      : 'bg-red-500/20 text-red-400 border border-red-400/30'
-                  }`}>
-                    {product.inStock ? <CheckCircle className="w-2.5 h-2.5" /> : <XCircle className="w-2.5 h-2.5" />}
-                    {product.inStock ? 'In Stock' : 'Order'}
-                  </div>
+
 
 
                 </div>
