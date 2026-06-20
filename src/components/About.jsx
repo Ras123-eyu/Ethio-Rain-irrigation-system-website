@@ -17,18 +17,20 @@ export default function About() {
         <ScrollReveal animation="fade-right" className="relative">
           <div className="grid grid-cols-2 gap-4">
             <img
-              src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=700&q=80"
+              src="https://www.image2url.com/r2/default/images/1781966388924-952df7de-a398-4ba5-aaf7-711df166f35a.jpg"
               alt="Farm irrigation"
               className="rounded-3xl object-cover h-72 w-full shadow-xl dark:shadow-green-900/20"
             />
             <div className="flex flex-col gap-4 mt-8">
               <img
-                src="https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?w=500&q=80"
+                src="https://www.image2url.com/r2/default/images/1781966195057-e27b6d36-0573-40aa-9944-dcec3d88364d.jpg"
+
                 alt="Water sprinkler"
                 className="rounded-3xl object-cover h-40 w-full shadow-lg dark:shadow-green-900/10"
               />
               <img
-                src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=700&q=80"
+                src="https://www.image2url.com/r2/default/images/1781966319670-2036f450-1776-443e-80b0-82b4f34f815b.jpg"
+
                 alt="Lush crops"
                 className="rounded-3xl object-cover h-[116px] w-full shadow-lg dark:shadow-green-900/10"
               />

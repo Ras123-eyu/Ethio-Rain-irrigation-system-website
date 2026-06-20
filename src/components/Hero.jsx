@@ -16,7 +16,7 @@ export default function Hero() {
 
       {/* Animated Water Drops */}
       <div className="absolute top-20 right-20 w-64 h-64 rounded-full bg-brand-blue/10 animate-float blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-40 h-40 rounded-full bg-brand-cyan/10 animate-float blur-2xl" style={{animationDelay:'2s'}} />
+      <div className="absolute bottom-20 left-10 w-40 h-40 rounded-full bg-brand-cyan/10 animate-float blur-2xl" style={{ animationDelay: '2s' }} />
 
       {/* Rain Effect */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
@@ -48,8 +48,8 @@ export default function Hero() {
           </h1>
 
           <p className="text-white/60 text-lg leading-relaxed mb-10 max-w-2xl">
-            Empowering Ethiopia's agricultural future with precision irrigation technology. 
-            From automated sprayers to intelligent water management, we bring world-class 
+            Empowering Ethiopia's agricultural future with precision irrigation technology.
+            From automated sprayers to intelligent water management, we bring world-class
             solutions to your soil.
           </p>
 
@@ -78,7 +78,7 @@ export default function Hero() {
             ))}
           </div>
         </ScrollReveal>
-      
+
       </div>
 
       {/* Scroll indicator */}
