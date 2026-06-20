@@ -54,9 +54,11 @@ export default function About() {
             <span className="gradient-text">Behind Ethio-Rain</span>
           </h2>
           <p className="text-gray-500 dark:text-white/60 leading-relaxed mb-10 transition-colors text-lg">
-            Ethio-Rain is Ethiopia's premier irrigation solutions provider. Founded with a mission to transform 
-            subsistence farming into high-yield agribusiness, we deliver cutting-edge technology 
-            tailored for African soil and climate.
+            Ethio Rain Irrigation System PLC is an Ethiopian company engaged in surveying,
+            study, design, manufacturing, consulting, supply and installation of comprehensive
+            irrigation & water supply systems, maintenance and after sales services. The
+            company was established in 2003 E.C to set up the most recent and advanced
+            center pivot Technology Company in Ethiopia
           </p>
 
           <ul className="space-y-4 mb-10">
