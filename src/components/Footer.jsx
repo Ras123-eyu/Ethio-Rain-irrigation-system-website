@@ -13,16 +13,16 @@ const TwitterIcon = () => (
 )
 const InstagramIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-    <circle cx="12" cy="12" r="4"/>
-    <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
   </svg>
 )
 const LinkedinIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-    <rect x="2" y="9" width="4" height="12"/>
-    <circle cx="4" cy="4" r="2"/>
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect x="2" y="9" width="4" height="12" />
+    <circle cx="4" cy="4" r="2" />
   </svg>
 )
 
@@ -56,9 +56,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-24 grid sm:grid-cols-2 lg:grid-cols-4 gap-16">
         <div className="animate-fade-in">
           <div className="flex items-center gap-4 mb-8">
-            <img 
-              src="https://www.image2url.com/r2/default/images/1776446803908-1a0fb0a4-83a0-45e7-a562-6f6d629fc2b8.blob" 
-              alt="Ethio-Rain Logo" 
+            <img
+              src="https://www.image2url.com/r2/default/images/1776446803908-1a0fb0a4-83a0-45e7-a562-6f6d629fc2b8.blob"
+              alt="Ethio-Rain Logo"
               className="h-14 w-auto object-contain"
             />
             <div>
@@ -82,13 +82,13 @@ export default function Footer() {
           <h4 className="font-black text-[10px] uppercase tracking-[0.2em] text-brand-cyan mb-8">Our Services</h4>
           <ul className="space-y-4 text-sm font-bold text-white/40">
             {[
-              'Water Supply & Electromechanical', 
-              'Center Pivot & Sprinkler', 
-              'Drip System', 
-              'Green House', 
-              'Hose Reel Systems', 
-              'Design & Installation', 
-              'Farm Equipment Supply', 
+              'Water Supply & Electromechanical',
+              'Center Pivot & Sprinkler',
+              'Drip System',
+              'Green House',
+              'Hose Reel Systems',
+              'Design & Installation',
+              'Farm Equipment Supply',
               'Solar Power Systems'
             ].map(s => (
               <li key={s}><a href="#services" className="hover:text-white transition-all flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-cyan/20 group-hover:bg-brand-cyan" /> {s}</a></li>
@@ -99,7 +99,7 @@ export default function Footer() {
         <div>
           <h4 className="font-black text-[10px] uppercase tracking-[0.2em] text-brand-cyan mb-8">Our Company</h4>
           <ul className="space-y-4 text-sm font-bold text-white/40">
-            {['About Us', 'Our Projects', 'Products', 'Contact'].map(s => (
+            {['About', 'Projects', 'Products', 'Contact'].map(s => (
               <li key={s}><a href={`#${s.toLowerCase().replace(' ', '')}`} className="hover:text-white transition-all flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-white/5 group-hover:bg-white" /> {s}</a></li>
             ))}
           </ul>
@@ -122,13 +122,13 @@ export default function Footer() {
             </li>
           </ul>
 
-         
+
         </div>
       </div>
 
       <div className="border-t border-white/5 py-10 max-w-7xl mx-auto px-6 flex justify-center items-center gap-6 text-[11px]  uppercase tracking-[0.3em] font-black text-white/30">
         <span className="text-center sm:text-left">© {new Date().getFullYear()} Ethio-Rain Irrigation Systems P.L.C.</span>
-      
+
       </div>
     </footer>
   )

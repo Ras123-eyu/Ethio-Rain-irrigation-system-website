@@ -30,7 +30,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
     }
 
     const handleScrollSpy = () => {
-      const sections = ['home', 'about', 'services', 'projects', 'contact']
+      const sections = ['home', 'about', 'services', 'products', 'projects', 'contact']
       let current = '/#home'
       for (const section of sections) {
         const element = document.getElementById(section)
@@ -77,18 +77,18 @@ export default function Navbar({ darkMode, setDarkMode }) {
               {link.href.startsWith('/') && !link.href.startsWith('/#') ? (
                 <Link to={link.href}
                   className={`text-sm transition-colors ${activeSection === link.href
-                      ? 'text-brand-cyan dark:text-brand-cyan font-bold'
-                      : `font-medium hover:text-brand-cyan/80 dark:hover:text-brand-cyan/80 ${scrolled || pathname !== '/' ? 'text-gray-700 dark:text-gray-200' : 'text-white/90'
-                      }`
+                    ? 'text-brand-cyan dark:text-brand-cyan font-bold'
+                    : `font-medium hover:text-brand-cyan/80 dark:hover:text-brand-cyan/80 ${scrolled || pathname !== '/' ? 'text-gray-700 dark:text-gray-200' : 'text-white/90'
+                    }`
                     }`}>
                   {link.label}
                 </Link>
               ) : (
                 <a href={link.href}
                   className={`text-sm transition-colors ${activeSection === link.href
-                      ? 'text-brand-cyan dark:text-brand-cyan font-bold'
-                      : `font-medium hover:text-brand-cyan/80 dark:hover:text-brand-cyan/80 ${scrolled || pathname !== '/' ? 'text-gray-700 dark:text-gray-200' : 'text-white/90'
-                      }`
+                    ? 'text-brand-cyan dark:text-brand-cyan font-bold'
+                    : `font-medium hover:text-brand-cyan/80 dark:hover:text-brand-cyan/80 ${scrolled || pathname !== '/' ? 'text-gray-700 dark:text-gray-200' : 'text-white/90'
+                    }`
                     }`}>
                   {link.label}
                 </a>
@@ -134,8 +134,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
             link.href.startsWith('/') && !link.href.startsWith('/#') ? (
               <Link key={link.label} to={link.href}
                 className={`text-sm ${activeSection === link.href
-                    ? 'text-brand-cyan dark:text-brand-cyan font-bold'
-                    : 'text-gray-700 dark:text-gray-200 font-medium hover:text-brand-cyan dark:hover:text-brand-cyan'
+                  ? 'text-brand-cyan dark:text-brand-cyan font-bold'
+                  : 'text-gray-700 dark:text-gray-200 font-medium hover:text-brand-cyan dark:hover:text-brand-cyan'
                   }`}
                 onClick={() => setMenuOpen(false)}>
                 {link.label}
@@ -143,8 +143,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
             ) : (
               <a key={link.label} href={link.href}
                 className={`text-sm ${activeSection === link.href
-                    ? 'text-brand-cyan dark:text-brand-cyan font-bold'
-                    : 'text-gray-700 dark:text-gray-200 font-medium hover:text-brand-cyan dark:hover:text-brand-cyan'
+                  ? 'text-brand-cyan dark:text-brand-cyan font-bold'
+                  : 'text-gray-700 dark:text-gray-200 font-medium hover:text-brand-cyan dark:hover:text-brand-cyan'
                   }`}
                 onClick={() => setMenuOpen(false)}>
                 {link.label}
