@@ -1,12 +1,12 @@
-import { 
-  Zap, 
-  RotateCw, 
-  Droplets, 
-  Home, 
-  Waves, 
-  Layout, 
-  Truck, 
-  Sun 
+import {
+  Zap,
+  RotateCw,
+  Droplets,
+  Home,
+  Waves,
+  Layout,
+  Truck,
+  Sun
 } from 'lucide-react'
 
 export const services = [
@@ -26,9 +26,9 @@ export const services = [
       'Durable and industrial-grade components'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80',
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
-      'https://images.unsplash.com/photo-1544006659-f0b21f04cb1d?w=800&q=80'
+      'https://images.unsplash.com/photo-1693907986952-3cd372e4c9d8?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://images.unsplash.com/photo-1693463735697-73df1f35930d?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fFdhdGVyJTIwU3VwcGx5JTIwYW5kJTIwRWxlY3Ryb21lY2hhbmljYWwlMjBTeXN0ZW1zfGVufDB8fDB8fHww',
+      'https://images.unsplash.com/photo-1622801185864-874be8248594?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fFdhdGVyJTIwU3VwcGx5JTIwYW5kJTIwRWxlY3Ryb21lY2hhbmljYWwlMjBTeXN0ZW1zfGVufDB8fDB8fHww'
     ]
   },
   {
@@ -47,9 +47,9 @@ export const services = [
       'Scalable for large-scale operations'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?w=800&q=80',
-      'https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=800&q=80',
-      'https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?w=800&q=80'
+      'https://plus.unsplash.com/premium_photo-1661845609789-635c5e35c4ba?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q2VudGVyJTIwUGl2b3QlMjBhbmQlMjBTcHJpbmtsZXIlMjBTeXN0ZW1zfGVufDB8fDB8fHww',
+      'https://plus.unsplash.com/premium_photo-1661875241767-7a587c5b9718?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Q2VudGVyJTIwUGl2b3QlMjBhbmQlMjBTcHJpbmtsZXIlMjBTeXN0ZW1zfGVufDB8fDB8fHww',
+      'https://images.unsplash.com/photo-1593288653045-7ed55242d70a?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fENlbnRlciUyMFBpdm90JTIwYW5kJTIwU3ByaW5rbGVyJTIwU3lzdGVtc3xlbnwwfHwwfHx8MA%3D%3D'
     ]
   },
   {
@@ -68,9 +68,9 @@ export const services = [
       'Lower energy costs'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=800&q=80',
-      'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80',
-      'https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=800&q=80'
+      'https://plus.unsplash.com/premium_photo-1661884090131-77a0a87acd06?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RHJpcCUyMFN5c3RlbXxlbnwwfHwwfHx8MA%3D%3D',
+      'https://images.unsplash.com/photo-1666082187762-e963df0f9f05?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8RHJpcCUyMFN5c3RlbXxlbnwwfHwwfHx8MA%3D%3D',
+      'https://images.unsplash.com/photo-1640677117376-573b9dbb8ea8?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fERyaXAlMjBTeXN0ZW18ZW58MHx8MHx8fDA%3D'
     ]
   },
   {
@@ -89,9 +89,9 @@ export const services = [
       'Higher value crop potential'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80',
-      'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800&q=80',
-      'https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?w=800&q=80'
+      'https://plus.unsplash.com/premium_photo-1679428401832-37cc21a5647d?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8R3JlZW4lMjBIb3VzZSUyMGluJTIwYWdyaWN1bHR1cmV8ZW58MHx8MHx8fDA%3D',
+      'https://images.unsplash.com/photo-1708796705570-33fd29ef67d0?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8R3JlZW4lMjBIb3VzZSUyMGluJTIwYWdyaWN1bHR1cmV8ZW58MHx8MHx8fDA%3D',
+      'https://images.unsplash.com/photo-1580050530399-479dc872b08b?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fEdyZWVuJTIwSG91c2UlMjBpbiUyMGFncmljdWx0dXJlfGVufDB8fDB8fHww'
     ]
   },
   {
@@ -110,9 +110,9 @@ export const services = [
       'Robust and durable construction'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=800&q=80',
-      'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=800&q=80',
-      'https://images.unsplash.com/photo-1506478220038-0c31d1d6a69b?w=800&q=80'
+      'https://images.unsplash.com/photo-1594691592645-3f8351f04e84?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fEhvc2UlMjBSZWVsJTIwSXJyaWdhdGlvbiUyMFN5c3RlbXxlbnwwfHwwfHx8MA%3D%3D',
+      'https://images.unsplash.com/photo-1758965364875-e090e5423d2d?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fEhvc2UlMjBSZWVsJTIwSXJyaWdhdGlvbiUyMFN5c3RlbXxlbnwwfHwwfHx8MA%3D%3D',
+      'https://images.unsplash.com/photo-1775714351784-51e93e4c12a7?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fEhvc2UlMjBSZWVsJTIwSXJyaWdhdGlvbiUyMFN5c3RlbXxlbnwwfHwwfHx8MA%3D%3D'
     ]
   },
   {
@@ -131,9 +131,9 @@ export const services = [
       'Long-term system reliability'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1503387762-592dec58ef4e?w=800&q=80',
-      'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80',
-      'https://images.unsplash.com/photo-1541888941255-22d760773d22?w=800&q=80'
+      'https://www.amwua.org/_next/image?url=https%3A%2F%2Fwebcms.amwua.org%2Fmedia%2Fdesign-irrigation-learn-1.jpg&w=1920&q=75',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4qOrPcQztIlufkQGhw0n4oNeWD13EN2NAF9iZrbCnHFqNtp9KK43oBig&s=10',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZDtwJFSrnrRtfCKNI8SHojEbe4ixtI1RXqKCKmd1w1xvxHufXdyOseTOw&s=10'
     ]
   },
   {
@@ -152,9 +152,9 @@ export const services = [
       'Reliable supply and support'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1542362567-b05e8180f6f6?w=800&q=80',
-      'https://images.unsplash.com/photo-1530263303734-829924d73bb1?w=800&q=80',
-      'https://images.unsplash.com/photo-1560493676-04071c5f467b?w=800&q=80'
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNfHO_obXAvwMDgotuAYtXSzt6tm5v9pOpSyuWME7brOj24_VagkvMSlk&s=10',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1gZgeOYMrLWXdfNbK1MND68DYcGsvPmFrH33aqxSLxOpEi5Dx3wZFXXVQ&s=10',
+      'https://i.pinimg.com/736x/67/74/71/677471c0a0fbb000fb300a52ae0974e7.jpg'
     ]
   },
   {
@@ -175,7 +175,7 @@ export const services = [
     gallery: [
       'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=80',
       'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&q=80',
-      'https://images.unsplash.com/photo-1545209590-09321cf03f9b?w=800&q=80'
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWmfpPpxYQbf8yN12EbLzHYSJQtP3PrYbb1bBedX9sA-TXqO6MfZ1ZPKBH&s=10'
     ]
   },
 ]
