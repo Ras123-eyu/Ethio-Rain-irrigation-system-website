@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import { projectsData } from '../data/projects'
 import { ArrowLeft, CheckCircle, Mail, Phone, ChevronRight, X, Search, MapPin, User, Clock, AlertTriangle, Lightbulb } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import SEO from '../components/SEO'
 
 export default function ProjectDetail() {
   const { slug } = useParams()
@@ -25,6 +26,7 @@ export default function ProjectDetail() {
 
   return (
     <div className="pt-24 pb-24 transition-colors duration-300 dark:bg-gray-950 bg-white relative">
+      <SEO title={title} description={overview} type="article" />
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[450px] flex items-end mb-16 overflow-hidden">
         <img src={img} alt={title} className="absolute inset-0 w-full h-full object-cover" />

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import ScrollReveal from '../components/ScrollReveal'
 import { projectsData } from '../data/projects'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
+import SEO from '../components/SEO'
 
 const PROJECTS_PER_PAGE = 6
 
@@ -46,6 +47,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="pt-24 pb-24 transition-colors duration-300 dark:bg-gray-900 bg-white min-h-screen">
+      <SEO title="Projects" description="Discover our extensive portfolio of successful irrigation and water supply projects across Ethiopia." />
       {/* Hero Banner */}
       <section className="relative overflow-hidden mb-16">
         <div className="absolute inset-0 bg-linear-to-br from-brand-blue/10 via-transparent to-brand-cyan/10" />

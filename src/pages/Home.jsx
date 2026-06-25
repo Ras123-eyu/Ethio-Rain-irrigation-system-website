@@ -1,3 +1,4 @@
+import SEO from '../components/SEO'
 import Hero from '../components/Hero'
 import Stats from '../components/Stats'
 import Partners from '../components/Partners'
@@ -11,6 +12,7 @@ import Contact from '../components/Contact'
 export default function Home() {
   return (
     <>
+      <SEO title="Home" />
       <Hero />
       <Partners />
       <Stats />

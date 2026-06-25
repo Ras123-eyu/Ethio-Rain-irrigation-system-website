@@ -9,6 +9,8 @@ import {
   Pipette,
   Shrub,
   Sprout,
+  Monitor,
+  Settings,
 } from 'lucide-react'
 
 export const categories = [
@@ -16,6 +18,7 @@ export const categories = [
   { id: 'drip', label: 'Drip Systems' },
   { id: 'sprinkler', label: 'Sprinklers' },
   { id: 'pivot', label: 'Center Pivots' },
+  { id: 'control', label: 'Control Panels' },
   { id: 'pumps', label: 'Pumps & Motors' },
   { id: 'filtration', label: 'Filtration' },
   { id: 'solar', label: 'Solar' },
@@ -71,6 +74,19 @@ export const products = [
 
   },
   {
+    id: '8000-center-pivot',
+    name: '8000 Series Center Pivot System',
+    category: 'pivot',
+    icon: RotateCw,
+
+    image: 'https://webassets.valmont.com/valmontstaging/images/librariesprovider87/product-pages/product-page---child-2/test-300kb_8000-series_170501_6534_1400x664.jpg',
+    badge: 'Premium',
+    shortDesc: 'an industry-leading, heavy-duty agricultural irrigation system. Known for its durability and structural integrity, it is built to withstand long spans, deep furrows, and rough, uneven terrain. It is widely used for large-scale, demanding field operations',
+    specs: ['Coverage: up to ~500+ acres', 'Span length: 115 ft to 225 ft', 'GPS & VRI compatible', 'Galvanized steel frame'],
+
+  },
+
+  {
     id: 'center-pivot-span',
     name: 'Valley® Center Pivot System',
     category: 'pivot',
@@ -92,6 +108,102 @@ export const products = [
     badge: null,
     shortDesc: 'High-uniformity linear move system for rectangular fields with advanced corner coverage.',
     specs: ['Field shape: Rectangular', 'Width: up to 800m', 'End-gun corner system', 'Remote monitoring'],
+
+  },
+  {
+    id: '7000-center-pivot',
+    name: '7000 Series Center Pivot System',
+    category: 'pivot',
+    icon: RotateCw,
+
+    image: 'https://webassets.valmont.com/valmontstaging/images/librariesprovider87/product-pages/product-page---child-2/test_300kb_7000-series_7000series_corn_yorkne_june2012_72_1400x664.jpg',
+    badge: 'Cost-Effective',
+    shortDesc: 'A reliable, cost-effective center pivot irrigation system engineered for less-demanding terrain. Second only to the 8000 series in durability and performance, ideal for maximum ROI.',
+    specs: ['Max length: 2,000 ft', 'Span length: 115–205 ft', 'Pipe: 6" or 6⅝"', 'Hot-dip galvanized frame'],
+
+  },
+  {
+    id: 'icon10-smart-panel',
+    name: 'ICON10 Smart Panel',
+    category: 'control',
+    icon: Monitor,
+
+    image: 'https://webassets.valmont.com/valmontstaging/images/librariesprovider129/icon-family/icon-10-panel.jpg',
+    badge: 'Flagship',
+    shortDesc: 'Top-of-the-line smart control panel with a 10-inch full-color touchscreen. Features built-in AgSense connectivity, GPS, and Variable Rate Irrigation for precision management.',
+    specs: ['10" color touchscreen', 'Built-in AgSense/Valley 365', 'VRI Speed & Zone Control', 'GPS ready'],
+
+  },
+  {
+    id: 'icon5-smart-panel',
+    name: 'ICON5 Smart Panel',
+    category: 'control',
+    icon: Monitor,
+
+    image: 'https://webassets.valmont.com/valmontstaging/images/librariesprovider129/icon-family/icon-5-panel.jpg',
+    badge: 'Smart',
+    shortDesc: 'Hybrid smart panel combining a 5-inch full-color touchscreen with soft-touch buttons. Offers intuitive local control plus full remote management via AgSense/Valley 365.',
+    specs: ['5" color touchscreen', 'Soft-touch buttons', 'AgSense/Valley 365 built-in', 'VRI capable'],
+
+  },
+  {
+    id: 'icon1-smart-panel',
+    name: 'ICON1 Smart Panel',
+    category: 'control',
+    icon: Monitor,
+
+    image: 'https://tantairrigation.com/wp-content/uploads/2020/07/icon1-1.jpg',
+    badge: 'Remote',
+    shortDesc: 'Remote-only smart panel designed for growers who prefer full control from their smartphone, tablet, or computer. No physical display — all management via AgSense/Valley 365.',
+    specs: ['Remote-only (no display)', 'AgSense/Valley 365 built-in', 'VRI capable', 'NEMA 3R rated'],
+
+  },
+  {
+    id: 'iconx-smart-panel',
+    name: 'ICONX Smart Panel',
+    category: 'control',
+    icon: Monitor,
+
+    image: 'https://webassets.valmont.com/valmontstaging/images/librariesprovider129/icon-family/icon-x-panel.jpg',
+    badge: 'Retrofit',
+    shortDesc: 'Unique retrofit solution that upgrades non-Valley or older mechanical pivot panels to the Valley ICON network. Uses existing panel circuits — no full system replacement needed.',
+    specs: ['5" color touchscreen', 'Retrofits any brand', 'AgSense/Valley 365 built-in', 'Uses existing circuits'],
+
+  },
+  {
+    id: 'autopilot-linear-panel',
+    name: 'AutoPilot Linear Control Panel',
+    category: 'control',
+    icon: Settings,
+
+    image: 'https://webassets.valmont.com/valmontstaging/images/librariesprovider87/product-pages/product-page---child-2/images-with-dark-overlay/new-autopilot-linear_autopilotlinear_panel-2_1400x664.jpg',
+    badge: 'Linear',
+    shortDesc: 'The only control panel designed specifically for Valley linear irrigation machines. GPS-ready with programmable auto-direction, speed control, and end gun management.',
+    specs: ['GPS-ready positioning', 'Auto direction & speed', 'End gun control by position', 'BaseStation3 compatible'],
+
+  },
+  {
+    id: 'classicplus-control-panel',
+    name: 'ClassicPlus Control Panel',
+    category: 'control',
+    icon: Settings,
+
+    image: 'https://valleyagelectric.com/wp-content/uploads/sites/15/2021/02/new-classicplus_classicplus01_1400x664-1024x486.jpg',
+    badge: null,
+    shortDesc: 'Reliable manual switch-operated control panel for center pivots, corner arms, and linears. Features percent timer dial, pressure monitoring, and easy upgrade path to advanced panels.',
+    specs: ['Manual switch operation', 'Percent timer dial', 'Mechanical auto-reverse', 'AgSense compatible'],
+
+  },
+  {
+    id: 'classic-control-panel',
+    name: 'Classic Control Panel',
+    category: 'control',
+    icon: Settings,
+
+    image: 'https://valleyagelectric.com/wp-content/uploads/sites/15/2021/02/new-classicpanel_classicpanel_1_rotator_web_1400x664.jpg',
+    badge: null,
+    shortDesc: 'Economical entry-level panel focused on basic, reliable irrigation control. Push-button operation with voltage and hour meters for straightforward performance tracking.',
+    specs: ['Push-button control', 'Voltage & hour meters', 'Solid-state percent timer', 'AgSense compatible'],
 
   },
   {
