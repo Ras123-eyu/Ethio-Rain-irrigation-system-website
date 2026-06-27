@@ -38,14 +38,14 @@ export default function About() {
           </div>
 
           {/* Floating badge */}
-          <div className="absolute -bottom-6 -left-4 bg-green-600 text-white rounded-2xl p-5 shadow-2xl dark:shadow-green-900/40">
+          <div className="absolute -bottom-6 -left-4 btn-primary text-white rounded-2xl p-5 shadow-2xl dark:shadow-green-900/40">
             <div className="text-3xl font-black">15+</div>
-            <div className="text-green-200 text-sm font-medium">Years of Excellence</div>
+            <div className="text-white text-sm font-medium">Years of Excellence</div>
           </div>
 
           {/* Green circle decoration */}
-          <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-green-100 dark:bg-green-900/20 -z-10" />
-          <div className="absolute top-1/2 -right-4 w-12 h-12 rounded-full bg-yellow-300/40 dark:bg-yellow-600/20 -z-10" />
+          <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full btn-primary -z-10" />
+          <div className="absolute top-1/2 -right-4 w-12 h-12 rounded-full bg-brand-cyan/70 -z-10" />
         </ScrollReveal>
 
         {/* Content */}
@@ -66,7 +66,7 @@ export default function About() {
           <ul className="space-y-4 mb-10">
             {points.map(point => (
               <li key={point} className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                <CheckCircle className="w-5 h-5 text-brand-cyan shrink-0 mt-0.5" />
                 <span className="text-gray-600 dark:text-gray-300 text-sm transition-colors">{point}</span>
               </li>
             ))}

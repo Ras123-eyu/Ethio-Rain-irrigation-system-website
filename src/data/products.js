@@ -27,27 +27,44 @@ export const categories = [
 
 export const products = [
   {
-    id: 'drip-tape-16mm',
-    name: 'Premium Drip Tape 16mm',
+    id: 'cylindrical-drip',
+    name: 'Cylindrical Drip System',
     category: 'drip',
     icon: Droplets,
     image: 'https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=600&q=80',
-    badge: 'Best Seller',
-    shortDesc: 'Heavy-duty 16mm drip tape with uniform emitter spacing for row crops and vegetables.',
-    specs: ['Wall thickness: 0.20mm', 'Emitter spacing: 20cm', 'Flow rate: 1.0 L/h', 'Max pressure: 1.0 bar'],
-
+    badge: 'Standard',
+    shortDesc: 'Durable cylindrical drip pipes with integrated emitters for long-lasting performance in field crops and orchards.',
+    specs: ['Wall thickness: 0.9mm - 1.2mm', 'Emitter spacing: 20cm - 100cm', 'Flow rate: 2.0 - 4.0 L/h', 'UV resistant'],
   },
   {
-    id: 'inline-dripper',
-    name: 'Inline PC Dripper',
+    id: 'online-drip',
+    name: 'On-Line Drip System',
     category: 'drip',
     icon: Pipette,
-
     image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80',
-    badge: 'New',
-    shortDesc: 'Pressure-compensating inline dripper for orchards and sloped terrain with anti-clog technology.',
-    specs: ['Flow rate: 2.0 / 4.0 / 8.0 L/h', 'PC range: 0.5–4.0 bar', 'Anti-siphon design', 'UV stabilized'],
-
+    badge: 'Customizable',
+    shortDesc: 'On-line drippers (button drippers) installed directly on blank PE pipes, ideal for varying spacing needs like orchards or greenhouses.',
+    specs: ['Flow rate: 2.0 / 4.0 / 8.0 L/h', 'PC and Non-PC options', 'Anti-bug features', 'Easy installation'],
+  },
+  {
+    id: 'inline-drip-system',
+    name: 'In-Line Drip System',
+    category: 'drip',
+    icon: Droplets,
+    image: 'https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=600&q=80',
+    badge: 'Efficient',
+    shortDesc: 'In-line drip tubing with factory-installed emitters inside the tube for uniform water distribution.',
+    specs: ['Wall thickness: 0.15mm - 1.0mm', 'Emitter spacing: 20cm - 60cm', 'Flow rate: 1.0 - 4.0 L/h', 'Clog-resistant'],
+  },
+  {
+    id: 'flat-drip-system',
+    name: 'Flat Drip System (Drip Tape)',
+    category: 'drip',
+    icon: Droplets,
+    image: 'https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=600&q=80',
+    badge: 'Cost-Effective',
+    shortDesc: 'Flat emitter drip tape designed for seasonal row crops, offering precise watering at a lower cost.',
+    specs: ['Wall thickness: 5 mil - 15 mil', 'Emitter spacing: 10cm - 30cm', 'Flow rate: 0.8 - 2.0 L/h', 'Low pressure operation'],
   },
   {
     id: 'impact-sprinkler',
