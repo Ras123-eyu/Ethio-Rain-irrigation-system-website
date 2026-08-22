@@ -9,6 +9,7 @@ import ProjectsPage from './pages/ProjectsPage'
 import Products from './pages/Products'
 import Footer from './components/Footer'
 import CookieConsent from './components/CookieConsent'
+import MobileQuickBar from './components/MobileQuickBar'
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -29,7 +30,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <div className="overflow-x-hidden min-h-screen transition-colors duration-300 dark:bg-gray-900 bg-white">
+      <div className="overflow-x-hidden min-h-screen transition-colors duration-300 dark:bg-[#030712] bg-white text-slate-900 dark:text-slate-100 pb-14 md:pb-0">
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         <main>
           <Routes>
@@ -42,6 +43,7 @@ export default function App() {
         </main>
         <Footer />
         <CookieConsent />
+        <MobileQuickBar />
       </div>
     </BrowserRouter>
   )
