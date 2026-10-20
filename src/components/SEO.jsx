@@ -13,7 +13,7 @@ export default function SEO({ title, description, keywords, schema, type, canoni
     'url': 'https://ethiorain.com',
     'logo': 'https://ethiorain.com/assets/logo.jpeg',
     'description': metaDescription,
-    'telephone': '+251 91 100 0000',
+    'telephone': '+251 910 61 57 57',
     'address': {
       '@type': 'PostalAddress',
       'streetAddress': 'Bole Sub-City',

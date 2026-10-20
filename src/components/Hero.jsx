@@ -1,6 +1,14 @@
 import { ArrowRight, Play, Sparkles } from 'lucide-react'
 import ScrollReveal from './ScrollReveal'
 
+const rainDrops = Array.from({ length: 25 }, (_, i) => ({
+  id: i,
+  left: `${((i * 17 + 7) % 98) + 1}%`,
+  duration: `${0.8 + ((i * 13) % 8) * 0.1}s`,
+  delay: `${((i * 7) % 20) * 0.1}s`,
+  opacity: 0.35 + ((i * 11) % 6) * 0.1,
+}))
+
 export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
@@ -20,15 +28,15 @@ export default function Hero() {
 
       {/* Rain Effect */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        {[...Array(25)].map((_, i) => (
+        {rainDrops.map((drop) => (
           <div
-            key={i}
+            key={drop.id}
             className="rain-drop"
             style={{
-              left: `${Math.random() * 100}%`,
-              animationDuration: `${0.7 + Math.random() * 0.7}s`,
-              animationDelay: `${Math.random() * 2}s`,
-              opacity: 0.3 + Math.random() * 0.7
+              left: drop.left,
+              animationDuration: drop.duration,
+              animationDelay: drop.delay,
+              opacity: drop.opacity,
             }}
           />
         ))}

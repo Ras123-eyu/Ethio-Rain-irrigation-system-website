@@ -27,7 +27,7 @@ export default function CookieConsent() {
   if (!isVisible) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 p-4 md:p-6 z-[100] animate-fade-in-up">
+    <div className="fixed bottom-14 md:bottom-0 left-0 right-0 p-4 md:p-6 z-[100] animate-fade-in-up">
       <div className="max-w-4xl mx-auto dark:bg-gray-900/90 bg-white/90 backdrop-blur-xl border dark:border-white/10 border-gray-200 shadow-2xl rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6">
         
         <div className="flex items-start gap-4 flex-1">

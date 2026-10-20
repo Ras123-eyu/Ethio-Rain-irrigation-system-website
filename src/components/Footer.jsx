@@ -26,7 +26,12 @@ const LinkedinIcon = () => (
   </svg>
 )
 
-const socialIcons = [FacebookIcon, TwitterIcon, InstagramIcon, LinkedinIcon]
+const socialLinks = [
+  { icon: FacebookIcon, name: 'Facebook', href: 'https://facebook.com' },
+  { icon: TwitterIcon, name: 'X (Twitter)', href: 'https://twitter.com' },
+  { icon: InstagramIcon, name: 'Instagram', href: 'https://instagram.com' },
+  { icon: LinkedinIcon, name: 'LinkedIn', href: 'https://linkedin.com' },
+]
 
 export default function Footer() {
   return (
@@ -70,8 +75,15 @@ export default function Footer() {
             Empowering Ethiopia's farmers with smart, sustainable, and efficient irrigation solutions since 2009. We bring world-class technology to your soil.
           </p>
           <div className="flex gap-4">
-            {socialIcons.map((Icon, i) => (
-              <a key={i} href="#" className="w-11 h-11 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-white/40 hover:text-brand-cyan hover:border-brand-cyan/50 hover:bg-brand-cyan/5 transition-all">
+            {socialLinks.map(({ icon: Icon, name, href }) => (
+              <a
+                key={name}
+                href={href}
+                aria-label={name}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-white/40 hover:text-brand-cyan hover:border-brand-cyan/50 hover:bg-brand-cyan/5 transition-all"
+              >
                 <Icon />
               </a>
             ))}

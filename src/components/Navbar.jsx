@@ -18,35 +18,39 @@ export default function Navbar({ darkMode, setDarkMode }) {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    let ticking = false
 
-  useEffect(() => {
-    if (pathname !== '/') {
-      setActiveSection(pathname)
-      return
-    }
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 50)
 
-    const handleScrollSpy = () => {
-      const sections = ['home', 'about', 'services', 'products', 'projects', 'contact']
-      let current = '/#home'
-      for (const section of sections) {
-        const element = document.getElementById(section)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          if (rect.top <= 150) {
-            current = `/#${section}`
+          if (pathname === '/') {
+            const sections = ['home', 'about', 'services', 'products', 'projects', 'contact']
+            let current = '/#home'
+            for (const section of sections) {
+              const element = document.getElementById(section)
+              if (element) {
+                const rect = element.getBoundingClientRect()
+                if (rect.top <= 150) {
+                  current = `/#${section}`
+                }
+              }
+            }
+            setActiveSection(current)
+          } else {
+            setActiveSection(pathname)
           }
-        }
+
+          ticking = false
+        })
+        ticking = true
       }
-      setActiveSection(current)
     }
 
-    window.addEventListener('scroll', handleScrollSpy)
-    handleScrollSpy()
-    return () => window.removeEventListener('scroll', handleScrollSpy)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [pathname])
 
   return (
@@ -119,7 +123,12 @@ export default function Navbar({ darkMode, setDarkMode }) {
           >
             {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
           </button>
-          <button onClick={() => setMenuOpen(!menuOpen)}>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle navigation menu"
+            aria-expanded={menuOpen}
+            className="p-1.5 rounded-lg focus:outline-none"
+          >
             {menuOpen
               ? <X className={scrolled || pathname !== '/' ? 'text-gray-800 dark:text-white' : 'text-white'} />
               : <Menu className={scrolled || pathname !== '/' ? 'text-gray-800 dark:text-white' : 'text-white'} />}
