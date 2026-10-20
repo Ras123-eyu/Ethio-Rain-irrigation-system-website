@@ -3,8 +3,9 @@
  */
 
 export async function sendTelegramQuotation(data) {
-  const botToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN
-  const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID
+  const botToken =
+    import.meta.env.VITE_TELEGRAM_BOT_TOKEN || '8957856934:AAHwJ2XBC_v3jK1ji2-4N7yFlhP4eV8vGZE'
+  const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID || '327233432'
 
   const timestamp = new Date().toLocaleString('en-US', {
     timeZone: 'Africa/Addis_Ababa',

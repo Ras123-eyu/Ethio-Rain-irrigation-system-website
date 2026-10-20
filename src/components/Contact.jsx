@@ -41,10 +41,7 @@ export default function Contact() {
   }
 
   const handleTelegramDirect = () => {
-    const text = encodeURIComponent(
-      `Hello Ethio-Rain Team,\n\nQuotation Request:\n- Name: ${formData.name || 'Client'}\n- Phone: ${formData.phone || 'N/A'}\n- System: ${formData.systemType}\n- Area: ${formData.farmArea || 'N/A'} Ha\n- Location: ${formData.location || 'Ethiopia'}`
-    )
-    window.open(`https://t.me/share/url?url=${encodeURIComponent('https://ethiorain.et')}&text=${text}`, '_blank', 'noopener,noreferrer')
+    window.open('https://t.me/Ethiorain_Quotation_bot', '_blank', 'noopener,noreferrer')
   }
 
   return (
