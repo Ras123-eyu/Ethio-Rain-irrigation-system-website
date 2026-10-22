@@ -6,6 +6,7 @@ import About from '../components/About'
 import Services from '../components/Services'
 import WaterEstimator from '../components/WaterEstimator'
 import ProductsPreview from '../components/ProductsPreview'
+import EthiopiaProjectsMap from '../components/EthiopiaProjectsMap'
 import Projects from '../components/Projects'
 import TestimonialsPreview from '../components/TestimonialsPreview'
 import Contact from '../components/Contact'
@@ -21,6 +22,7 @@ export default function Home() {
       <Services />
       <WaterEstimator />
       <ProductsPreview />
+      <EthiopiaProjectsMap />
       <Projects />
       <TestimonialsPreview />
       <Contact />
