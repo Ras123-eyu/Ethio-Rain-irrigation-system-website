@@ -1,8 +1,21 @@
 import ScrollReveal from './ScrollReveal'
 
 const partners = [
-  { name: 'Valley Irrigation', logo: 'https://www.image2url.com/r2/default/images/1781972119601-25cdf96f-2fb8-4905-948a-df4089917cc8.png' },
-  { name: 'Rain Bird', logo: 'https://www.image2url.com/r2/default/images/1781972231008-fb92d373-bbf1-423a-b2b4-564854595cd9.jpg' },
+  { 
+    name: 'Valley Irrigation', 
+    category: 'Center Pivot Equipment',
+    logo: '/images/img_b5ebd0286c11.webp' 
+  },
+  { 
+    name: 'Rain Bird', 
+    category: 'Drip, Turf & Sprinklers',
+    logo: '/images/img_0fcd59ea215d.webp' 
+  },
+  { 
+    name: 'Wilo', 
+    category: 'Pumps & Building Technology',
+    logo: '/wilo-logo.svg' 
+  },
 ]
 
 export default function Partners() {
@@ -37,9 +50,14 @@ export default function Partners() {
                     }}
                   />
                 </div>
-                <span className="text-xs font-bold uppercase tracking-widest dark:text-white/40 text-gray-400 group-hover:text-brand-cyan transition-colors duration-300">
-                  {partner.name}
-                </span>
+                <div className="text-center">
+                  <span className="block text-sm font-bold uppercase tracking-wider dark:text-white/80 text-gray-800 group-hover:text-brand-cyan transition-colors duration-300">
+                    {partner.name}
+                  </span>
+                  <span className="block text-[11px] font-medium text-gray-500 dark:text-white/40 mt-1">
+                    {partner.category}
+                  </span>
+                </div>
               </div>
             </ScrollReveal>
           ))}

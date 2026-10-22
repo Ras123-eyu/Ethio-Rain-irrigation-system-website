@@ -44,13 +44,13 @@ export default function Footer() {
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
               Ready to Irrigate Smarter?
             </h2>
-            <p className="text-white/80 text-lg font-medium">Join 3,200+ farmers who transformed their yields with Ethio-Rain.</p>
+            <p className="text-white/80 text-lg font-medium">Partner with Ethiopia's leading Grade-1 Water Works Contractor.</p>
           </div>
           <div className="flex flex-wrap justify-center gap-4">
             <a href="#contact" className="bg-white text-brand-blue font-black px-10 py-5 rounded-full hover:scale-105 transition-all shadow-2xl flex items-center gap-2">
-              Get Started Free
+              Request Quotation
             </a>
-            <a href="tel:+251910615757" className="border-2 border-white/30 text-white font-black px-10 py-5 rounded-full hover:bg-white/10 transition-all backdrop-blur-sm">
+            <a href="tel:+251901864466" className="border-2 border-white/30 text-white font-black px-10 py-5 rounded-full hover:bg-white/10 transition-all backdrop-blur-sm">
               Call Us Now
             </a>
           </div>
@@ -62,7 +62,7 @@ export default function Footer() {
         <div className="animate-fade-in">
           <div className="flex items-center gap-4 mb-8">
             <img
-              src="https://www.image2url.com/r2/default/images/1776446803908-1a0fb0a4-83a0-45e7-a562-6f6d629fc2b8.blob"
+              src="/images/img_4f6613efa42b.webp"
               alt="Ethio-Rain Logo"
               className="h-14 w-auto object-contain"
             />
@@ -72,7 +72,7 @@ export default function Footer() {
             </div>
           </div>
           <p className="text-white/40 text-sm leading-loose mb-10 font-medium">
-            Empowering Ethiopia's farmers with smart, sustainable, and efficient irrigation solutions since 2009. We bring world-class technology to your soil.
+            Grade-1 Water Works Contractor & Special Purpose Machinery Manufacturer established in 2003 E.C. Delivering precision irrigation, electromechanical systems, and sustainable water solutions across Ethiopia.
           </p>
           <div className="flex gap-4">
             {socialLinks.map(({ icon: Icon, name, href }) => (
@@ -95,13 +95,13 @@ export default function Footer() {
           <ul className="space-y-4 text-sm font-bold text-white/40">
             {[
               'Water Supply & Electromechanical',
-              'Center Pivot & Sprinkler',
-              'Drip System',
-              'Green House',
-              'Hose Reel Systems',
-              'Design & Installation',
-              'Farm Equipment Supply',
-              'Solar Power Systems'
+              'Center Pivot & Sprinkler Systems',
+              'Drip Irrigation Systems',
+              'Complete Greenhouse Solutions',
+              'Study, Design & Feasibility',
+              'Submersible Pumping & Drilling',
+              'HDPE Piping & Welding',
+              'Solar Power Systems Supply'
             ].map(s => (
               <li key={s}><a href="#services" className="hover:text-white transition-all flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-cyan/20 group-hover:bg-brand-cyan" /> {s}</a></li>
             ))}
@@ -122,15 +122,15 @@ export default function Footer() {
           <ul className="space-y-6 text-sm font-bold text-white/40">
             <li className="flex items-start gap-4">
               <MapPin className="w-5 h-5 text-brand-cyan shrink-0" />
-              <span className="leading-relaxed">Bole Road, Addis Ababa,<br />Ethiopia</span>
+              <span className="leading-relaxed">Near Dembel City Center,<br />M.K.A.AS Business Center,<br />Addis Ababa, Ethiopia</span>
             </li>
             <li className="flex items-center gap-4">
               <Phone className="w-5 h-5 text-brand-cyan shrink-0" />
-              +251 910 61 57 57 / +251 912 88 28 81
+              +251 901 86 44 66 / +251 912 88 28 81
             </li>
             <li className="flex items-center gap-4">
               <Mail className="w-5 h-5 text-brand-cyan shrink-0" />
-              info@ethiorain.et
+              info@ethiorain.com
             </li>
           </ul>
 

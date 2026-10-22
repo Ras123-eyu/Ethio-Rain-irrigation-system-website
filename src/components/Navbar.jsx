@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Droplets, Sun, Moon } from 'lucide-react'
+import { Menu, X, Sun, Moon } from 'lucide-react'
 
 const navLinks = [
   { label: 'Home', href: '/#home' },
@@ -60,7 +60,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
           <img
-            src="https://www.image2url.com/r2/default/images/1776446803908-1a0fb0a4-83a0-45e7-a562-6f6d629fc2b8.blob"
+            src="/images/img_4f6613efa42b.webp"
             alt="Ethio-Rain Logo"
             className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
           />

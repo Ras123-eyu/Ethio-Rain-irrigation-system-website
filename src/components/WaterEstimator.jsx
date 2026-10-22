@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Droplets, TrendingUp, Sun, ArrowRight, ShieldCheck, Sparkles, Gauge } from 'lucide-react'
+import { useState } from 'react'
+import { Droplets, TrendingUp, Sun, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react'
 import ScrollReveal from './ScrollReveal'
 
 export default function WaterEstimator() {

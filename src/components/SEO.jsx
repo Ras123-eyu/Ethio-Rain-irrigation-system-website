@@ -11,7 +11,7 @@ export default function SEO({ title, description, keywords, schema, type, canoni
     '@type': 'GeneralContractor',
     'name': 'Ethio-Rain Irrigation System P.L.C.',
     'url': 'https://ethiorain.com',
-    'logo': 'https://ethiorain.com/assets/logo.jpeg',
+    'logo': '/images/img_4f6613efa42b.webp',
     'description': metaDescription,
     'telephone': '+251 910 61 57 57',
     'address': {
@@ -42,13 +42,13 @@ export default function SEO({ title, description, keywords, schema, type, canoni
       <meta property='og:title' content={fullTitle} />
       <meta property='og:description' content={metaDescription} />
       <meta property='og:site_name' content='Ethio-Rain Irrigation' />
-      <meta property='og:image' content='https://ethiorain.com/assets/logo.jpeg' />
+      <meta property='og:image' content='/images/img_4f6613efa42b.webp' />
 
       {/* Twitter tags */}
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:title' content={fullTitle} />
       <meta name='twitter:description' content={metaDescription} />
-      <meta name='twitter:image' content='https://ethiorain.com/assets/logo.jpeg' />
+      <meta name='twitter:image' content='/images/img_4f6613efa42b.webp' />
 
       {/* Structured Data (Schema.org) */}
       <script type='application/ld+json'>

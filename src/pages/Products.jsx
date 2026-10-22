@@ -1,18 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { products, categories } from '../data/products'
-import { Search, ArrowRight, CheckCircle, XCircle, ChevronDown, X, Star } from 'lucide-react'
+import { Search, ArrowRight, CheckCircle, X } from 'lucide-react'
 import SEO from '../components/SEO'
 
 export default function Products() {
   const [activeCategory, setActiveCategory] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedProduct, setSelectedProduct] = useState(null)
-
-
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
 
   const filtered = products.filter(p => {
     const matchCategory = activeCategory === 'all' || p.category === activeCategory

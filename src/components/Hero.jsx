@@ -1,4 +1,4 @@
-import { ArrowRight, Play, Sparkles } from 'lucide-react'
+import { ArrowRight, Play } from 'lucide-react'
 import ScrollReveal from './ScrollReveal'
 
 const rainDrops = Array.from({ length: 25 }, (_, i) => ({
@@ -15,7 +15,7 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1655048425771-daa9087aaa00?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="/images/img_d282559f6b0f.webp"
           alt="Modern Irrigation System"
           className="w-full h-full object-cover object-center"
         />
@@ -48,7 +48,7 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 bg-[#00D4FF]/10 backdrop-blur-md border border-[#00D4FF]/30 rounded-full px-3.5 py-1.5 mb-5 shadow-[0_0_15px_rgba(0,212,255,0.2)]">
             <span className="w-2 h-2 rounded-full bg-[#00D4FF] animate-pulse" />
             <span className="text-[#00D4FF] text-[11px] sm:text-xs font-bold uppercase tracking-widest">
-              Ethio-Rain Irrigation Systems
+              Grade-1 Water Works Contractor • Est. 2003 E.C.
             </span>
           </div>
 
@@ -58,7 +58,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-slate-200 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl font-normal">
-            Empowering Ethiopia's agricultural future with precision irrigation technology.
+            Empowering Ethiopia's agricultural future with precision irrigation engineering.
             From automated center pivots to intelligent drip and solar pumping, we bring world-class
             solutions to your soil.
           </p>
@@ -83,9 +83,9 @@ export default function Hero() {
           {/* Quick Stats */}
           <div className="grid grid-cols-3 gap-3 sm:gap-8 mt-10 md:mt-14 pt-6 border-t border-white/15 max-w-lg">
             {[
-              { value: '500+', label: 'Projects Done' },
+              { value: '35+', label: 'Major Projects' },
+              { value: '10,000+', label: 'Hectares Irrigated' },
               { value: '15+', label: 'Years Experience' },
-              { value: '98%', label: 'Satisfaction' },
             ].map(s => (
               <div key={s.label}>
                 <div className="text-2xl sm:text-3xl font-black text-white gradient-text">{s.value}</div>

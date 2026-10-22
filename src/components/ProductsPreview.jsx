@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 import { products, categories } from '../data/products'
 import ScrollReveal from './ScrollReveal'
-import { ArrowRight, CheckCircle, XCircle } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
-const featured = products.filter(p => p.badge).slice(0, 4)
+const featuredIds = ['8000-center-pivot', 'wilo-submersible-pump', 'hose-reel-irrigator', 'cylindrical-drip']
+const featured = featuredIds.map(id => products.find(p => p.id === id)).filter(Boolean)
 
 export default function ProductsPreview() {
   return (
@@ -54,10 +55,6 @@ export default function ProductsPreview() {
                       {product.badge}
                     </span>
                   )}
-
-
-
-
                 </div>
 
                 {/* Info */}

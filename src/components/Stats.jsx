@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
-import { Droplets, Users, Award, Globe } from 'lucide-react'
+import { Droplets, Users, Award, ShieldCheck } from 'lucide-react'
 import ScrollReveal from './ScrollReveal'
 
 const stats = [
-  { icon: Droplets, value: 8000, suffix: '+', label: 'Hectares Irrigated' },
-  { icon: Users,    value: 3200, suffix: '+', label: 'Farmers Served'     },
-  { icon: Award,    value: 98,   suffix: '%',  label: 'Success Rate'       },
-  { icon: Globe,    value: 15,   suffix: '+', label: 'Regions Covered'    },
+  { icon: Droplets,    value: 10000, suffix: '+', label: 'Hectares Irrigated' },
+  { icon: Award,       value: 35,    suffix: '+', label: 'Major Projects Done' },
+  { icon: Users,       value: 18,    suffix: '+', label: 'Engineers & Staff' },
+  { icon: ShieldCheck, value: 15,    suffix: '+', label: 'Years Experience' },
 ]
 
 function Counter({ target, suffix }) {

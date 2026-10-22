@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { projectsData } from '../data/projects'
-import { ArrowLeft, CheckCircle, Mail, Phone, ChevronRight, X, Search, MapPin, User, Clock, AlertTriangle, Lightbulb } from 'lucide-react'
+import { ArrowLeft, CheckCircle, Mail, Phone, ChevronRight, X, Search, MapPin, User, Clock, AlertTriangle, Lightbulb, Banknote, Percent } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import SEO from '../components/SEO'
 
@@ -22,7 +22,7 @@ export default function ProjectDetail() {
     )
   }
 
-  const { title, location, area, type, img, tag, client, duration, overview, challenge, solution, results, gallery } = project
+  const { title, location, area, type, img, tag, client, duration, overview, challenge, solution, results, gallery, value, completion } = project
 
   return (
     <div className="pt-24 pb-24 transition-colors duration-300 dark:bg-gray-950 bg-white relative">
@@ -94,23 +94,27 @@ export default function ProjectDetail() {
             </div>
 
             {/* Image Gallery with Zoom */}
-            <h3 className="text-2xl font-black dark:text-white text-gray-900 mb-8 uppercase tracking-widest">Project Gallery</h3>
-            <p className="text-xs text-gray-500 mb-6 uppercase tracking-widest font-bold">Click an image to zoom</p>
-            <div className="grid sm:grid-cols-2 gap-6 mb-16">
-              {gallery.map((image, idx) => (
-                <div 
-                  key={idx} 
-                  onClick={() => setSelectedImg(image)}
-                  className="group relative h-64 rounded-4xl overflow-hidden shadow-2xl border border-white/5 cursor-zoom-in"
-                >
-                  <img src={image} alt={`Gallery ${idx}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-brand-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center backdrop-blur-xs gap-3">
-                    <Search className="text-white w-10 h-10 -rotate-45" />
-                    <span className="text-[10px] text-white font-black uppercase tracking-widest">Zoom View</span>
-                  </div>
+            {gallery && gallery.length > 0 && (
+              <div className="mb-16">
+                <h3 className="text-2xl font-black dark:text-white text-gray-900 mb-2 uppercase tracking-widest">Project Gallery</h3>
+                <p className="text-xs text-gray-500 mb-6 uppercase tracking-widest font-bold">Click an image to zoom</p>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  {gallery.map((image, idx) => (
+                    <div 
+                      key={idx} 
+                      onClick={() => setSelectedImg(image)}
+                      className="group relative h-64 rounded-4xl overflow-hidden shadow-2xl border border-white/5 cursor-zoom-in"
+                    >
+                      <img src={image} alt={`Gallery ${idx}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                      <div className="absolute inset-0 bg-brand-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center backdrop-blur-xs gap-3">
+                        <Search className="text-white w-10 h-10 -rotate-45" />
+                        <span className="text-[10px] text-white font-black uppercase tracking-widest">Zoom View</span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -153,13 +157,35 @@ export default function ProjectDetail() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <AlertTriangle className="w-5 h-5 text-brand-cyan mt-1" />
-                <div>
-                  <div className="text-[10px] text-gray-500 dark:text-white/40 uppercase tracking-widest font-bold">Area Size</div>
-                  <div className="font-bold text-gray-800 dark:text-white/80">{area}</div>
+              {area && (
+                <div className="flex items-start gap-4">
+                  <AlertTriangle className="w-5 h-5 text-brand-cyan mt-1" />
+                  <div>
+                    <div className="text-[10px] text-gray-500 dark:text-white/40 uppercase tracking-widest font-bold">Area Size</div>
+                    <div className="font-bold text-gray-800 dark:text-white/80">{area}</div>
+                  </div>
                 </div>
-              </div>
+              )}
+
+              {value && (
+                <div className="flex items-start gap-4">
+                  <Banknote className="w-5 h-5 text-emerald-400 mt-1" />
+                  <div>
+                    <div className="text-[10px] text-gray-500 dark:text-white/40 uppercase tracking-widest font-bold">Value of Works</div>
+                    <div className="font-bold text-emerald-600 dark:text-emerald-400 font-mono">{value}</div>
+                  </div>
+                </div>
+              )}
+
+              {completion && (
+                <div className="flex items-start gap-4">
+                  <Percent className="w-5 h-5 text-brand-cyan mt-1" />
+                  <div>
+                    <div className="text-[10px] text-gray-500 dark:text-white/40 uppercase tracking-widest font-bold">Works Completed</div>
+                    <div className="font-bold text-gray-800 dark:text-white/80">{completion}</div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 

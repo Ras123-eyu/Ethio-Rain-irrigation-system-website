@@ -6,7 +6,14 @@ import {
   Waves,
   Layout,
   Truck,
-  Sun
+  Sun,
+  Wrench,
+  ShieldCheck,
+  Factory,
+  Layers,
+  Sliders,
+  Compass,
+  CloudRain
 } from 'lucide-react'
 
 export const services = [
@@ -15,167 +22,279 @@ export const services = [
     slug: 'water-supply-electromechanical',
     icon: Zap,
     title: 'Water Supply and Electromechanical Systems',
-    shortDesc: 'Comprehensive water distribution networks and advanced electromechanical systems for reliable industrial and agricultural supply.',
-    description: `Our water supply and electromechanical services offer end-to-end solutions for large-scale water distribution. We specialize in the design, procurement, and installation of heavy-duty pumping stations, control panels, and automated monitoring systems. With a focus on durability and efficiency, we ensure your water infrastructure meets the highest industrial standards.`,
-    img: 'https://images.unsplash.com/photo-1583869367058-97af59eef352?q=80&w=2152&auto=format&fit=crop',
-    tag: 'Infrastructure',
+    shortDesc: 'Grade-1 contractor solutions: water distribution networks, deep-well drilling, booster pumps, firefighting systems, and electromechanical integration.',
+    description: `As a certified Grade-1 Water Works Contractor, Ethio-Rain provides end-to-end solutions for municipal, commercial, and agricultural water infrastructure. We specialize in deep well drilling, supply and installation of high-capacity submersible pumps (partnering with Wilo), automated booster pumping stations, and certified firefighting systems (such as our projects for the Ministry of Justice and Addis Ababa Police Commission). We also execute certified high-density polyethylene (HDPE) butt-fusion welding and hydrostatic field pressure testing.`,
+    img: '/images/img_3f8d10cd9593.webp',
+    tag: 'Grade-1 Infrastructure',
     benefits: [
-      'High-performance pumping stations',
-      'Advanced control and monitoring systems',
-      'Efficient resource distribution',
-      'Durable and industrial-grade components'
+      'Grade-1 Water Works certified execution',
+      'Deep well drilling and high-head submersible pump equipping',
+      'Industrial booster, transfer & firefighting pump stations',
+      'Certified HDPE butt-fusion welding & hydrostatic pressure testing'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1693907986952-3cd372e4c9d8?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      'https://images.unsplash.com/photo-1693463735697-73df1f35930d?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fFdhdGVyJTIwU3VwcGx5JTIwYW5kJTIwRWxlY3Ryb21lY2hhbmljYWwlMjBTeXN0ZW1zfGVufDB8fDB8fHww',
-      'https://images.unsplash.com/photo-1622801185864-874be8248594?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fFdhdGVyJTIwU3VwcGx5JTIwYW5kJTIwRWxlY3Ryb21lY2hhbmljYWwlMjBTeXN0ZW1zfGVufDB8fDB8fHww'
+      '/images/img_c48e21cdda98.webp',
+      '/images/img_0ab41cbad70e.webp',
+      '/images/img_a0bafc6c3687.webp'
     ]
   },
   {
     id: 'center-pivot',
     slug: 'center-pivot-sprinkler-systems',
     icon: RotateCw,
-    title: 'Center Pivot and Sprinkler Systems',
-    shortDesc: 'Precision-engineered center pivot and automated sprinkler solutions for uniform large-scale field coverage.',
-    description: `Ethio-Rain's center pivot and sprinkler systems are designed to maximize yield while minimizing labor. Our automated systems provide uniform water distribution across hundreds of hectares, making them ideal for large-scale commercial farming. We offer advanced control systems that allow farmers to manage their irrigation remotely, ensuring optimal soil moisture levels at all times.`,
-    img: 'https://images.unsplash.com/photo-1692369584496-3216a88f94c1?q=80&w=2532&auto=format&fit=crop',
-    tag: 'Large Scale',
+    title: 'Center Pivot and Mechanical-Move Systems',
+    shortDesc: 'Precision mechanized center pivot and linear move systems for uniform large-scale commercial field coverage.',
+    description: `In partnership with Valley Irrigation, the global leader in mechanized irrigation, Ethio-Rain provides state-of-the-art center pivot and linear/mechanical-move irrigation systems across Ethiopia. Our installations span massive projects like the 1,000-hectare Meki scheme (15 pivots) and the 8,000-hectare Gidabo development. We equip our machines with smart corner arms, low-drift sprinkler packages, computerized touchscreens, and remote telemetry for seamless operation.`,
+    img: '/images/img_37cc9ecf2b11.webp',
+    tag: 'Mechanized Mega-Scale',
     benefits: [
-      'Uniform water distribution',
-      'Minimal labor requirement',
-      'Remote monitoring and control',
-      'Scalable for large-scale operations'
+      'Official partnership with Valley Irrigation',
+      'Uniform 360° and linear field water distribution',
+      'Remote monitoring and speed/depth automation',
+      'Proven durability on thousands of hectares across Ethiopia'
     ],
     gallery: [
-      'https://plus.unsplash.com/premium_photo-1661845609789-635c5e35c4ba?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q2VudGVyJTIwUGl2b3QlMjBhbmQlMjBTcHJpbmtsZXIlMjBTeXN0ZW1zfGVufDB8fDB8fHww',
-      'https://plus.unsplash.com/premium_photo-1661875241767-7a587c5b9718?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Q2VudGVyJTIwUGl2b3QlMjBhbmQlMjBTcHJpbmtsZXIlMjBTeXN0ZW1zfGVufDB8fDB8fHww',
-      'https://images.unsplash.com/photo-1593288653045-7ed55242d70a?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fENlbnRlciUyMFBpdm90JTIwYW5kJTIwU3ByaW5rbGVyJTIwU3lzdGVtc3xlbnwwfHwwfHx8MA%3D%3D'
+      '/images/img_4f650875d590.webp',
+      '/images/img_2c407b4a84aa.webp',
+      '/images/img_7cf955102102.webp'
     ]
   },
   {
     id: 'drip-system',
     slug: 'drip-system',
     icon: Droplets,
-    title: 'Drip System',
-    shortDesc: 'High-efficiency drip irrigation systems designed to deliver water directly to the root zone, maximizing yield and conservation.',
-    description: `Drip irrigation is the gold standard for water-efficient farming. Our systems deliver water and nutrients directly to the plant's roots, significantly reducing evaporation and runoff. This precision method not only saves water but also promotes healthier plant growth and higher crop yields, making it perfect for orchards, vineyards, and vegetable farms.`,
-    img: 'https://images.unsplash.com/photo-1640677117376-573b9dbb8ea8?q=80&w=2070&auto=format&fit=crop',
-    tag: 'Efficient',
+    title: 'Drip Irrigation Systems',
+    shortDesc: 'High-efficiency cylindrical, in-line, on-line, and flat drip tape systems delivering water and nutrients directly to the root zone.',
+    description: `Drip irrigation delivers water and soluble nutrients directly to plant roots with up to 90%+ application efficiency. Ethio-Rain provides all four principal drip configurations specified for modern commercial farming: heavy-duty cylindrical drip lines, integrated in-line drip tubing, customizable on-line button drippers, and economical thin-walled flat drip tape. Our systems have powered agricultural projects for the Ethiopian Agricultural Transformation Agency (ATA), SEPROB Morocco, and regional agriculture offices.`,
+    img: '/images/img_0fc0e6fb7f1b.webp',
+    tag: 'High Efficiency',
     benefits: [
-      'Up to 90% water efficiency',
-      'Direct root zone hydration',
-      'Reduced weed growth',
-      'Lower energy costs'
+      'Cylindrical, in-line, on-line, and flat drip options',
+      'Up to 90%+ water and nutrient delivery efficiency',
+      'Drastically minimizes weed germination and evaporation losses',
+      'Custom filtration batteries preventing emitter clogging'
     ],
     gallery: [
-      'https://plus.unsplash.com/premium_photo-1661884090131-77a0a87acd06?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RHJpcCUyMFN5c3RlbXxlbnwwfHwwfHx8MA%3D%3D',
-      'https://images.unsplash.com/photo-1666082187762-e963df0f9f05?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8RHJpcCUyMFN5c3RlbXxlbnwwfHwwfHx8MA%3D%3D',
-      'https://images.unsplash.com/photo-1640677117376-573b9dbb8ea8?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fERyaXAlMjBTeXN0ZW18ZW58MHx8MHx8fDA%3D'
+      '/images/img_92447edfd8ec.webp',
+      '/images/img_916a743effa4.webp',
+      '/images/img_650a354c7c41.webp'
+    ]
+  },
+  {
+    id: 'sprinkler-systems',
+    slug: 'sprinkler-systems',
+    icon: CloudRain,
+    title: 'Sprinkler Systems (Fixed, Hand-Drag & Guns)',
+    shortDesc: 'Fixed piping networks, hand-drag flexible sets, impact sprinklers, micro-sprinklers, and high-volume gun systems.',
+    description: `Ethio-Rain designs and supplies complete pressurized sprinkler solutions tailored to varied agricultural crops, topography, and aesthetic landscapes. We provide permanent fixed-pipe networks, cost-effective semi-permanent hand-drag lines, brass and polymer impact sprinklers, low-pressure micro-sprinklers, and high-volume long-radius big guns. Our portfolio includes specialized installations such as the automated pop-up sprinkler landscape system for the Presidential Palace grounds in Addis Ababa.`,
+    img: '/images/img_916a743effa4.webp',
+    tag: 'Flexible Sprinklers',
+    benefits: [
+      'Fixed and portable hand-drag sprinkler systems',
+      'Impact, micro-sprinkler, and long-range big gun options',
+      'Rain Bird partner technology for maximum uniformity',
+      'Ideal for pastures, row crops, orchards, and turf landscaping'
+    ],
+    gallery: [
+      '/images/img_a92dad3e2e0b.webp',
+      '/images/img_0287ccd8d8f0.webp'
     ]
   },
   {
     id: 'green-house',
     slug: 'green-house-solutions',
     icon: Home,
-    title: 'Green House Solutions',
-    shortDesc: 'Turnkey greenhouse installations with integrated climate control and smart irrigation for year-round agricultural production.',
-    description: `Control your environment and your profits with Ethio-Rain's turnkey greenhouse solutions. We provide high-quality structures integrated with automated climate control, specialized lighting, and tailored irrigation systems. Whether you're growing high-value flowers or specialty vegetables, our greenhouses ensure year-round production regardless of external weather conditions.`,
-    img: 'https://plus.unsplash.com/premium_photo-1679428402040-e3c93439ec13?q=80&w=2070&auto=format&fit=crop',
-    tag: 'Controlled',
+    title: 'Complete Greenhouse Solutions',
+    shortDesc: 'Turnkey commercial greenhouse supply, structural installation, micro-misting, drip benches, and micro-climate control.',
+    description: `Protect your high-value horticultural yields against adverse weather and pest pressures with Ethio-Rain’s turnkey greenhouse solutions. We deliver complete structural fabrication, UV-stabilized polythene cladding, shade screening, automated roof and side ventilation, overhead fogging/misting systems, and micro-drip fertigation benches. We have successfully completed turnkey greenhouse installations for clients including SEPROB Morocco Ethiopia.`,
+    img: '/images/img_5786a204517f.webp',
+    tag: 'Controlled Agriculture',
     benefits: [
-      'Year-round crop production',
-      'Complete climate control',
-      'Protection from pests and weather',
-      'Higher value crop potential'
+      'Turnkey structural supply, cladding, and mechanical erection',
+      'Integrated micro-climate and humidity misting controls',
+      'Automated fertigation dosing and sub-surface drip benches',
+      'Optimized for year-round flower, seedling, and vegetable production'
     ],
     gallery: [
-      'https://plus.unsplash.com/premium_photo-1679428401832-37cc21a5647d?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8R3JlZW4lMjBIb3VzZSUyMGluJTIwYWdyaWN1bHR1cmV8ZW58MHx8MHx8fDA%3D',
-      'https://images.unsplash.com/photo-1708796705570-33fd29ef67d0?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8R3JlZW4lMjBIb3VzZSUyMGluJTIwYWdyaWN1bHR1cmV8ZW58MHx8MHx8fDA%3D',
-      'https://images.unsplash.com/photo-1580050530399-479dc872b08b?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fEdyZWVuJTIwSG91c2UlMjBpbiUyMGFncmljdWx0dXJlfGVufDB8fDB8fHww'
+      '/images/img_72199b96cf1f.webp',
+      '/images/img_57f79a92752d.webp',
+      '/images/img_b38a57dba324.webp'
     ]
   },
   {
     id: 'hose-reel',
     slug: 'hose-reel-irrigation-system',
     icon: Waves,
-    title: 'Hose Reel Irrigation System',
-    shortDesc: 'Versatile and mobile hose reel systems providing flexible irrigation coverage for diverse land shapes and crop types.',
-    description: `For farms that require flexibility, our hose reel irrigation systems offer a powerful and mobile solution. These automated travelers can be easily moved between fields, making them ideal for smaller holdings or irregularly shaped terrain. They provide excellent water distribution and are built to withstand the rigors of frequent movement and continuous operation.`,
-    img: 'https://images.unsplash.com/photo-1590068484425-00751653640f?q=80&w=2070&auto=format&fit=crop',
-    tag: 'Versatile',
+    title: 'Travelling / Hose-Reel Guns and Booms',
+    shortDesc: 'Mobile turbine-driven hose-reel irrigators, high-volume travelling rain guns, and low-pressure spray booms.',
+    description: `For farms with irregular parcel layouts, rotational grazing paddocks, or dispersed fields, our travelling hose-reel irrigation systems offer unmatched mobility and high-capacity coverage. Powered by energy-efficient water turbines, these automated machines wind the heavy-duty PE hose smoothly while discharging water through a long-radius rain gun or a low-pressure spray boom, providing gentle, deep soil infiltration without runoff.`,
+    img: '/images/img_d83b1dcd0592.webp',
+    tag: 'Mobile Irrigation',
     benefits: [
-      'Highly mobile and flexible',
-      'Suitable for irregular fields',
-      'Easy to operate and maintain',
-      'Robust and durable construction'
+      'Flexible deployment across irregular or non-contiguous plots',
+      'Water turbine-driven retraction with automatic shut-off',
+      'High-volume rain guns and gentle low-pressure spray booms',
+      'Sturdy galvanized chassis built for rough farm terrain'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1594691592645-3f8351f04e84?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fEhvc2UlMjBSZWVsJTIwSXJyaWdhdGlvbiUyMFN5c3RlbXxlbnwwfHwwfHx8MA%3D%3D',
-      'https://images.unsplash.com/photo-1758965364875-e090e5423d2d?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fEhvc2UlMjBSZWVsJTIwSXJyaWdhdGlvbiUyMFN5c3RlbXxlbnwwfHwwfHx8MA%3D%3D',
-      'https://images.unsplash.com/photo-1775714351784-51e93e4c12a7?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fEhvc2UlMjBSZWVsJTIwSXJyaWdhdGlvbiUyMFN5c3RlbXxlbnwwfHwwfHx8MA%3D%3D'
+      '/images/img_0446b8c26b6f.webp',
+      '/images/img_bad155cdb47f.webp',
+      '/images/img_3317e851464f.webp'
     ]
   },
   {
     id: 'design-consultancy',
     slug: 'design-consultancy-installation',
-    icon: Layout,
-    title: 'Design and Installation Services',
-    shortDesc: 'Expert consulting and professional installation services tailoring irrigation layouts to your specific topography and needs.',
-    description: `A successful irrigation system starts with expert design. Our team of certified engineers provides comprehensive consultancy services, mapping your land topography and water sources to create the most efficient irrigation layout possible. We then follow through with professional installation, ensuring every component is placed for maximum performance and longevity.`,
-    img: 'https://plus.unsplash.com/premium_photo-1664299231556-57f570023f87?q=80&w=2070&auto=format&fit=crop',
-    tag: 'Expert',
+    icon: Compass,
+    title: 'Surveying, Feasibility Studies, Design & BOQ',
+    shortDesc: 'Topographic land surveying, hydrological feasibility studies, detailed engineering design, and BOQ/specification preparation.',
+    description: `Rigorous engineering and agronomic analysis form the foundation of every viable water project. Ethio-Rain provides comprehensive technical consulting: drone and GPS topographic surveying, river and groundwater hydrological studies, detailed hydraulic modeling, and preparation of rigorous Bills of Quantities (BOQs) and tender specifications. Our track record includes master designs such as the 8,000-hectare Gidabo Center Pivot scheme and airport turf landscaping for Ethiopian Airlines.`,
+    img: '/images/img_b13e188930cc.webp',
+    tag: 'Technical Consultancy',
     benefits: [
-      'Precision engineering and design',
-      'Topography-aware layouts',
-      'Professional certified installation',
-      'Long-term system reliability'
+      'High-precision GPS and topographic drone surveying',
+      'Hydrological catchment and aquifer feasibility analysis',
+      'Full CAD & GIS hydraulic network design',
+      'Value-engineered BOQs and tender specification preparation'
     ],
     gallery: [
-      'https://www.amwua.org/_next/image?url=https%3A%2F%2Fwebcms.amwua.org%2Fmedia%2Fdesign-irrigation-learn-1.jpg&w=1920&q=75',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4qOrPcQztIlufkQGhw0n4oNeWD13EN2NAF9iZrbCnHFqNtp9KK43oBig&s=10',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZDtwJFSrnrRtfCKNI8SHojEbe4ixtI1RXqKCKmd1w1xvxHufXdyOseTOw&s=10'
+      '/images/img_ccc0369d5c2d.webp',
+      '/images/img_c8adaa3c4c93.webp'
     ]
   },
   {
-    id: 'farm-equipment',
-    slug: 'farm-equipment-machinery',
-    icon: Truck,
-    title: 'Farm Equipment and Machinery',
-    shortDesc: 'Direct supply of high-quality agricultural machinery and specialized farm equipment for modern farming operations.',
-    description: `Beyond irrigation, Ethio-Rain is your partner in modern mechanization. We source and supply a wide range of specialized farm equipment, from precision planters to heavy-duty harvest machinery. Our partnership with global brands ensures that Ethiopian farmers have access to the same technology powering the world's most productive agricultural regions.`,
-    img: 'https://plus.unsplash.com/premium_photo-1661877413245-7fc18971d549?q=80&w=2072&auto=format&fit=crop',
-    tag: 'Supply',
+    id: 'commissioning-training',
+    slug: 'installation-commissioning-training',
+    icon: ShieldCheck,
+    title: 'Installation, Commissioning, Supervision & Training',
+    shortDesc: 'Certified field installation, hydraulic commissioning, technical site supervision, and comprehensive operator training.',
+    description: `Having the right equipment is only half the battle; flawless execution requires professional installation and thorough operational transfer. Ethio-Rain’s 18 permanent and contract engineers provide on-site supervision, mechanical assembly, electrical wiring, hydrostatic testing, and system commissioning. We conduct structured training programs for farm managers and pump operators to guarantee optimal system longevity and peak water efficiency.`,
+    img: '/images/img_e20afcb69bfe.webp',
+    tag: 'Quality Assurance',
     benefits: [
-      'Access to global machinery brands',
-      'Specialized agricultural tools',
-      'Enhanced farm productivity',
-      'Reliable supply and support'
+      'Experienced team of 18 permanent & contract engineering professionals',
+      'Certified mechanical assembly and electrical synchronization',
+      'Hydrostatic field pressure testing and performance commissioning',
+      'Comprehensive on-site operator training and handover documentation'
     ],
     gallery: [
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNfHO_obXAvwMDgotuAYtXSzt6tm5v9pOpSyuWME7brOj24_VagkvMSlk&s=10',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1gZgeOYMrLWXdfNbK1MND68DYcGsvPmFrH33aqxSLxOpEi5Dx3wZFXXVQ&s=10',
-      'https://i.pinimg.com/736x/67/74/71/677471c0a0fbb000fb300a52ae0974e7.jpg'
+      '/images/img_a02a71599b3f.webp',
+      '/images/img_0ab41cbad70e.webp'
+    ]
+  },
+  {
+    id: 'maintenance-aftersales',
+    slug: 'maintenance-after-sales-services',
+    icon: Wrench,
+    title: 'Maintenance and After-Sales Services',
+    shortDesc: 'Rapid preventative maintenance, emergency pump rehabilitation, system descaling, and genuine spare parts availability.',
+    description: `We stand behind every project we deliver with dedicated after-sales support and scheduled preventative maintenance services. Our rapid-response field technicians handle borehole pump overhauls, center pivot drive gear servicing, filtration media cleaning, control panel troubleshooting, and nozzle recalibration. We maintain an inventory of genuine spare parts to minimize farm downtime during peak cropping seasons.`,
+    img: '/images/img_8859d45d7cbb.webp',
+    tag: 'After-Sales Care',
+    benefits: [
+      'Scheduled preventative maintenance contracts',
+      'Rapid field response for emergency pump and electrical repairs',
+      'Guaranteed genuine spare parts from global partner manufacturers',
+      'System recalibration ensuring peak water and power efficiency'
+    ],
+    gallery: [
+      '/images/img_a0bafc6c3687.webp'
+    ]
+  },
+  {
+    id: 'control-systems',
+    slug: 'irrigation-control-systems',
+    icon: Sliders,
+    title: 'Irrigation Control Systems & Automation',
+    shortDesc: 'Automated smart control panels, soil moisture sensors, telemetry, and Variable Rate Irrigation (VRI) automation.',
+    description: `Transform irrigation management into an automated, data-driven operation. Ethio-Rain provides cutting-edge irrigation control panels (such as Valley ICON10, ICON5, and ICON1) integrated with wireless AgSense cloud telemetry. Monitor borehole levels, manage pump sequencing, execute Variable Rate Irrigation (VRI) across changing soil zones, and receive real-time fault alerts directly on your smartphone.`,
+    img: '/images/img_af2c22196d77.webp',
+    tag: 'Smart Automation',
+    benefits: [
+      'Touchscreen and remote smartphone control via AgSense/Valley 365',
+      'Variable Rate Irrigation (VRI) tailored to soil and crop needs',
+      'Automated pump start/stop and line pressure monitoring',
+      'Immediate alert notifications for pressure drops or power interruptions'
+    ],
+    gallery: [
+      '/images/img_8859d45d7cbb.webp'
+    ]
+  },
+  {
+    id: 'machinery-manufacturing',
+    slug: 'special-purpose-machinery-manufacturing',
+    icon: Factory,
+    title: 'Manufacturing of Special Purpose Machinery',
+    shortDesc: 'Licensed manufacturing of custom agricultural machinery, specialized mounting chassis, and hydraulic manifold assemblies.',
+    description: `As a licensed manufacturer of special purpose machinery in Ethiopia, Ethio-Rain designs and fabricates custom equipment adapted to local agricultural environments. Our workshop capabilities include manufacturing robust pump skid frames, specialized mobile irrigation carts, high-pressure distribution manifolds, customized filtration battery skids, and agricultural implements built to withstand demanding field operations.`,
+    img: '/images/img_a02a71599b3f.webp',
+    tag: 'Local Manufacturing',
+    benefits: [
+      'Official license for manufacturing special purpose machinery',
+      'Custom pump skid frames and manifold headers built to spec',
+      'High-grade structural steel welding and corrosion protection',
+      'Faster turnaround time and localized engineering support'
+    ],
+    gallery: [
+      '/images/img_e20afcb69bfe.webp'
     ]
   },
   {
     id: 'solar-power',
     slug: 'solar-power-system-installation',
     icon: Sun,
-    title: 'Solar Power System Installation',
-    shortDesc: 'Sustainable solar energy solutions for off-grid irrigation pumps and whole-farm renewable power systems.',
-    description: `Bring power to where you need it most with our sustainable solar solutions. We design and install high-efficiency photovoltaic systems specifically for off-grid irrigation pumping and general farm energy needs. Reduce your carbon footprint and your operating costs simultaneously with Ethio-Rain's renewable energy expertise.`,
-    img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1350&auto=format&fit=crop',
-    tag: 'Renewable',
+    title: 'Solar Power System Supply and Installation',
+    shortDesc: 'Clean renewable solar pumping solutions and whole-farm photovoltaic arrays for reliable off-grid irrigation.',
+    description: `Eliminate dependence on erratic grid power and expensive diesel fuel. Ethio-Rain designs and installs complete solar pumping systems: high-yield monocrystalline PV panels, heavy-duty solar mounting structures, smart MPPT solar pump inverters, and DC/AC submersible pumping units. Our solar systems ensure free, dependable daytime irrigation across remote agricultural lands throughout Ethiopia.`,
+    img: '/images/img_efbdb6f76d5d.webp',
+    tag: 'Renewable Solar',
     benefits: [
-      'Off-grid energy independence',
-      'Significantly reduced energy costs',
-      'Eco-friendly farm operations',
-      'Low maintenance and reliable'
+      'Zero fuel expense and complete off-grid energy independence',
+      'High-efficiency MPPT controllers maximizing morning and evening flow',
+      'Rugged, dust- and heat-resistant photovoltaic arrays',
+      'Low maintenance with automated dry-run protection'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=80',
-      'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&q=80',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWmfpPpxYQbf8yN12EbLzHYSJQtP3PrYbb1bBedX9sA-TXqO6MfZ1ZPKBH&s=10'
+      '/images/img_3c36a87e5c1a.webp',
+      '/images/img_a2da2040ed61.webp'
     ]
   },
+  {
+    id: 'farm-equipment',
+    slug: 'farm-equipment-machinery',
+    icon: Truck,
+    title: 'Supply of Farm Equipment and Machinery',
+    shortDesc: 'Direct procurement and supply of specialized agricultural implements, tractors, planters, and harvesting machinery.',
+    description: `Beyond irrigation infrastructure, Ethio-Rain supplies high-quality agricultural machinery and farm implements to accelerate modernization in Ethiopia. We supply precision row-crop planters, seed drills, multi-furrow disc ploughs, power tillers, and specialized farm transport equipment, helping commercial growers and agricultural enterprises scale production efficiently.`,
+    img: '/images/img_93a0ffb7d5da.webp',
+    tag: 'Farm Mechanization',
+    benefits: [
+      'Access to international standard agricultural machinery brands',
+      'Precision row-crop planters, seeders, and tillage implements',
+      'Spare parts availability and operator maintenance guidance',
+      'Enhances land preparation efficiency and planting speed'
+    ],
+    gallery: [
+      '/images/img_a92dad3e2e0b.webp'
+    ]
+  },
+  {
+    id: 'pipe-fitting-supply',
+    slug: 'pipe-and-fitting-supply',
+    icon: Layers,
+    title: 'Pipe and Fitting Supply (HDPE, PVC & Steel)',
+    shortDesc: 'Certified supply of HDPE butt-fusion pipes, uPVC pressure pipes, compression fittings, and heavy-gauge riser columns.',
+    description: `A reliable water distribution system depends on top-grade piping. Ethio-Rain stocks and supplies certified high-density polyethylene (HDPE PE100) pipes in diameters up to 630mm, uPVC pressure pipes, stainless steel and galvanized deep well riser columns, electro-fusion fittings, and compression couplers. We also offer on-site butt-fusion welding and hydrostatic pressure testing for large infrastructure schemes.`,
+    img: '/images/img_a02a71599b3f.webp',
+    tag: 'Piping & Fittings',
+    benefits: [
+      'Full inventory of HDPE (PE100), uPVC, and galvanized riser pipes',
+      'ISO / DIN standard compression and electro-fusion fittings',
+      'Certified butt-fusion welding and hydrostatic pressure testing services',
+      'High resistance to corrosion, UV exposure, and water hammer'
+    ],
+    gallery: [
+      '/images/img_6804f054f925.webp'
+    ]
+  }
 ]

@@ -2,11 +2,12 @@ import { CheckCircle, ArrowRight } from 'lucide-react'
 import ScrollReveal from './ScrollReveal'
 
 const points = [
-  'Over 15 years of field experience in Ethiopia',
-  'Certified engineers and installation teams',
-  'End-to-end project management from design to support',
-  'Partnerships with global irrigation technology brands',
-  'Proven 40%+ reduction in water usage for clients',
+  'Grade-1 Water Works Contractor & Special Purpose Machinery Manufacturer',
+  'Established in 2003 E.C. – Over 15 years of engineering excellence in Ethiopia',
+  '35+ major projects executed across commercial farms and government bureaus',
+  'Over 10,000+ hectares irrigated through modern center pivot and drip schemes',
+  'Global technology partnerships with Valley Irrigation, Rain Bird, and Wilo',
+  'Team of 18 permanent and contract irrigation engineers and technical specialists',
 ]
 
 export default function About() {
@@ -17,19 +18,19 @@ export default function About() {
         <ScrollReveal animation="fade-right" className="relative">
           <div className="grid grid-cols-2 gap-4">
             <img
-              src="https://www.image2url.com/r2/default/images/1781966388924-952df7de-a398-4ba5-aaf7-711df166f35a.jpg"
+              src="/images/img_f4fc84da4ae0.webp"
               alt="Farm irrigation"
               className="rounded-3xl object-cover h-72 w-full shadow-xl dark:shadow-green-900/20"
             />
             <div className="flex flex-col gap-4 mt-8">
               <img
-                src="https://www.image2url.com/r2/default/images/1781966195057-e27b6d36-0573-40aa-9944-dcec3d88364d.jpg"
+                src="/images/img_cbfe287c3a29.webp"
 
                 alt="Water sprinkler"
                 className="rounded-3xl object-cover h-40 w-full shadow-lg dark:shadow-green-900/10"
               />
               <img
-                src="https://www.image2url.com/r2/default/images/1781966319670-2036f450-1776-443e-80b0-82b4f34f815b.jpg"
+                src="/images/img_aa679fa269f4.webp"
 
                 alt="Lush crops"
                 className="rounded-3xl object-cover h-[116px] w-full shadow-lg dark:shadow-green-900/10"
@@ -39,8 +40,8 @@ export default function About() {
 
           {/* Floating badge */}
           <div className="absolute -bottom-6 -left-4 btn-primary text-white rounded-2xl p-5 shadow-2xl dark:shadow-green-900/40">
-            <div className="text-3xl font-black">15+</div>
-            <div className="text-white text-sm font-medium">Years of Excellence</div>
+            <div className="text-3xl font-black">Grade 1</div>
+            <div className="text-white text-sm font-medium">Water Works Contractor</div>
           </div>
 
           {/* Green circle decoration */}
@@ -56,11 +57,11 @@ export default function About() {
             <span className="gradient-text">Behind Ethio-Rain</span>
           </h2>
           <p className="text-gray-500 dark:text-white/60 leading-relaxed mb-10 transition-colors text-lg">
-            Ethio Rain Irrigation System PLC is an Ethiopian company engaged in surveying,
-            study, design, manufacturing, consulting, supply and installation of comprehensive
-            irrigation & water supply systems, maintenance and after sales services. The
-            company was established in 2003 E.C to set up the most recent and advanced
-            center pivot Technology Company in Ethiopia
+            Ethio-Rain Irrigation Systems PLC is an Ethiopian Grade-1 Water Works Contractor and 
+            special-purpose machinery manufacturer established in 2003 E.C. We are engaged in surveying, 
+            feasibility studies, study & design, BOQ preparation, manufacturing, consulting, equipment supply, 
+            installation, commissioning, training, supervision, water supply & electromechanical systems, 
+            irrigation control systems, complete greenhouse solutions, and solar power installations across Ethiopia.
           </p>
 
           <ul className="space-y-4 mb-10">
@@ -74,8 +75,8 @@ export default function About() {
 
           <div className="flex gap-12 mb-10 pb-8 border-b dark:border-gray-800 border-gray-100 transition-colors">
             {[
-              { val: '40%', label: 'Less Water Used' },
-              { val: '60%', label: 'Higher Crop Yield' },
+              { val: '10,000+', label: 'Hectares Irrigated' },
+              { val: '35+', label: 'Major Projects Done' },
             ].map(s => (
               <div key={s.label}>
                 <div className="text-3xl font-black gradient-text">{s.val}</div>

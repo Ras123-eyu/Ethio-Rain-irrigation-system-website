@@ -49,7 +49,7 @@ export default function Contact() {
       {/* Background Greenery Overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
-          src="https://plus.unsplash.com/premium_photo-1661914051745-c374a90ba861?q=80&w=854&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="/images/img_4ab4e79145ef.webp"
           alt="Lush agricultural irrigation field"
           loading="lazy"
           className="w-full h-full object-cover opacity-20"
@@ -307,13 +307,19 @@ export default function Contact() {
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Direct Lines</div>
+                    <div className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Direct Phone Lines</div>
                     <div className="mt-1 space-y-1">
-                      <a href="tel:+251910615757" className="block text-white hover:text-[#00D4FF] font-semibold transition">
-                        +251 910 61 57 57
+                      <a href="tel:+251901864466" className="block text-white hover:text-[#00D4FF] font-semibold transition">
+                        +251 901 86 44 66
                       </a>
                       <a href="tel:+251912882881" className="block text-white hover:text-[#00D4FF] font-semibold transition">
                         +251 912 88 28 81
+                      </a>
+                      <a href="tel:+251910615757" className="block text-white hover:text-[#00D4FF] font-semibold transition">
+                        +251 910 61 57 57
+                      </a>
+                      <a href="tel:+251118886644" className="block text-white hover:text-[#00D4FF] font-semibold transition">
+                        +251 118 88 66 44 <span className="text-xs text-slate-400 font-normal">(Office Landline)</span>
                       </a>
                     </div>
                   </div>
@@ -324,10 +330,23 @@ export default function Contact() {
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Email Support</div>
-                    <a href="mailto:info@ethiorain.et" className="text-white hover:text-[#00D4FF] font-semibold mt-1 block transition">
-                      info@ethiorain.et
+                    <div className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Official Email</div>
+                    <a href="mailto:info@ethiorain.com" className="text-white hover:text-[#00D4FF] font-semibold mt-1 block transition">
+                      info@ethiorain.com
                     </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-2xl bg-[#00D4FF]/15 text-[#00D4FF] border border-[#00D4FF]/30 shrink-0">
+                    <ShieldCheck className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Legal Qualification</div>
+                    <div className="text-white font-semibold mt-1 leading-snug">
+                      Grade-1 Water Works Contractor<br />
+                      <span className="text-xs text-slate-300 font-normal">Manufacturing of Special Purpose Machinery</span>
+                    </div>
                   </div>
                 </div>
 

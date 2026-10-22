@@ -1,8 +1,8 @@
-import { useEffect, useState, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import ScrollReveal from '../components/ScrollReveal'
 import { projectsData } from '../data/projects'
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react'
 import SEO from '../components/SEO'
 
 const PROJECTS_PER_PAGE = 6
@@ -14,10 +14,6 @@ export default function ProjectsPage() {
   const totalPages = Math.ceil(projectsData.length / PROJECTS_PER_PAGE)
   const startIndex = (currentPage - 1) * PROJECTS_PER_PAGE
   const currentProjects = projectsData.slice(startIndex, startIndex + PROJECTS_PER_PAGE)
-
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
 
   const goToPage = (page) => {
     if (page < 1 || page > totalPages) return

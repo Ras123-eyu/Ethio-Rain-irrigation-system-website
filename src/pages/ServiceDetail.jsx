@@ -1,17 +1,13 @@
 import { useParams, Link } from 'react-router-dom'
 import { services } from '../data/services'
-import { ArrowLeft, CheckCircle, Mail, Phone, ChevronRight, X, Search } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { ArrowLeft, CheckCircle, X, Search } from 'lucide-react'
+import { useState } from 'react'
 import SEO from '../components/SEO'
 
 export default function ServiceDetail() {
   const { slug } = useParams()
   const service = services.find(s => s.slug === slug)
   const [selectedImg, setSelectedImg] = useState(null)
-
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [slug])
 
   if (!service) {
     return (
@@ -98,17 +94,17 @@ export default function ServiceDetail() {
             <p className="text-sm text-gray-500 dark:text-white/40 mb-10 font-medium">Interested in {title} for your project? Contact our team for an expert consultation.</p>
             
             <div className="space-y-6 mb-10">
-              <a href="mailto:info@ethiorain.et" className="flex items-center gap-4 dark:text-white/80 text-gray-700 hover:text-brand-cyan font-bold transition-all group">
+              <a href="mailto:info@ethiorain.com" className="flex items-center gap-4 dark:text-white/80 text-gray-700 hover:text-brand-cyan font-bold transition-all group">
                 <div className="bg-brand-cyan/10 p-2.5 rounded-xl border border-brand-cyan/20 group-hover:bg-brand-cyan/20 transition-all">
                   <Mail className="w-5 h-5 text-brand-cyan" />
                 </div>
-                <span>info@ethiorain.et</span>
+                <span>info@ethiorain.com</span>
               </a>
-              <a href="tel:+251910615757" className="flex items-center gap-4 dark:text-white/80 text-gray-700 hover:text-brand-cyan font-bold transition-all group">
+              <a href="tel:+251901864466" className="flex items-center gap-4 dark:text-white/80 text-gray-700 hover:text-brand-cyan font-bold transition-all group">
                 <div className="bg-brand-cyan/10 p-2.5 rounded-xl border border-brand-cyan/20 group-hover:bg-brand-cyan/20 transition-all">
                   <Phone className="w-5 h-5 text-brand-cyan" />
                 </div>
-                <span>+251 910 61 57 57 / +251 912 88 28 81</span>
+                <span>+251 901 86 44 66 / +251 912 88 28 81</span>
               </a>
             </div>
 
