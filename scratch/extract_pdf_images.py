@@ -1,6 +1,8 @@
 import os
 from pathlib import Path
+# pyrefly: ignore[missing-import]
 from pypdf import PdfReader
+# pyrefly: ignore[missing-import]
 from PIL import Image
 import io
 

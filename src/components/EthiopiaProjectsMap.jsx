@@ -476,7 +476,7 @@ export default function EthiopiaProjectsMap() {
 
                 {/* Case Study Link */}
                 <Link
-                  to={`/projects/${selectedProject.slug}`}
+                  to={`/project/${selectedProject.slug}`}
                   className="w-full bg-gradient-to-r from-[#0052FF] to-[#00D4FF] text-white font-black py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2 hover:opacity-95 transition-all shadow-lg shadow-[#0052FF]/25 text-xs uppercase tracking-wider"
                 >
                   <span>View Full Scheme Case Study</span>
