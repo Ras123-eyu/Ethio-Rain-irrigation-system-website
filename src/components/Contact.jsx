@@ -13,17 +13,48 @@ export default function Contact() {
     location: '',
     message: ''
   })
+  const [honeypot, setHoneypot] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [telegramDelivered, setTelegramDelivered] = useState(false)
+  const [rateLimitError, setRateLimitError] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setRateLimitError('')
+
+    // Security Check 1: Honeypot trap check (bots automatically fill all inputs)
+    if (honeypot) {
+      console.warn('[Security] Automated bot submission rejected.')
+      setSubmitted(true)
+      return
+    }
+
+    // Security Check 2: Client-side rate limiting (prevents spam flooding)
+    const lastSubmitTime = Number(sessionStorage.getItem('last_lead_ts') || 0)
+    const now = Date.now()
+    if (now - lastSubmitTime < 20000) {
+      setRateLimitError('Please wait 20 seconds before submitting another quotation request.')
+      return
+    }
+
     setIsSubmitting(true)
 
+    // Security Check 3: Sanitize and trim fields
+    const sanitizedData = {
+      name: formData.name.trim().slice(0, 100),
+      phone: formData.phone.trim().slice(0, 30),
+      email: formData.email.trim().slice(0, 120),
+      systemType: formData.systemType.slice(0, 80),
+      farmArea: formData.farmArea.trim().slice(0, 15),
+      location: formData.location.trim().slice(0, 120),
+      message: formData.message.trim().slice(0, 1500)
+    }
+
     try {
-      const res = await sendTelegramQuotation(formData)
+      const res = await sendTelegramQuotation(sanitizedData)
       setTelegramDelivered(res.success)
+      sessionStorage.setItem('last_lead_ts', String(now))
       setSubmitted(true)
     } catch {
       setTelegramDelivered(false)
@@ -132,6 +163,27 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot field - Hidden from legitimate users, catches malicious automated spam bots */}
+                <div className="hidden" aria-hidden="true" style={{ display: 'none' }}>
+                  <label htmlFor="website_url_hp">Leave this field blank</label>
+                  <input
+                    id="website_url_hp"
+                    type="text"
+                    name="website_url_hp"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    tabIndex="-1"
+                    autoComplete="off"
+                  />
+                </div>
+
+                {/* Rate limit warning banner */}
+                {rateLimitError && (
+                  <div className="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs flex items-center gap-2">
+                    <span>⚠️ {rateLimitError}</span>
+                  </div>
+                )}
+
                 <div className="flex items-center justify-between pb-3 border-b border-slate-800">
                   <span className="text-xs uppercase font-extrabold tracking-widest text-[#00D4FF]">
                     Farm Details & Requirements
@@ -150,6 +202,7 @@ export default function Contact() {
                     <input
                       type="text"
                       required
+                      maxLength={100}
                       placeholder="e.g. Abebe Bikila"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -164,6 +217,7 @@ export default function Contact() {
                     <input
                       type="tel"
                       required
+                      maxLength={30}
                       placeholder="e.g. +251 91 123 4567"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -198,6 +252,7 @@ export default function Contact() {
                     <input
                       type="number"
                       min="1"
+                      max="100000"
                       placeholder="e.g. 50"
                       value={formData.farmArea}
                       onChange={(e) => setFormData({ ...formData, farmArea: e.target.value })}
@@ -213,6 +268,7 @@ export default function Contact() {
                     </label>
                     <input
                       type="text"
+                      maxLength={120}
                       placeholder="e.g. Awash Valley, Oromia, Amhara"
                       value={formData.location}
                       onChange={(e) => setFormData({ ...formData, location: e.target.value })}
@@ -226,6 +282,7 @@ export default function Contact() {
                     </label>
                     <input
                       type="email"
+                      maxLength={120}
                       placeholder="name@company.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -240,6 +297,7 @@ export default function Contact() {
                   </label>
                   <textarea
                     rows="3"
+                    maxLength={1500}
                     placeholder="Describe your water source (river, borehole, reservoir), soil conditions, or timeline..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}

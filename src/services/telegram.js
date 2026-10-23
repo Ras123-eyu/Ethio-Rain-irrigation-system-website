@@ -3,9 +3,9 @@
  */
 
 export async function sendTelegramQuotation(data) {
-  const botToken =
-    import.meta.env.VITE_TELEGRAM_BOT_TOKEN || '8957856934:AAHwJ2XBC_v3jK1ji2-4N7yFlhP4eV8vGZE'
-  const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID || '327233432'
+  // Read credentials exclusively from environment variables to prevent secret leakage
+  const botToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN
+  const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID
 
   const timestamp = new Date().toLocaleString('en-US', {
     timeZone: 'Africa/Addis_Ababa',
@@ -75,11 +75,18 @@ export async function sendTelegramQuotation(data) {
   }
 }
 
+/**
+ * Sanitizes and escapes user input before rendering in Telegram HTML parse mode.
+ * Protects against HTML injection, tag breaking, and non-printable control characters.
+ */
 function escapeHtml(str) {
   if (!str) return ''
   return String(str)
+    .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '')
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+    .slice(0, 1500)
 }

@@ -1,16 +1,32 @@
 # =======================================================================
-# Ethio-Rain Irrigation Systems - Apache Configuration for Yegara Host
+# Ethio-Rain Irrigation Systems - Production Security Configuration
 # =======================================================================
+
+# 1. Disable Directory Index Browsing (prevents file enumeration attacks)
+Options -Indexes
+
+# 2. Block access to hidden files (.env, .git, etc.) and server config files
+<IfModule mod_authz_core.c>
+  <FilesMatch "(^\.|\.(env|log|json|lock|md|toml|yml|yaml|zip|sh|py|config\.js)$)">
+    Require all denied
+  </FilesMatch>
+</IfModule>
+<IfModule !mod_authz_core.c>
+  <FilesMatch "(^\.|\.(env|log|json|lock|md|toml|yml|yaml|zip|sh|py|config\.js)$)">
+    Order allow,deny
+    Deny from all
+  </FilesMatch>
+</IfModule>
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # 1. Force HTTPS (Uncomment if your SSL certificate is installed in cPanel)
-  # RewriteCond %{HTTPS} !=on
-  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  # 3. Force HTTPS for all traffic (encrypts transit & mitigates MitM)
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # 2. SPA Fallback Routing: send all requests to index.html unless the file or folder exists
+  # 4. SPA Fallback Routing: send all requests to index.html unless the file or folder exists
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
@@ -47,10 +63,27 @@
 </IfModule>
 
 # =======================================================================
-# Security Headers
+# Cyber Security & Hardening Headers
 # =======================================================================
 <IfModule mod_headers.c>
+  # Clickjacking Protection
+  Header set X-Frame-Options "SAMEORIGIN"
+
+  # Prevent MIME-Sniffing
   Header set X-Content-Type-Options "nosniff"
+
+  # Legacy XSS Filter protection for older browsers
   Header set X-XSS-Protection "1; mode=block"
+
+  # Privacy & Referrer Leaks Protection
   Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Hardware / API Isolation Policy
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+
+  # HTTP Strict Transport Security (HSTS)
+  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+  # Content Security Policy (CSP)
+  Header set Content-Security-Policy "default-src 'self'; img-src 'self' data: https: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self' https: wss:; frame-src 'self' https://www.google.com; object-src 'none'; base-uri 'self';"
 </IfModule>

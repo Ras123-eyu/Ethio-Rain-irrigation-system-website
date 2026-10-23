@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Prevent indexing of build artifacts and scratch files
+Disallow: /scratch/
+Disallow: /dist/
+
+Sitemap: https://ethiorain.com/sitemap.xml
