@@ -70,33 +70,33 @@ export default function WaterEstimator() {
   }
 
   return (
-    <section className="py-24 bg-gradient-to-b from-[#030712] via-[#060D1A] to-[#030712] text-white relative overflow-hidden" id="spec-calculator">
+    <section className="py-14 sm:py-24 bg-gradient-to-b from-[#030712] via-[#060D1A] to-[#030712] text-white relative overflow-hidden" id="spec-calculator">
       {/* Background Ambient Glows */}
       <div className="absolute top-1/3 -left-32 w-96 h-96 bg-[#0052FF]/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 -right-32 w-96 h-96 bg-[#00D4FF]/15 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <ScrollReveal animation="fade-up">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 bg-[#00D4FF]/10 border border-[#00D4FF]/30 rounded-full px-4 py-1.5 mb-4 shadow-[0_0_15px_rgba(0,212,255,0.2)]">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+            <div className="inline-flex items-center gap-2 bg-[#00D4FF]/10 border border-[#00D4FF]/30 rounded-full px-3.5 sm:px-4 py-1.5 mb-3 sm:mb-4 shadow-[0_0_15px_rgba(0,212,255,0.2)]">
               <Sparkles className="w-3.5 h-3.5 text-[#00D4FF]" />
-              <span className="text-[#00D4FF] text-xs font-bold uppercase tracking-widest">
+              <span className="text-[#00D4FF] text-[11px] sm:text-xs font-bold uppercase tracking-widest">
                 Interactive Engineering Tool
               </span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight">
               Instant Preliminary <span className="gradient-text">Project Spec & PDF</span>
             </h2>
-            <p className="text-slate-300 mt-4 text-base md:text-lg leading-relaxed">
+            <p className="text-slate-300 mt-3 sm:mt-4 text-sm sm:text-base md:text-lg leading-relaxed">
               Configure your land size, water source, and power setup to generate an engineering feasibility estimate and download a corporate specification sheet in seconds.
             </p>
           </div>
         </ScrollReveal>
 
         <ScrollReveal animation="fade-up" delay={150}>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start bg-[#0B172B]/95 backdrop-blur-2xl border border-[#00D4FF]/20 rounded-3xl p-6 md:p-10 shadow-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start bg-[#0B172B]/95 backdrop-blur-2xl border border-[#00D4FF]/20 rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 shadow-2xl">
             {/* Input Controls Column */}
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-6 space-y-5 sm:space-y-6">
               {/* Project / Farm Name Input */}
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
@@ -107,7 +107,7 @@ export default function WaterEstimator() {
                   value={farmName}
                   onChange={(e) => setFarmName(e.target.value)}
                   placeholder="e.g. Oromia Commercial Farm Project"
-                  className="w-full bg-[#060D1A] border border-slate-700 focus:border-[#00D4FF] rounded-xl p-3 text-white text-sm focus:outline-none transition-colors"
+                  className="w-full bg-[#060D1A] border border-slate-700 focus:border-[#00D4FF] rounded-xl p-3 text-white text-base md:text-sm focus:outline-none transition-colors"
                 />
               </div>
 
@@ -136,7 +136,7 @@ export default function WaterEstimator() {
               </div>
 
               {/* Crop & Irrigation Technology Dropdowns */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
                     Primary Crop
@@ -144,7 +144,7 @@ export default function WaterEstimator() {
                   <select
                     value={cropType}
                     onChange={(e) => setCropType(e.target.value)}
-                    className="w-full bg-[#060D1A] border border-slate-700 rounded-xl p-3 text-white text-sm focus:border-[#00D4FF] focus:outline-none"
+                    className="w-full bg-[#060D1A] border border-slate-700 rounded-xl p-3 text-white text-base md:text-sm focus:border-[#00D4FF] focus:outline-none"
                   >
                     <option value="Wheat / Grains">Wheat, Maize & Cereals</option>
                     <option value="Sugarcane / Cotton">Sugarcane & Cotton</option>
@@ -161,7 +161,7 @@ export default function WaterEstimator() {
                   <select
                     value={irrigationMethod}
                     onChange={(e) => setIrrigationMethod(e.target.value)}
-                    className="w-full bg-[#060D1A] border border-slate-700 rounded-xl p-3 text-white text-sm focus:border-[#00D4FF] focus:outline-none"
+                    className="w-full bg-[#060D1A] border border-slate-700 rounded-xl p-3 text-white text-base md:text-sm focus:border-[#00D4FF] focus:outline-none"
                   >
                     <option value="CenterPivot">Valley Center Pivot</option>
                     <option value="Drip">Precision Drip Irrigation</option>
@@ -171,7 +171,7 @@ export default function WaterEstimator() {
               </div>
 
               {/* Water Source & Power Source */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
                     Water Source
@@ -179,7 +179,7 @@ export default function WaterEstimator() {
                   <select
                     value={waterSource}
                     onChange={(e) => setWaterSource(e.target.value)}
-                    className="w-full bg-[#060D1A] border border-slate-700 rounded-xl p-3 text-white text-sm focus:border-[#00D4FF] focus:outline-none"
+                    className="w-full bg-[#060D1A] border border-slate-700 rounded-xl p-3 text-white text-base md:text-sm focus:border-[#00D4FF] focus:outline-none"
                   >
                     <option value="Deep Production Borehole">Deep Production Borehole</option>
                     <option value="River / Lake Intake">River / Lake Intake</option>
@@ -195,7 +195,7 @@ export default function WaterEstimator() {
                   <select
                     value={powerSource}
                     onChange={(e) => setPowerSource(e.target.value)}
-                    className="w-full bg-[#060D1A] border border-slate-700 rounded-xl p-3 text-white text-sm focus:border-[#00D4FF] focus:outline-none"
+                    className="w-full bg-[#060D1A] border border-slate-700 rounded-xl p-3 text-white text-base md:text-sm focus:border-[#00D4FF] focus:outline-none"
                   >
                     <option value="Solar PV Pumping Station">Solar PV Array (Off-Grid)</option>
                     <option value="Synchronized Diesel Generator">Heavy Diesel Generator</option>
@@ -213,60 +213,60 @@ export default function WaterEstimator() {
             {/* Results & Actions Column */}
             <div className="lg:col-span-6 space-y-4">
               {/* Engineering Metrics Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="bg-[#060D1A] p-5 rounded-2xl border border-[#00D4FF]/20 flex flex-col justify-between hover:border-[#00D4FF]/40 transition-colors">
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
+                <div className="bg-[#060D1A] p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-[#00D4FF]/20 flex flex-col justify-between hover:border-[#00D4FF]/40 transition-colors">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs text-slate-400 uppercase font-semibold">Annual Water Saved</span>
-                    <div className="w-8 h-8 rounded-lg bg-[#00D4FF]/10 text-[#00D4FF] flex items-center justify-center">
-                      <Droplets className="w-4 h-4" />
+                    <span className="text-[10px] sm:text-xs text-slate-400 uppercase font-semibold">Water Saved</span>
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#00D4FF]/10 text-[#00D4FF] flex items-center justify-center shrink-0">
+                      <Droplets className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </div>
                   </div>
-                  <p className="text-2xl font-black text-white mt-3">{waterSavedM3.toLocaleString()} m³</p>
-                  <span className="text-[11px] text-[#10B981] font-bold mt-1">~{Math.round(efficiencyRate * 100)}% conservation vs. flood</span>
+                  <p className="text-lg sm:text-2xl font-black text-white mt-2 sm:mt-3">{waterSavedM3.toLocaleString()} m³</p>
+                  <span className="text-[10px] sm:text-[11px] text-[#10B981] font-bold mt-1">~{Math.round(efficiencyRate * 100)}% conservation</span>
                 </div>
 
-                <div className="bg-[#060D1A] p-5 rounded-2xl border border-[#00D4FF]/20 flex flex-col justify-between hover:border-[#00D4FF]/40 transition-colors">
+                <div className="bg-[#060D1A] p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-[#00D4FF]/20 flex flex-col justify-between hover:border-[#00D4FF]/40 transition-colors">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs text-slate-400 uppercase font-semibold">Projected Yield Boost</span>
-                    <div className="w-8 h-8 rounded-lg bg-[#10B981]/10 text-[#10B981] flex items-center justify-center">
-                      <TrendingUp className="w-4 h-4" />
+                    <span className="text-[10px] sm:text-xs text-slate-400 uppercase font-semibold">Yield Boost</span>
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#10B981]/10 text-[#10B981] flex items-center justify-center shrink-0">
+                      <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </div>
                   </div>
-                  <p className="text-2xl font-black text-[#10B981] mt-3">+{yieldBoostPercent}%</p>
-                  <span className="text-[11px] text-slate-400 mt-1">Consistent root-zone delivery</span>
+                  <p className="text-lg sm:text-2xl font-black text-[#10B981] mt-2 sm:mt-3">+{yieldBoostPercent}%</p>
+                  <span className="text-[10px] sm:text-[11px] text-slate-400 mt-1">Root-zone delivery</span>
                 </div>
 
-                <div className="bg-[#060D1A] p-5 rounded-2xl border border-[#00D4FF]/20 flex flex-col justify-between hover:border-[#00D4FF]/40 transition-colors">
+                <div className="bg-[#060D1A] p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-[#00D4FF]/20 flex flex-col justify-between hover:border-[#00D4FF]/40 transition-colors">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs text-slate-400 uppercase font-semibold">Peak Flow Requirement</span>
-                    <div className="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
-                      <Gauge className="w-4 h-4" />
+                    <span className="text-[10px] sm:text-xs text-slate-400 uppercase font-semibold">Peak Flow</span>
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                      <Gauge className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </div>
                   </div>
-                  <p className="text-2xl font-black text-white mt-3">{flowRateM3h} m³/hr</p>
-                  <span className="text-[11px] text-slate-400 mt-1">Recommended: {recommendedPipe}</span>
+                  <p className="text-lg sm:text-2xl font-black text-white mt-2 sm:mt-3">{flowRateM3h} m³/hr</p>
+                  <span className="text-[10px] sm:text-[11px] text-slate-400 mt-1 truncate">{recommendedPipe}</span>
                 </div>
 
-                <div className="bg-[#060D1A] p-5 rounded-2xl border border-[#00D4FF]/20 flex flex-col justify-between hover:border-[#00D4FF]/40 transition-colors">
+                <div className="bg-[#060D1A] p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-[#00D4FF]/20 flex flex-col justify-between hover:border-[#00D4FF]/40 transition-colors">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs text-slate-400 uppercase font-semibold">Fuel / Energy Savings</span>
-                    <div className="w-8 h-8 rounded-lg bg-[#F59E0B]/10 text-[#F59E0B] flex items-center justify-center">
-                      <Sun className="w-4 h-4" />
+                    <span className="text-[10px] sm:text-xs text-slate-400 uppercase font-semibold">Energy Saved</span>
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#F59E0B]/10 text-[#F59E0B] flex items-center justify-center shrink-0">
+                      <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </div>
                   </div>
-                  <p className="text-2xl font-black text-white mt-3">{dieselSavedLiters.toLocaleString()} L/yr</p>
-                  <span className="text-[11px] text-[#F59E0B] font-bold mt-1">Estimated ~{estPowerKw} kW pump array</span>
+                  <p className="text-lg sm:text-2xl font-black text-white mt-2 sm:mt-3">{dieselSavedLiters.toLocaleString()} L/yr</p>
+                  <span className="text-[10px] sm:text-[11px] text-[#F59E0B] font-bold mt-1">~{estPowerKw} kW pump</span>
                 </div>
               </div>
 
               {/* Action Buttons Box */}
-              <div className="bg-gradient-to-br from-[#0B1528] to-[#060D1A] border border-[#00D4FF]/30 p-6 rounded-2xl space-y-4">
+              <div className="bg-gradient-to-br from-[#0B1528] to-[#060D1A] border border-[#00D4FF]/30 p-4 sm:p-6 rounded-xl sm:rounded-2xl space-y-4">
                 <div className="flex items-start justify-between">
                   <div>
                     <span className="text-[10px] uppercase font-black tracking-widest text-[#00D4FF]">
                       Export Corporate Spec Sheet
                     </span>
-                    <h4 className="text-base font-bold text-white mt-0.5">
+                    <h4 className="text-sm sm:text-base font-bold text-white mt-0.5">
                       Download Official Preliminary Spec Sheet (PDF)
                     </h4>
                     <p className="text-xs text-slate-400 mt-1">
@@ -280,7 +280,7 @@ export default function WaterEstimator() {
                   <button
                     onClick={handleDownloadPDF}
                     disabled={isGeneratingPdf}
-                    className="w-full bg-[#00D4FF] hover:bg-[#00B4D8] text-slate-950 font-black text-xs py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition-all transform hover:scale-[1.02] shadow-lg shadow-[#00D4FF]/20 cursor-pointer disabled:opacity-50"
+                    className="w-full bg-[#00D4FF] hover:bg-[#00B4D8] text-slate-950 font-black text-xs sm:text-sm min-h-[48px] py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg shadow-[#00D4FF]/20 cursor-pointer disabled:opacity-50"
                   >
                     {isGeneratingPdf ? (
                       <>
@@ -303,7 +303,7 @@ export default function WaterEstimator() {
                   {/* Request Formal Quotation */}
                   <button
                     onClick={handlePrefillQuote}
-                    className="w-full bg-[#0052FF] hover:bg-[#0038E2] text-white font-black text-xs py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition-all transform hover:scale-[1.02] shadow-lg shadow-[#0052FF]/30 cursor-pointer"
+                    className="w-full bg-[#0052FF] hover:bg-[#0038E2] text-white font-black text-xs sm:text-sm min-h-[48px] py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg shadow-[#0052FF]/30 cursor-pointer"
                   >
                     <span>Request Quotation</span>
                     <ArrowRight className="w-4 h-4" />

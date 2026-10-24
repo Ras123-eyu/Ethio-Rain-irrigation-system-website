@@ -50,6 +50,8 @@ export default function TestimonialsPreview() {
   const [isPaused, setIsPaused] = useState(false)
   const [expandedResponse, setExpandedResponse] = useState({ 1: true, 2: true }) // default expanded for realism
   const [showOriginalLanguage, setShowOriginalLanguage] = useState({ 1: true }) // Show Amharic by default for Gulelat
+  const [touchStart, setTouchStart] = useState(null)
+  const [touchEnd, setTouchEnd] = useState(null)
 
   const filterOptions = useMemo(() => {
     return [
@@ -77,6 +79,22 @@ export default function TestimonialsPreview() {
     setActive((p) => (p - 1 + total) % total)
   }
 
+  const handleTouchStart = (e) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    if (distance > 45) next()
+    else if (distance < -45) prev()
+  }
+
   // Auto-slide carousel every 6.5s when not paused
   useEffect(() => {
     if (viewMode !== 'carousel' || isPaused) return
@@ -101,41 +119,41 @@ export default function TestimonialsPreview() {
   }
 
   return (
-    <section id="testimonials" className="py-20 transition-colors duration-300 dark:bg-gray-950 bg-gray-50 overflow-hidden relative">
+    <section id="testimonials" className="py-14 sm:py-20 transition-colors duration-300 dark:bg-gray-950 bg-gray-50 overflow-hidden relative">
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-brand-cyan/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Header with Google Brand Badge */}
-        <ScrollReveal animation="fade-up" className="text-center mb-10">
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow-xs mb-4">
+        <ScrollReveal animation="fade-up" className="text-center mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow-xs mb-3 sm:mb-4">
             <GoogleIcon className="w-4 h-4 shrink-0" />
-            <span className="text-xs font-semibold text-gray-700 dark:text-gray-200">
+            <span className="text-[11px] sm:text-xs font-semibold text-gray-700 dark:text-gray-200">
               100% Genuine Google Maps Reviews
             </span>
-            <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded-full">
+            <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded-full">
               ★ {googleReviewsMeta.rating} / 5.0
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold dark:text-white text-gray-900 mb-4 transition-colors">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold dark:text-white text-gray-900 mb-3 sm:mb-4 transition-colors">
             Ethio Rain Irrigation Systems{' '}
             <span className="gradient-text">Google Reviews</span>
           </h2>
-          <p className="max-w-2xl mx-auto text-sm sm:text-base text-gray-600 dark:text-gray-400">
+          <p className="max-w-2xl mx-auto text-xs sm:text-base text-gray-600 dark:text-gray-400">
             Real, unedited reviews published by customers on our verified Google Business Profile in Addis Ababa.
           </p>
-          <div className="section-divider mx-auto mt-5" />
+          <div className="section-divider mx-auto mt-4 sm:mt-5" />
         </ScrollReveal>
 
         {/* Google Summary Rating Banner */}
-        <ScrollReveal animation="fade-up" delay={100} className="mb-10">
-          <div className="bg-white dark:bg-gray-900/90 border border-gray-200 dark:border-gray-800 rounded-3xl p-5 sm:p-7 shadow-sm backdrop-blur-sm">
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+        <ScrollReveal animation="fade-up" delay={100} className="mb-8 sm:mb-10">
+          <div className="bg-white dark:bg-gray-900/90 border border-gray-200 dark:border-gray-800 rounded-2xl sm:rounded-3xl p-4 sm:p-7 shadow-sm backdrop-blur-sm">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-5 sm:gap-6">
               {/* Left: Overall Score & Stars */}
-              <div className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-4 sm:gap-5">
-                <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 text-amber-500 shrink-0">
-                  <span className="text-2xl font-black">{googleReviewsMeta.rating}</span>
+              <div className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-3.5 sm:gap-5">
+                <div className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 text-amber-500 shrink-0">
+                  <span className="text-xl sm:text-2xl font-black">{googleReviewsMeta.rating}</span>
                 </div>
                 <div>
                   <div className="flex items-center justify-center sm:justify-start gap-1 mb-1">
@@ -143,11 +161,11 @@ export default function TestimonialsPreview() {
                       <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center justify-center sm:justify-start gap-2">
+                  <h3 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white flex items-center justify-center sm:justify-start gap-2">
                     <span>{googleReviewsMeta.businessName}</span>
                     <ShieldCheck className="w-4 h-4 text-emerald-500 inline shrink-0" />
                   </h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                  <p className="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 mt-0.5">
                     <strong>{googleReviewsMeta.totalReviews} Total Reviews on Google Maps</strong> • {googleReviewsMeta.location}
                   </p>
                 </div>
@@ -170,20 +188,20 @@ export default function TestimonialsPreview() {
               </div>
 
               {/* Right: Actions */}
-              <div className="flex items-center gap-3 shrink-0">
+              <div className="flex flex-wrap sm:flex-nowrap items-center justify-center gap-3 w-full sm:w-auto shrink-0">
                 <a
                   href={googleReviewsMeta.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold text-white bg-linear-to-r from-brand-blue to-teal-600 hover:shadow-lg hover:shadow-brand-blue/25 hover:scale-[1.02] active:scale-[0.98] transition-all"
+                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold text-white bg-linear-to-r from-brand-blue to-teal-600 hover:shadow-lg hover:shadow-brand-blue/25 hover:scale-[1.02] active:scale-[0.98] transition-all min-h-[44px]"
                 >
                   <GoogleIcon className="w-4 h-4" />
-                  <span>View on Google Maps</span>
+                  <span>Google Maps</span>
                   <ExternalLink className="w-3.5 h-3.5 opacity-80" />
                 </a>
 
                 {/* View Mode Toggle Buttons */}
-                <div className="flex items-center p-1 bg-gray-100 dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700">
+                <div className="flex items-center p-1 bg-gray-100 dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 min-h-[44px]">
                   <button
                     onClick={() => setViewMode('carousel')}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
@@ -218,16 +236,19 @@ export default function TestimonialsPreview() {
         {viewMode === 'carousel' && (
           <ScrollReveal animation="fade-up" delay={200} className="relative max-w-4xl mx-auto">
             <div
-              className="rounded-[2rem] overflow-hidden relative shadow-2xl transition-all"
+              className="rounded-2xl sm:rounded-[2rem] overflow-hidden relative shadow-2xl transition-all touch-pan-y"
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
               {/* Rich Ethiopian Agricultural Theme Gradient Background */}
               <div className="absolute inset-0 bg-linear-to-br from-[#002f87] via-[#01518f] to-[#047857]" />
               <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2 blur-2xl" />
               <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-teal-400/10 translate-y-1/2 -translate-x-1/2 blur-xl" />
 
-              <div className="relative z-10 p-6 sm:p-10 md:p-12">
+              <div className="relative z-10 p-5 sm:p-10 md:p-12">
                 <div key={active} className="animate-fade-in">
                   {/* Top Google Card Bar with smooth transition */}
                   <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-5 border-b border-white/10">
@@ -373,17 +394,17 @@ export default function TestimonialsPreview() {
               </div>
 
               {/* Prev / Next Arrows */}
-              <div className="flex gap-3">
+              <div className="flex gap-2.5 sm:gap-3">
                 <button
                   onClick={prev}
-                  className="w-10 h-10 rounded-full border dark:border-white/10 border-gray-300 flex items-center justify-center dark:text-white/70 text-gray-700 hover:text-brand-cyan hover:border-brand-cyan/50 dark:hover:bg-white/5 hover:bg-gray-100 transition-all"
+                  className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full border dark:border-white/10 border-gray-300 flex items-center justify-center dark:text-white/70 text-gray-700 hover:text-brand-cyan hover:border-brand-cyan/50 dark:hover:bg-white/5 hover:bg-gray-100 transition-all active:scale-95"
                   aria-label="Previous Google review"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={next}
-                  className="w-10 h-10 rounded-full border dark:border-white/10 border-gray-300 flex items-center justify-center dark:text-white/70 text-gray-700 hover:text-brand-cyan hover:border-brand-cyan/50 dark:hover:bg-white/5 hover:bg-gray-100 transition-all"
+                  className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full border dark:border-white/10 border-gray-300 flex items-center justify-center dark:text-white/70 text-gray-700 hover:text-brand-cyan hover:border-brand-cyan/50 dark:hover:bg-white/5 hover:bg-gray-100 transition-all active:scale-95"
                   aria-label="Next Google review"
                 >
                   <ChevronRight className="w-5 h-5" />

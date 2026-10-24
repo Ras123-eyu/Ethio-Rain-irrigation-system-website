@@ -31,6 +31,7 @@
 
 * {
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -260,3 +261,18 @@ p {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
   }
 }
+
+/* Mobile ergonomics & touch scroll utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.touch-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+

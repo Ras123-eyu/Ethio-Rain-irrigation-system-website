@@ -8,23 +8,23 @@ const featured = featuredIds.map(id => products.find(p => p.id === id)).filter(B
 
 export default function ProductsPreview() {
   return (
-    <section id="products" className="py-24 transition-colors duration-300 dark:bg-gray-950 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="products" className="py-14 sm:py-24 transition-colors duration-300 dark:bg-gray-950 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <ScrollReveal animation="fade-up" className="text-center mb-16">
-          <p className="text-brand-cyan font-bold text-[10px] uppercase tracking-widest mb-4">Our Products</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold dark:text-white text-gray-900 mb-6 transition-colors">
+        <ScrollReveal animation="fade-up" className="text-center mb-10 sm:mb-16">
+          <p className="text-brand-cyan font-bold text-[10px] uppercase tracking-widest mb-3 sm:mb-4">Our Products</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold dark:text-white text-gray-900 mb-4 sm:mb-6 transition-colors">
             Professional-Grade <br />
             <span className="gradient-text">Irrigation Equipment</span>
           </h2>
           <div className="section-divider mx-auto mt-4" />
-          <p className="text-gray-500 dark:text-white/60 mt-8 max-w-xl mx-auto transition-colors text-lg">
+          <p className="text-gray-500 dark:text-white/60 mt-4 sm:mt-8 max-w-xl mx-auto transition-colors text-sm sm:text-base md:text-lg">
             Browse our curated selection of top-rated products for every irrigation need.
           </p>
         </ScrollReveal>
 
-        {/* Featured Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+        {/* Featured Grid - 2 cols on mobile */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-10 sm:mb-14">
           {featured.map((product, i) => {
             const Icon = product.icon
             return (
@@ -34,10 +34,10 @@ export default function ProductsPreview() {
                 key={product.id}
                 staggerIndex={i}
                 animation="fade-up"
-                className="card-hover group rounded-3xl overflow-hidden dark:bg-gray-900 bg-white border dark:border-white/5 border-gray-100 shadow-sm transition-all duration-300 block"
+                className="card-hover group rounded-2xl sm:rounded-3xl overflow-hidden dark:bg-gray-900 bg-white border dark:border-white/5 border-gray-100 shadow-sm transition-all duration-300 block"
               >
                 {/* Image */}
-                <div className="relative overflow-hidden h-48">
+                <div className="relative overflow-hidden h-36 sm:h-48">
                   <img
                     src={product.image}
                     alt={product.name}
@@ -46,7 +46,7 @@ export default function ProductsPreview() {
                   <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
 
                   {product.badge && (
-                    <span className={`absolute top-3 left-3 text-[9px] font-black uppercase tracking-[0.15em] px-2.5 py-1 rounded-full backdrop-blur-md shadow-lg ${product.badge === 'Best Seller' ? 'bg-amber-500/90 text-white' :
+                    <span className={`absolute top-2.5 left-2.5 sm:top-3 sm:left-3 text-[8px] sm:text-[9px] font-black uppercase tracking-[0.15em] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full backdrop-blur-md shadow-lg ${product.badge === 'Best Seller' ? 'bg-amber-500/90 text-white' :
                       product.badge === 'Premium' ? 'bg-purple-500/90 text-white' :
                         product.badge === 'Eco' ? 'bg-green-500/90 text-white' :
                           product.badge === 'Top Rated' ? 'bg-orange-500/90 text-white' :
@@ -58,19 +58,19 @@ export default function ProductsPreview() {
                 </div>
 
                 {/* Info */}
-                <div className="p-5">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="bg-brand-blue/10 p-1.5 rounded-lg border border-brand-blue/20">
-                      <Icon className="w-3.5 h-3.5 text-brand-cyan" />
+                <div className="p-3 sm:p-5">
+                  <div className="flex items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
+                    <div className="bg-brand-blue/10 p-1 sm:p-1.5 rounded-lg border border-brand-blue/20 shrink-0">
+                      <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-cyan" />
                     </div>
-                    <span className="text-[9px] font-bold uppercase tracking-widest dark:text-white/30 text-gray-400">
+                    <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-widest dark:text-white/30 text-gray-400 truncate">
                       {categories.find(c => c.id === product.category)?.label}
                     </span>
                   </div>
-                  <h3 className="font-bold dark:text-white text-gray-900 text-sm mb-1.5 transition-colors group-hover:text-brand-cyan line-clamp-1">
+                  <h3 className="font-bold dark:text-white text-gray-900 text-xs sm:text-sm mb-1 sm:mb-1.5 transition-colors group-hover:text-brand-cyan line-clamp-1">
                     {product.name}
                   </h3>
-                  <p className="dark:text-white/40 text-gray-500 text-xs leading-relaxed line-clamp-2 transition-colors">
+                  <p className="dark:text-white/40 text-gray-500 text-[11px] sm:text-xs leading-relaxed line-clamp-2 transition-colors">
                     {product.shortDesc}
                   </p>
                 </div>
@@ -83,7 +83,7 @@ export default function ProductsPreview() {
         <ScrollReveal animation="fade-up" className="text-center">
           <Link
             to="/products"
-            className="btn-primary inline-flex items-center gap-2 text-white font-bold px-8 py-4 rounded-full group text-sm uppercase tracking-widest"
+            className="btn-primary inline-flex items-center justify-center gap-2 text-white font-bold px-8 py-3.5 sm:py-4 rounded-full group text-xs sm:text-sm uppercase tracking-widest w-full sm:w-auto min-h-[48px] active:scale-95"
           >
             View All Products
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

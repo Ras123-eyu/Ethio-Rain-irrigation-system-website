@@ -37,20 +37,20 @@ export default function Footer() {
   return (
     <footer className="bg-black text-white overflow-hidden">
       {/* CTA Banner */}
-      <div className="relative py-20">
+      <div className="relative py-14 sm:py-20 px-4 sm:px-6">
         <div className="absolute inset-0 bg-gradient-to-r from-brand-blue to-teal-500 opacity-90" />
-        <div className="max-w-7xl mx-auto px-6 relative flex flex-col md:flex-row items-center justify-between gap-10">
+        <div className="max-w-7xl mx-auto relative flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10">
           <div className="text-center md:text-left">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-3 sm:mb-4 tracking-tight">
               Ready to Irrigate Smarter?
             </h2>
-            <p className="text-white/80 text-lg font-medium">Partner with Ethiopia's leading Grade-1 Water Works Contractor.</p>
+            <p className="text-white/80 text-base sm:text-lg font-medium">Partner with Ethiopia's leading Grade-1 Water Works Contractor.</p>
           </div>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a href="#contact" className="bg-white text-brand-blue font-black px-10 py-5 rounded-full hover:scale-105 transition-all shadow-2xl flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full md:w-auto">
+            <a href="#contact" className="bg-white text-brand-blue font-black px-8 sm:px-10 py-4 sm:py-5 min-h-[48px] rounded-full hover:scale-105 active:scale-95 transition-all shadow-2xl flex items-center justify-center gap-2 text-center text-base">
               Request Quotation
             </a>
-            <a href="tel:+251901864466" className="border-2 border-white/30 text-white font-black px-10 py-5 rounded-full hover:bg-white/10 transition-all backdrop-blur-sm">
+            <a href="tel:+251901864466" className="border-2 border-white/30 text-white font-black px-8 sm:px-10 py-4 sm:py-5 min-h-[48px] rounded-full hover:bg-white/10 active:scale-95 transition-all backdrop-blur-sm flex items-center justify-center text-center text-base">
               Call Us Now
             </a>
           </div>
@@ -58,23 +58,23 @@ export default function Footer() {
       </div>
 
       {/* Main footer */}
-      <div className="max-w-7xl mx-auto px-6 py-24 grid sm:grid-cols-2 lg:grid-cols-4 gap-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-24 grid sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-16">
         <div className="animate-fade-in">
-          <div className="flex items-center gap-4 mb-8">
+          <div className="flex items-center gap-4 mb-6 sm:mb-8">
             <img
               src="/images/img_4f6613efa42b.webp"
               alt="Ethio-Rain Logo"
-              className="h-14 w-auto object-contain"
+              className="h-12 sm:h-14 w-auto object-contain"
             />
             <div>
               <div className="gradient-text font-black text-2xl tracking-tighter">Ethio-Rain</div>
               <div className="gradient-text text-[10px] uppercase tracking-[0.3em] font-black">Irrigation Systems</div>
             </div>
           </div>
-          <p className="text-white/40 text-sm leading-loose mb-10 font-medium">
+          <p className="text-white/40 text-sm leading-relaxed sm:leading-loose mb-8 sm:mb-10 font-medium">
             Grade-1 Water Works Contractor & Special Purpose Machinery Manufacturer established in 2003 E.C. Delivering precision irrigation, electromechanical systems, and sustainable water solutions across Ethiopia.
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-3 sm:gap-4">
             {socialLinks.map(({ icon: Icon, name, href }) => (
               <a
                 key={name}
@@ -82,7 +82,7 @@ export default function Footer() {
                 aria-label={name}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-white/40 hover:text-brand-cyan hover:border-brand-cyan/50 hover:bg-brand-cyan/5 transition-all"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-white/40 hover:text-brand-cyan hover:border-brand-cyan/50 hover:bg-brand-cyan/5 active:scale-95 transition-all"
               >
                 <Icon />
               </a>
@@ -91,8 +91,8 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="font-black text-[10px] uppercase tracking-[0.2em] text-brand-cyan mb-8">Our Services</h4>
-          <ul className="space-y-4 text-sm font-bold text-white/40">
+          <h4 className="font-black text-[11px] sm:text-[10px] uppercase tracking-[0.2em] text-brand-cyan mb-6 sm:mb-8">Our Services</h4>
+          <ul className="space-y-3 sm:space-y-4 text-sm font-bold text-white/40">
             {[
               'Water Supply & Electromechanical',
               'Center Pivot & Sprinkler Systems',
@@ -103,44 +103,44 @@ export default function Footer() {
               'HDPE Piping & Welding',
               'Solar Power Systems Supply'
             ].map(s => (
-              <li key={s}><a href="#services" className="hover:text-white transition-all flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-brand-cyan/20 group-hover:bg-brand-cyan" /> {s}</a></li>
+              <li key={s}><a href="#services" className="hover:text-white transition-all flex items-center gap-2 py-1 min-h-[40px] group"><span className="w-1.5 h-1.5 rounded-full bg-brand-cyan/20 group-hover:bg-brand-cyan" /> {s}</a></li>
             ))}
           </ul>
         </div>
 
         <div>
-          <h4 className="font-black text-[10px] uppercase tracking-[0.2em] text-brand-cyan mb-8">Our Company</h4>
-          <ul className="space-y-4 text-sm font-bold text-white/40">
+          <h4 className="font-black text-[11px] sm:text-[10px] uppercase tracking-[0.2em] text-brand-cyan mb-6 sm:mb-8">Our Company</h4>
+          <ul className="space-y-3 sm:space-y-4 text-sm font-bold text-white/40">
             {['About', 'Projects', 'Products', 'Contact'].map(s => (
-              <li key={s}><a href={`#${s.toLowerCase().replace(' ', '')}`} className="hover:text-white transition-all flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-white/5 group-hover:bg-white" /> {s}</a></li>
+              <li key={s}><a href={`#${s.toLowerCase().replace(' ', '')}`} className="hover:text-white transition-all flex items-center gap-2 py-1 min-h-[40px] group"><span className="w-1.5 h-1.5 rounded-full bg-white/5 group-hover:bg-white" /> {s}</a></li>
             ))}
           </ul>
         </div>
 
         <div>
-          <h4 className="font-black text-[10px] uppercase tracking-[0.2em] text-brand-cyan mb-8">Contact Info</h4>
-          <ul className="space-y-6 text-sm font-bold text-white/40">
-            <li className="flex items-start gap-4">
-              <MapPin className="w-5 h-5 text-brand-cyan shrink-0" />
+          <h4 className="font-black text-[11px] sm:text-[10px] uppercase tracking-[0.2em] text-brand-cyan mb-6 sm:mb-8">Contact Info</h4>
+          <ul className="space-y-4 sm:space-y-6 text-sm font-bold text-white/40">
+            <li className="flex items-start gap-3.5">
+              <MapPin className="w-5 h-5 text-brand-cyan shrink-0 mt-0.5" />
               <span className="leading-relaxed">Near Dembel City Center,<br />M.K.A.AS Business Center,<br />Addis Ababa, Ethiopia</span>
             </li>
-            <li className="flex items-center gap-4">
-              <Phone className="w-5 h-5 text-brand-cyan shrink-0" />
-              +251 901 86 44 66 / +251 912 88 28 81
+            <li className="flex items-start gap-3.5">
+              <Phone className="w-5 h-5 text-brand-cyan shrink-0 mt-0.5" />
+              <div className="flex flex-col gap-1">
+                <a href="tel:+251901864466" className="hover:text-white transition-all active:text-brand-cyan py-0.5 min-h-[32px] inline-flex items-center">+251 901 86 44 66</a>
+                <a href="tel:+251912882881" className="hover:text-white transition-all active:text-brand-cyan py-0.5 min-h-[32px] inline-flex items-center">+251 912 88 28 81</a>
+              </div>
             </li>
-            <li className="flex items-center gap-4">
+            <li className="flex items-center gap-3.5">
               <Mail className="w-5 h-5 text-brand-cyan shrink-0" />
-              info@ethiorain.com
+              <a href="mailto:info@ethiorain.com" className="hover:text-white transition-all active:text-brand-cyan py-1 min-h-[36px] inline-flex items-center">info@ethiorain.com</a>
             </li>
           </ul>
-
-
         </div>
       </div>
 
-      <div className="border-t border-white/5 py-10 max-w-7xl mx-auto px-6 flex justify-center items-center gap-6 text-[11px]  uppercase tracking-[0.3em] font-black text-white/30">
+      <div className="border-t border-white/5 py-8 sm:py-10 pb-[calc(env(safe-area-inset-bottom,0px)+4.5rem)] md:pb-10 max-w-7xl mx-auto px-4 sm:px-6 flex justify-center items-center gap-6 text-[11px] uppercase tracking-[0.3em] font-black text-white/30">
         <span className="text-center sm:text-left">© {new Date().getFullYear()} Ethio-Rain Irrigation Systems P.L.C.</span>
-
       </div>
     </footer>
   )

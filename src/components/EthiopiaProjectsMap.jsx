@@ -72,31 +72,31 @@ export default function EthiopiaProjectsMap() {
   }
 
   return (
-    <section className="py-24 bg-[#030712] text-white relative overflow-hidden" id="interactive-map">
+    <section className="py-14 sm:py-24 bg-[#030712] text-white relative overflow-hidden" id="interactive-map">
       {/* Background radial effects */}
       <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-brand-blue/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#00D4FF]/10 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <ScrollReveal animation="fade-up">
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <div className="inline-flex items-center gap-2 bg-[#00D4FF]/10 border border-[#00D4FF]/30 rounded-full px-4 py-1.5 mb-4 shadow-[0_0_15px_rgba(0,212,255,0.2)]">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+            <div className="inline-flex items-center gap-2 bg-[#00D4FF]/10 border border-[#00D4FF]/30 rounded-full px-3.5 py-1.5 mb-3 sm:mb-4 shadow-[0_0_15px_rgba(0,212,255,0.2)]">
               <Compass className="w-3.5 h-3.5 text-[#00D4FF]" />
-              <span className="text-[#00D4FF] text-xs font-bold uppercase tracking-widest">
+              <span className="text-[#00D4FF] text-[11px] sm:text-xs font-bold uppercase tracking-widest">
                 All 11 Ethiopian Administrative Regions
               </span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight leading-tight">
               Interactive <span className="gradient-text">Ethiopia Regional Project Map</span>
             </h2>
-            <p className="text-slate-300 mt-4 text-base md:text-lg leading-relaxed">
+            <p className="text-slate-300 mt-3 sm:mt-4 text-sm sm:text-base md:text-lg leading-relaxed">
               Explore Ethio-Rain’s 38 verified project schemes across all 11 administrative regions of Ethiopia. Click any regional boundary or project marker to inspect engineering specifications.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* All 11 Regions Filter Bar */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+        {/* All 11 Regions Filter Bar - Touch swipe friendly horizontal bar on mobile */}
+        <div className="flex gap-2 overflow-x-auto no-scrollbar touch-scroll pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:justify-center mb-8 sm:mb-10">
           {REGIONS.map((region) => {
             const count = region === 'All Regions' 
               ? ALL_MAP_PROJECTS.length 
@@ -122,9 +122,9 @@ export default function EthiopiaProjectsMap() {
                     setSelectedProject(matching[0])
                   }
                 }}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                className={`px-3.5 py-2 min-h-[40px] whitespace-nowrap rounded-full text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 active:scale-95 ${
                   activeRegion === region
-                    ? 'bg-[#0052FF] text-white shadow-[0_0_20px_rgba(0,82,255,0.5)] scale-105'
+                    ? 'bg-[#0052FF] text-white shadow-[0_0_20px_rgba(0,82,255,0.5)] scale-100 sm:scale-105'
                     : 'bg-slate-900/80 text-slate-300 hover:bg-slate-800 border border-slate-800'
                 }`}
               >
@@ -142,22 +142,22 @@ export default function EthiopiaProjectsMap() {
         {/* Map & Preview Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* SVG Map Container */}
-          <div className="lg:col-span-7 bg-[#080E1A]/95 border border-slate-800 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
+          <div className="lg:col-span-7 bg-[#080E1A]/95 border border-slate-800 rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 shadow-2xl relative overflow-hidden">
             {/* Map Header & Controls */}
-            <div className="flex items-center justify-between mb-4 pb-4 border-b border-slate-800/80">
+            <div className="flex items-center justify-between mb-3 sm:mb-4 pb-3 sm:pb-4 border-b border-slate-800/80">
               <div className="flex items-center gap-2 text-xs font-bold text-slate-400">
-                <Layers className="w-4 h-4 text-[#00D4FF]" />
-                <span>
+                <Layers className="w-4 h-4 text-[#00D4FF] shrink-0" />
+                <span className="truncate">
                   Map Focus:{' '}
                   <strong className="text-white">
                     {hoveredRegion ? hoveredRegion.name : activeRegion === 'All Regions' ? 'All 11 Regions (38 Schemes)' : `${activeRegion} (${filteredProjects.length} Schemes)`}
                   </strong>
                 </span>
               </div>
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1.5 shrink-0">
                 <button
                   onClick={handleZoomIn}
-                  className="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs transition-colors cursor-pointer"
+                  className="w-9 h-9 min-w-[36px] min-h-[36px] flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs transition-colors cursor-pointer active:scale-95"
                   title="Zoom In"
                   aria-label="Zoom in"
                 >
@@ -165,7 +165,7 @@ export default function EthiopiaProjectsMap() {
                 </button>
                 <button
                   onClick={handleZoomOut}
-                  className="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs transition-colors cursor-pointer"
+                  className="w-9 h-9 min-w-[36px] min-h-[36px] flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs transition-colors cursor-pointer active:scale-95"
                   title="Zoom Out"
                   aria-label="Zoom out"
                 >
@@ -173,7 +173,7 @@ export default function EthiopiaProjectsMap() {
                 </button>
                 <button
                   onClick={handleResetZoom}
-                  className="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs transition-colors cursor-pointer"
+                  className="w-9 h-9 min-w-[36px] min-h-[36px] flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs transition-colors cursor-pointer active:scale-95"
                   title="Reset Zoom"
                   aria-label="Reset zoom"
                 >
@@ -400,9 +400,9 @@ export default function EthiopiaProjectsMap() {
           {/* Selected Project Card & Specifications */}
           <div className="lg:col-span-5 space-y-4">
             {selectedProject ? (
-              <div className="bg-[#0B1528] border border-slate-800 hover:border-[#00D4FF]/40 transition-colors rounded-3xl p-6 shadow-2xl relative overflow-hidden animate-fade-in">
+              <div className="bg-[#0B1528] border border-slate-800 hover:border-[#00D4FF]/40 transition-colors rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl relative overflow-hidden animate-fade-in">
                 {/* Image Preview with Badge */}
-                <div className="relative h-56 rounded-2xl overflow-hidden mb-5 group border border-slate-800">
+                <div className="relative h-44 sm:h-56 rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-5 group border border-slate-800">
                   <img
                     src={selectedProject.image}
                     alt={selectedProject.name}
@@ -410,18 +410,18 @@ export default function EthiopiaProjectsMap() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
                   
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span className="bg-[#0052FF] text-white text-[10px] uppercase font-black tracking-widest px-3 py-1 rounded-full shadow-lg">
+                  <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 flex items-center gap-2">
+                    <span className="bg-[#0052FF] text-white text-[9px] sm:text-[10px] uppercase font-black tracking-widest px-2.5 sm:px-3 py-1 rounded-full shadow-lg">
                       {selectedProject.region}
                     </span>
                     {selectedProject.isHQ && (
-                      <span className="bg-amber-500 text-slate-950 text-[10px] uppercase font-black tracking-widest px-3 py-1 rounded-full shadow-lg flex items-center gap-1">
+                      <span className="bg-amber-500 text-slate-950 text-[9px] sm:text-[10px] uppercase font-black tracking-widest px-2.5 sm:px-3 py-1 rounded-full shadow-lg flex items-center gap-1">
                         ★ Central HQ
                       </span>
                     )}
                   </div>
 
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
+                  <div className="absolute bottom-2.5 sm:bottom-3 left-2.5 sm:left-3 right-2.5 sm:right-3 flex items-center justify-between text-white text-[11px] sm:text-xs">
                     <span className="font-mono bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-md text-emerald-400 font-bold border border-emerald-500/30">
                       {selectedProject.value}
                     </span>
@@ -432,12 +432,12 @@ export default function EthiopiaProjectsMap() {
                 </div>
 
                 {/* Project Title & Client */}
-                <div className="mb-4">
+                <div className="mb-3 sm:mb-4">
                   <div className="flex items-center gap-1.5 text-xs text-[#00D4FF] font-bold mb-1">
-                    <MapPin className="w-3.5 h-3.5" />
+                    <MapPin className="w-3.5 h-3.5 shrink-0" />
                     <span>{selectedProject.city}, {selectedProject.region}</span>
                   </div>
-                  <h3 className="text-xl font-black text-white leading-snug mb-1">
+                  <h3 className="text-lg sm:text-xl font-black text-white leading-snug mb-1">
                     {selectedProject.name}
                   </h3>
                   <p className="text-xs text-slate-400 font-medium">
@@ -446,15 +446,15 @@ export default function EthiopiaProjectsMap() {
                 </div>
 
                 {/* Project Scope & Engineering Details */}
-                <div className="bg-[#060D1A] p-4 rounded-2xl border border-[#00D4FF]/20 grid grid-cols-2 gap-3 mb-5 text-xs">
+                <div className="bg-[#060D1A] p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-[#00D4FF]/20 grid grid-cols-2 gap-2.5 sm:gap-3 mb-4 sm:mb-5 text-xs">
                   <div>
-                    <span className="text-[10px] text-slate-400 uppercase font-semibold block">System Architecture</span>
+                    <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase font-semibold block">System Architecture</span>
                     <p className="text-slate-200 font-bold mt-0.5 truncate" title={selectedProject.type}>
                       {selectedProject.type}
                     </p>
                   </div>
                   <div>
-                    <span className="text-[10px] text-slate-400 uppercase font-semibold block">Scheme Scale</span>
+                    <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase font-semibold block">Scheme Scale</span>
                     <p className="text-[#00D4FF] font-bold mt-0.5 truncate">
                       {selectedProject.area}
                     </p>
@@ -462,8 +462,8 @@ export default function EthiopiaProjectsMap() {
                 </div>
 
                 {/* Engineering Highlights */}
-                <div className="space-y-1.5 mb-6 bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
-                  <div className="text-[10px] uppercase font-extrabold text-[#00D4FF] tracking-wider mb-2">
+                <div className="space-y-1.5 mb-5 sm:mb-6 bg-slate-900/60 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-800">
+                  <div className="text-[10px] uppercase font-extrabold text-[#00D4FF] tracking-wider mb-1.5 sm:mb-2">
                     Engineering Scope Highlights:
                   </div>
                   {selectedProject.highlights.map((h, i) => (
@@ -477,38 +477,38 @@ export default function EthiopiaProjectsMap() {
                 {/* Case Study Link */}
                 <Link
                   to={`/project/${selectedProject.slug}`}
-                  className="w-full bg-gradient-to-r from-[#0052FF] to-[#00D4FF] text-white font-black py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2 hover:opacity-95 transition-all shadow-lg shadow-[#0052FF]/25 text-xs uppercase tracking-wider"
+                  className="w-full min-h-[48px] bg-gradient-to-r from-[#0052FF] to-[#00D4FF] text-white font-black py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2 hover:opacity-95 active:scale-95 transition-all shadow-lg shadow-[#0052FF]/25 text-xs uppercase tracking-wider"
                 >
                   <span>View Full Scheme Case Study</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             ) : (
-              <div className="bg-[#0B1528] border border-slate-800 rounded-3xl p-12 text-center text-slate-400">
-                <MapPin className="w-12 h-12 text-slate-600 mx-auto mb-4" />
-                <p>Select any region or pin on the map to inspect project specifications.</p>
+              <div className="bg-[#0B1528] border border-slate-800 rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-center text-slate-400">
+                <MapPin className="w-10 h-10 sm:w-12 sm:h-12 text-slate-600 mx-auto mb-4" />
+                <p className="text-sm">Select any region or pin on the map to inspect project specifications.</p>
               </div>
             )}
           </div>
         </div>
 
         {/* Statistical Credentials Ribbon */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-[#080E1A]/80 border border-slate-800/80 rounded-2xl p-5 text-center">
-            <div className="text-2xl md:text-3xl font-black text-[#00D4FF]">10,000+ ha</div>
-            <div className="text-xs text-slate-400 font-medium mt-1 uppercase tracking-wider">Hectares Irrigated</div>
+        <div className="mt-10 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
+          <div className="bg-[#080E1A]/80 border border-slate-800/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-5 text-center">
+            <div className="text-xl sm:text-2xl md:text-3xl font-black text-[#00D4FF]">10,000+ ha</div>
+            <div className="text-[10px] sm:text-xs text-slate-400 font-medium mt-1 uppercase tracking-wider">Hectares Irrigated</div>
           </div>
-          <div className="bg-[#080E1A]/80 border border-slate-800/80 rounded-2xl p-5 text-center">
-            <div className="text-2xl md:text-3xl font-black text-emerald-400">38+</div>
-            <div className="text-xs text-slate-400 font-medium mt-1 uppercase tracking-wider">Major Schemes Delivered</div>
+          <div className="bg-[#080E1A]/80 border border-slate-800/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-5 text-center">
+            <div className="text-xl sm:text-2xl md:text-3xl font-black text-emerald-400">38+</div>
+            <div className="text-[10px] sm:text-xs text-slate-400 font-medium mt-1 uppercase tracking-wider">Major Schemes Delivered</div>
           </div>
-          <div className="bg-[#080E1A]/80 border border-slate-800/80 rounded-2xl p-5 text-center">
-            <div className="text-2xl md:text-3xl font-black text-white">All 11 Regions</div>
-            <div className="text-xs text-slate-400 font-medium mt-1 uppercase tracking-wider">Complete National Presence</div>
+          <div className="bg-[#080E1A]/80 border border-slate-800/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-5 text-center">
+            <div className="text-xl sm:text-2xl md:text-3xl font-black text-white">All 11 Regions</div>
+            <div className="text-[10px] sm:text-xs text-slate-400 font-medium mt-1 uppercase tracking-wider">Complete National Presence</div>
           </div>
-          <div className="bg-[#080E1A]/80 border border-slate-800/80 rounded-2xl p-5 text-center">
-            <div className="text-2xl md:text-3xl font-black text-[#0052FF]">ETB 240M+</div>
-            <div className="text-xs text-slate-400 font-medium mt-1 uppercase tracking-wider">Delivered Value of Works</div>
+          <div className="bg-[#080E1A]/80 border border-slate-800/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-5 text-center">
+            <div className="text-xl sm:text-2xl md:text-3xl font-black text-[#0052FF]">ETB 240M+</div>
+            <div className="text-[10px] sm:text-xs text-slate-400 font-medium mt-1 uppercase tracking-wider">Delivered Value of Works</div>
           </div>
         </div>
       </div>

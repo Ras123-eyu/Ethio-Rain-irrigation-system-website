@@ -76,7 +76,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="relative py-24 overflow-hidden bg-[#030712] text-white">
+    <section id="contact" className="relative py-14 sm:py-24 overflow-hidden bg-[#030712] text-white">
       {/* Background Greenery Overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
@@ -88,57 +88,57 @@ export default function Contact() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#030712]/90 via-[#030712]/95 to-[#030712]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <ScrollReveal animation="fade-up" className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#00D4FF]/10 border border-[#00D4FF]/30 rounded-full px-4 py-1.5 mb-4 shadow-[0_0_15px_rgba(0,212,255,0.2)]">
+        <ScrollReveal animation="fade-up" className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-2 bg-[#00D4FF]/10 border border-[#00D4FF]/30 rounded-full px-3.5 sm:px-4 py-1.5 mb-3 sm:mb-4 shadow-[0_0_15px_rgba(0,212,255,0.2)]">
             <Sparkles className="w-3.5 h-3.5 text-[#00D4FF]" />
-            <span className="text-[#00D4FF] text-xs font-bold uppercase tracking-widest">
+            <span className="text-[#00D4FF] text-[11px] sm:text-xs font-bold uppercase tracking-widest">
               Direct Engineering Consultation
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
             Request a <span className="gradient-text">Project Quotation</span>
           </h2>
-          <div className="section-divider mx-auto my-6" />
-          <p className="text-slate-300 text-base md:text-lg leading-relaxed">
+          <div className="section-divider mx-auto my-4 sm:my-6" />
+          <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed">
             Whether you are planning a 500-hectare commercial center pivot or a high-efficiency horticultural drip layout, our certified irrigation engineers provide on-site agronomic surveys and turn-key designs.
           </p>
         </ScrollReveal>
 
         {/* Dual Column Layout: Form + Location & Map */}
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Left Column: Interactive Quotation Form (7 cols) */}
-          <ScrollReveal animation="fade-right" className="lg:col-span-7 bg-[#0B172B]/90 backdrop-blur-2xl border border-[#00D4FF]/25 rounded-[2.5rem] p-8 md:p-10 shadow-2xl">
+          <ScrollReveal animation="fade-right" className="lg:col-span-7 bg-[#0B172B]/90 backdrop-blur-2xl border border-[#00D4FF]/25 rounded-2xl sm:rounded-[2.5rem] p-4 sm:p-8 md:p-10 shadow-2xl">
             {submitted ? (
-              <div className="py-12 text-center animate-fade-in space-y-6">
-                <div className="w-20 h-20 mx-auto rounded-full bg-[#10B981]/20 border border-[#10B981]/40 flex items-center justify-center text-[#10B981] shadow-[0_0_30px_rgba(16,185,129,0.3)]">
-                  <CheckCircle2 className="w-10 h-10" />
+              <div className="py-8 sm:py-12 text-center animate-fade-in space-y-5 sm:space-y-6">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-[#10B981]/20 border border-[#10B981]/40 flex items-center justify-center text-[#10B981] shadow-[0_0_30px_rgba(16,185,129,0.3)]">
+                  <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
                 </div>
                 <div>
-                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-widest bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/30 mb-3">
+                  <span className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/30 mb-2 sm:mb-3">
                     <SendHorizontal className="w-3.5 h-3.5" />
                     {telegramDelivered ? 'Dispatched to Engineering Telegram Desk' : 'Quotation In Progress'}
                   </span>
-                  <h3 className="text-2xl md:text-3xl font-extrabold text-white mt-1">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white mt-1">
                     Quotation Request Received!
                   </h3>
                 </div>
-                <p className="text-slate-300 max-w-md mx-auto text-sm md:text-base leading-relaxed">
+                <p className="text-slate-300 max-w-md mx-auto text-xs sm:text-sm md:text-base leading-relaxed">
                   Thank you, <span className="text-[#00D4FF] font-bold">{formData.name || 'Valued Partner'}</span>. Your irrigation specifications have been logged for our senior engineering team.
                 </p>
                 
-                <div className="pt-2 flex flex-col sm:flex-row gap-3.5 justify-center items-center">
+                <div className="pt-2 flex flex-col sm:flex-row gap-2.5 sm:gap-3.5 justify-center items-center">
                   <button
                     onClick={handleTelegramDirect}
-                    className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-[#0088cc] hover:bg-[#0077b5] text-white font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg shadow-[#0088cc]/30 transition-all"
+                    className="w-full sm:w-auto min-h-[48px] px-6 py-3.5 rounded-full bg-[#0088cc] hover:bg-[#0077b5] text-white font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg shadow-[#0088cc]/30 transition-all active:scale-95"
                   >
                     <SendHorizontal className="w-4 h-4" /> Message via Telegram
                   </button>
                   <button
                     onClick={handleWhatsAppRedirect}
-                    className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-[#10B981] hover:bg-[#059669] text-white font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg shadow-[#10B981]/30 transition-all"
+                    className="w-full sm:w-auto min-h-[48px] px-6 py-3.5 rounded-full bg-[#10B981] hover:bg-[#059669] text-white font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg shadow-[#10B981]/30 transition-all active:scale-95"
                   >
                     <MessageSquare className="w-4 h-4" /> Message via WhatsApp
                   </button>
@@ -155,7 +155,7 @@ export default function Contact() {
                         message: ''
                       })
                     }}
-                    className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs uppercase tracking-widest transition-all"
+                    className="w-full sm:w-auto min-h-[48px] px-6 py-3.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs uppercase tracking-widest transition-all active:scale-95"
                   >
                     New Request
                   </button>
@@ -206,7 +206,7 @@ export default function Contact() {
                       placeholder="e.g. Abebe Bikila"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-[#060D1A] border border-slate-700 focus:border-[#00D4FF] rounded-xl px-4 py-3 text-white text-sm outline-none transition"
+                      className="w-full bg-[#060D1A] border border-slate-700 focus:border-[#00D4FF] rounded-xl px-4 py-3 text-white text-base md:text-sm outline-none transition"
                     />
                   </div>
 
@@ -221,12 +221,12 @@ export default function Contact() {
                       placeholder="e.g. +251 91 123 4567"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-[#060D1A] border border-slate-700 focus:border-[#00D4FF] rounded-xl px-4 py-3 text-white text-sm outline-none transition"
+                      className="w-full bg-[#060D1A] border border-slate-700 focus:border-[#00D4FF] rounded-xl px-4 py-3 text-white text-base md:text-sm outline-none transition"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
                       System Type Interested In
@@ -234,7 +234,7 @@ export default function Contact() {
                     <select
                       value={formData.systemType}
                       onChange={(e) => setFormData({ ...formData, systemType: e.target.value })}
-                      className="w-full bg-[#060D1A] border border-slate-700 focus:border-[#00D4FF] rounded-xl px-4 py-3 text-white text-sm outline-none transition"
+                      className="w-full bg-[#060D1A] border border-slate-700 focus:border-[#00D4FF] rounded-xl px-4 py-3 text-white text-base md:text-sm outline-none transition"
                     >
                       <option value="Center Pivot Irrigation">Center Pivot Irrigation</option>
                       <option value="Precision Drip System">Precision Drip System</option>
@@ -256,12 +256,12 @@ export default function Contact() {
                       placeholder="e.g. 50"
                       value={formData.farmArea}
                       onChange={(e) => setFormData({ ...formData, farmArea: e.target.value })}
-                      className="w-full bg-[#060D1A] border border-slate-700 focus:border-[#00D4FF] rounded-xl px-4 py-3 text-white text-sm outline-none transition"
+                      className="w-full bg-[#060D1A] border border-slate-700 focus:border-[#00D4FF] rounded-xl px-4 py-3 text-white text-base md:text-sm outline-none transition"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
                       Farm Location / Region
@@ -272,7 +272,7 @@ export default function Contact() {
                       placeholder="e.g. Awash Valley, Oromia, Amhara"
                       value={formData.location}
                       onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                      className="w-full bg-[#060D1A] border border-slate-700 focus:border-[#00D4FF] rounded-xl px-4 py-3 text-white text-sm outline-none transition"
+                      className="w-full bg-[#060D1A] border border-slate-700 focus:border-[#00D4FF] rounded-xl px-4 py-3 text-white text-base md:text-sm outline-none transition"
                     />
                   </div>
 
@@ -286,7 +286,7 @@ export default function Contact() {
                       placeholder="name@company.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-[#060D1A] border border-slate-700 focus:border-[#00D4FF] rounded-xl px-4 py-3 text-white text-sm outline-none transition"
+                      className="w-full bg-[#060D1A] border border-slate-700 focus:border-[#00D4FF] rounded-xl px-4 py-3 text-white text-base md:text-sm outline-none transition"
                     />
                   </div>
                 </div>
@@ -301,15 +301,15 @@ export default function Contact() {
                     placeholder="Describe your water source (river, borehole, reservoir), soil conditions, or timeline..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-[#060D1A] border border-slate-700 focus:border-[#00D4FF] rounded-xl px-4 py-3 text-white text-sm outline-none transition"
+                    className="w-full bg-[#060D1A] border border-slate-700 focus:border-[#00D4FF] rounded-xl px-4 py-3 text-white text-base md:text-sm outline-none transition"
                   />
                 </div>
 
-                <div className="pt-2 flex flex-col sm:flex-row gap-4 items-center">
+                <div className="pt-2 flex flex-col sm:flex-row gap-3 sm:gap-4 items-center">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto flex-1 btn-primary text-white font-black text-xs uppercase tracking-widest py-4 px-8 rounded-full flex items-center justify-center gap-2 shadow-lg shadow-[#0038E2]/40 transition disabled:opacity-50"
+                    className="w-full sm:w-auto flex-1 btn-primary text-white font-black text-xs uppercase tracking-widest min-h-[48px] py-3.5 px-8 rounded-full flex items-center justify-center gap-2 shadow-lg shadow-[#0038E2]/40 transition active:scale-95 disabled:opacity-50"
                   >
                     {isSubmitting ? (
                       'Processing Request...'
@@ -323,15 +323,15 @@ export default function Contact() {
                   <button
                     type="button"
                     onClick={handleWhatsAppRedirect}
-                    className="w-full sm:w-auto bg-[#10B981] hover:bg-[#059669] text-white font-bold text-xs uppercase tracking-widest py-4 px-6 rounded-full flex items-center justify-center gap-2 shadow-md transition"
+                    className="w-full sm:w-auto bg-[#10B981] hover:bg-[#059669] text-white font-bold text-xs uppercase tracking-widest min-h-[48px] py-3.5 px-6 rounded-full flex items-center justify-center gap-2 shadow-md transition active:scale-95"
                   >
                     <MessageSquare className="w-4 h-4" /> Quick WhatsApp
                   </button>
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 pt-1 gap-2">
-                  <span className="flex items-center gap-1.5 text-slate-400">
-                    <SendHorizontal className="w-3.5 h-3.5 text-[#00D4FF]" />
+                  <span className="flex items-center gap-1.5 text-slate-400 text-center sm:text-left">
+                    <SendHorizontal className="w-3.5 h-3.5 text-[#00D4FF] shrink-0" />
                     Instant notification sent to engineering Telegram desk
                   </span>
                   <span className="text-[#10B981] font-bold">✓ 24h Response SLA</span>
@@ -341,80 +341,80 @@ export default function Contact() {
           </ScrollReveal>
 
           {/* Right Column: Office Location & Map (5 cols) */}
-          <div className="lg:col-span-5 space-y-8">
-            <ScrollReveal animation="fade-left" className="bg-[#0B172B]/80 border border-slate-800 rounded-[2.5rem] p-8 shadow-xl">
-              <h3 className="text-xl font-extrabold text-white mb-6">
+          <div className="lg:col-span-5 space-y-6 sm:space-y-8">
+            <ScrollReveal animation="fade-left" className="bg-[#0B172B]/80 border border-slate-800 rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-8 shadow-xl">
+              <h3 className="text-lg sm:text-xl font-extrabold text-white mb-5 sm:mb-6">
                 Headquarters & Workshop
               </h3>
 
-              <div className="space-y-6 text-sm">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-2xl bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/20 shrink-0">
-                    <MapPin className="w-5 h-5" />
+              <div className="space-y-5 sm:space-y-6 text-sm">
+                <div className="flex items-start gap-3.5 sm:gap-4">
+                  <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/20 shrink-0">
+                    <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
                     <div className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Office Address</div>
-                    <div className="text-white font-semibold mt-1 leading-snug">
+                    <div className="text-white font-semibold mt-1 text-xs sm:text-sm leading-snug">
                       Near Dembel City Center, M.K.A.AS Business Center, Addis Ababa, Ethiopia
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-2xl bg-[#0038E2]/20 text-[#00D4FF] border border-[#0038E2]/40 shrink-0">
-                    <Phone className="w-5 h-5" />
+                <div className="flex items-start gap-3.5 sm:gap-4">
+                  <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-[#0038E2]/20 text-[#00D4FF] border border-[#0038E2]/40 shrink-0">
+                    <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
                     <div className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Direct Phone Lines</div>
-                    <div className="mt-1 space-y-1">
-                      <a href="tel:+251901864466" className="block text-white hover:text-[#00D4FF] font-semibold transition">
+                    <div className="mt-1 space-y-1 text-xs sm:text-sm">
+                      <a href="tel:+251901864466" className="block text-white hover:text-[#00D4FF] font-semibold transition py-1 min-h-[36px] flex items-center">
                         +251 901 86 44 66
                       </a>
-                      <a href="tel:+251912882881" className="block text-white hover:text-[#00D4FF] font-semibold transition">
+                      <a href="tel:+251912882881" className="block text-white hover:text-[#00D4FF] font-semibold transition py-1 min-h-[36px] flex items-center">
                         +251 912 88 28 81
                       </a>
-                      <a href="tel:+251910615757" className="block text-white hover:text-[#00D4FF] font-semibold transition">
+                      <a href="tel:+251910615757" className="block text-white hover:text-[#00D4FF] font-semibold transition py-1 min-h-[36px] flex items-center">
                         +251 910 61 57 57
                       </a>
-                      <a href="tel:+251118886644" className="block text-white hover:text-[#00D4FF] font-semibold transition">
-                        +251 118 88 66 44 <span className="text-xs text-slate-400 font-normal">(Office Landline)</span>
+                      <a href="tel:+251118886644" className="block text-white hover:text-[#00D4FF] font-semibold transition py-1 min-h-[36px] flex items-center">
+                        +251 118 88 66 44 <span className="text-xs text-slate-400 font-normal ml-1">(Office Landline)</span>
                       </a>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-2xl bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/30 shrink-0">
-                    <Mail className="w-5 h-5" />
+                <div className="flex items-start gap-3.5 sm:gap-4">
+                  <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/30 shrink-0">
+                    <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
                     <div className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Official Email</div>
-                    <a href="mailto:info@ethiorain.com" className="text-white hover:text-[#00D4FF] font-semibold mt-1 block transition">
+                    <a href="mailto:info@ethiorain.com" className="text-white hover:text-[#00D4FF] font-semibold mt-1 block text-xs sm:text-sm transition min-h-[36px] flex items-center">
                       info@ethiorain.com
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-2xl bg-[#00D4FF]/15 text-[#00D4FF] border border-[#00D4FF]/30 shrink-0">
-                    <ShieldCheck className="w-5 h-5" />
+                <div className="flex items-start gap-3.5 sm:gap-4">
+                  <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-[#00D4FF]/15 text-[#00D4FF] border border-[#00D4FF]/30 shrink-0">
+                    <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
                     <div className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Legal Qualification</div>
-                    <div className="text-white font-semibold mt-1 leading-snug">
+                    <div className="text-white font-semibold mt-1 text-xs sm:text-sm leading-snug">
                       Grade-1 Water Works Contractor<br />
                       <span className="text-xs text-slate-300 font-normal">Manufacturing of Special Purpose Machinery</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-2xl bg-[#F59E0B]/15 text-[#F59E0B] border border-[#F59E0B]/30 shrink-0">
-                    <Clock className="w-5 h-5" />
+                <div className="flex items-start gap-3.5 sm:gap-4">
+                  <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-[#F59E0B]/15 text-[#F59E0B] border border-[#F59E0B]/30 shrink-0">
+                    <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
                     <div className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Working Hours</div>
-                    <div className="text-white font-semibold mt-1">
+                    <div className="text-white font-semibold mt-1 text-xs sm:text-sm">
                       Mon – Sat: 8:30 AM – 5:30 PM (EAT)
                     </div>
                   </div>
@@ -423,7 +423,7 @@ export default function Contact() {
             </ScrollReveal>
 
             {/* Embedded Google Map */}
-            <ScrollReveal animation="fade-left" delay={150} className="h-64 sm:h-72 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl relative">
+            <ScrollReveal animation="fade-left" delay={150} className="h-56 sm:h-72 rounded-2xl sm:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl relative">
               <iframe
                 title="Ethio-Rain Office Location Map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d495.1485019125002!2d38.767233235229625!3d9.003057398062387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b857367dd87b5%3A0x8edd7a5d87f3f4ca!2sEthio%20Rain%20Irrigation%20Systems%20PLC!5e1!3m2!1sen!2set!4v1776456424804!5m2!1sen!2set"
