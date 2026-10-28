@@ -90,10 +90,10 @@ export const services = [
     ],
     partners: ['Valley Irrigation', 'Valmont Industries', 'Nelson Irrigation', 'AgSense'],
     relatedProjects: [
-      'meki-irrigation-projects-1000ha-15-pivots',
       'center-pivot-irrigation-system-design-installation',
       'eldima-center-pivot-installation',
-      'center-pivot-irrigation-system-demonstration-project'
+      'nettle-irrigation-project-1000ha',
+      'meki-irrigation-projects-1000ha-15-pivots'
     ],
     gallery: [
       '/images/img_4f650875d590.webp',

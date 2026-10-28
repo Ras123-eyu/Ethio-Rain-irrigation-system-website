@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { projectsData } from '../data/projects'
-import { ArrowLeft, CheckCircle, Mail, Phone, ChevronRight, X, Search, MapPin, User, Clock, AlertTriangle, Lightbulb, Banknote, Percent } from 'lucide-react'
+import { ArrowLeft, CheckCircle, Mail, Phone, ChevronRight, X, Search, MapPin, User, Clock, AlertTriangle, Lightbulb, Banknote, Percent, CameraOff } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import SEO from '../components/SEO'
 
@@ -22,21 +22,28 @@ export default function ProjectDetail() {
     )
   }
 
-  const { title, location, area, type, img, tag, client, duration, overview, challenge, solution, results, gallery, value, completion } = project
+  const { title, location, area, type, img, tag, client, duration, overview, challenge, solution, results, gallery, value, completion, hasPhoto } = project
 
   return (
     <div className="pt-20 sm:pt-24 pb-20 sm:pb-24 transition-colors duration-300 dark:bg-gray-950 bg-white relative">
       <SEO title={title} description={overview} type="article" />
       {/* Hero Section */}
-      <section className="relative h-[48vh] sm:h-[60vh] min-h-[340px] sm:min-h-[450px] flex items-end mb-10 sm:mb-16 overflow-hidden">
+      <section className="relative h-[48vh] sm:h-[60vh] min-h-[340px] sm:min-h-[450px] flex items-end mb-10 sm:mb-16 overflow-hidden bg-gray-950">
         <img src={img} alt={title} className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-linear-to-t from-gray-950 via-gray-950/40 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-gray-950 via-gray-950/60 to-transparent" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 w-full pb-8 sm:pb-16">
           <Link to="/" className="inline-flex items-center gap-2.5 text-white/70 hover:text-brand-cyan mb-4 sm:mb-8 transition-colors text-xs sm:text-sm font-bold uppercase tracking-widest group min-h-[44px] py-1">
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Home
           </Link>
-          <div className="inline-block bg-brand-blue text-white text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full mb-3 sm:mb-6 shadow-2xl">
-            {tag}
+          <div className="flex flex-wrap items-center gap-3 mb-3 sm:mb-6">
+            <div className="inline-block bg-brand-blue text-white text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full shadow-2xl">
+              {tag}
+            </div>
+            {!hasPhoto && (
+              <span className="inline-flex items-center gap-1.5 bg-black/80 backdrop-blur-md text-gray-300 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-white/10">
+                <CameraOff className="w-3 h-3 text-brand-cyan" /> Photo Not Available (Records On File)
+              </span>
+            )}
           </div>
           <h1 className="text-2xl sm:text-5xl md:text-7xl font-black text-white leading-tight max-w-4xl tracking-tighter drop-shadow-2xl">
             {title}

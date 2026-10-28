@@ -16,7 +16,8 @@ import {
   FileCheck2,
   Calendar,
   ExternalLink,
-  Droplet
+  Droplet,
+  CameraOff
 } from 'lucide-react'
 import { useEffect } from 'react'
 import SEO from '../components/SEO'
@@ -340,7 +341,7 @@ export default function ServiceDetail() {
                     to={`/project/${proj.slug}`}
                     className="group card-hover rounded-2xl overflow-hidden dark:bg-gray-900 bg-white border dark:border-white/5 border-gray-100 shadow-sm flex flex-col justify-between"
                   >
-                    <div className="relative h-40 overflow-hidden">
+                    <div className="relative h-40 overflow-hidden bg-gray-950">
                       <img 
                         src={proj.img} 
                         alt={proj.title}
@@ -350,7 +351,12 @@ export default function ServiceDetail() {
                       <span className="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-md">
                         <CheckCircle className="w-2.5 h-2.5" /> 100% Executed
                       </span>
-                      {proj.area && (
+                      {!proj.hasPhoto && (
+                        <span className="absolute top-2.5 left-2.5 bg-black/80 backdrop-blur-md text-gray-300 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md flex items-center gap-1 border border-white/10 shadow-sm">
+                          <CameraOff className="w-2.5 h-2.5 text-brand-cyan" /> Photo Not Available
+                        </span>
+                      )}
+                      {proj.area && proj.hasPhoto && (
                         <span className="absolute bottom-2.5 left-2.5 text-[11px] text-white font-bold bg-black/60 px-2.5 py-0.5 rounded-md backdrop-blur-xs border border-white/10">
                           {proj.area}
                         </span>

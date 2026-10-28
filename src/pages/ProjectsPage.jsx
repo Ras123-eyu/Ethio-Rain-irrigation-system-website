@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import ScrollReveal from '../components/ScrollReveal'
 import { projectsData } from '../data/projects'
-import { ChevronLeft, ChevronRight, ArrowRight, LayoutGrid, Map } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ArrowRight, LayoutGrid, Map, CameraOff } from 'lucide-react'
 import SEO from '../components/SEO'
 import EthiopiaProjectsMap from '../components/EthiopiaProjectsMap'
 
@@ -118,16 +118,21 @@ export default function ProjectsPage() {
           </div>
 
         <div className="grid md:grid-cols-2 gap-5 sm:gap-10 min-h-[400px] sm:min-h-[600px]">
-          {currentProjects.map(({ slug, title, location, type, img, tag }, i) => (
+          {currentProjects.map(({ slug, title, location, type, img, tag, hasPhoto }, i) => (
             <ScrollReveal
               key={slug}
               staggerIndex={i}
               animation="fade-up"
               className="card-hover group rounded-2xl sm:rounded-[2.5rem] overflow-hidden dark:bg-gray-900 bg-white shadow-xl border dark:border-white/10 border-gray-100 transition-all duration-300 flex flex-col justify-between"
             >
-              <div className="relative overflow-hidden h-52 sm:h-72 shrink-0">
+              <div className="relative overflow-hidden h-52 sm:h-72 shrink-0 bg-gray-950">
                 <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-linear-to-t from-brand-black/95 via-brand-black/30 to-transparent" />
+                {!hasPhoto && (
+                  <span className="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-gray-300 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-white/10 flex items-center gap-1.5 shadow-md">
+                    <CameraOff className="w-3 h-3 text-brand-cyan" /> Photo Not Available
+                  </span>
+                )}
                 <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
                   <span className={`text-[9px] sm:text-[10px] uppercase tracking-widest font-black px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-2 sm:mb-3 inline-block shadow-2xl backdrop-blur-md ${tag === 'Completed' ? 'bg-brand-blue text-white' : 'bg-brand-cyan text-brand-black'
                     }`}>{tag}</span>

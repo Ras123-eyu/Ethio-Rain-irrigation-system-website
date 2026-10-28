@@ -3,6 +3,8 @@ import { projectsData } from '../data/projects';
 import ScrollReveal from './ScrollReveal';
 
 export default function Projects() {
+  const featuredProjects = projectsData.filter(p => p.hasPhoto).slice(0, 4)
+
   return (
     <section id="projects" className="py-14 sm:py-24 transition-colors duration-300 dark:bg-linear-to-b dark:from-gray-950 dark:to-gray-900 bg-linear-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -18,7 +20,7 @@ export default function Projects() {
         </ScrollReveal>
 
         <div className="grid md:grid-cols-2 gap-6 sm:gap-10">
-          {projectsData.slice(0, 4).map(({ slug, title, location, type, img, tag }, i) => (
+          {featuredProjects.map(({ slug, title, location, type, img, tag }, i) => (
             <ScrollReveal
               key={slug}
               staggerIndex={i}
