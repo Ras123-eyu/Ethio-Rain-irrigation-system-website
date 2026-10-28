@@ -6,7 +6,8 @@ export const projectsData = [
     location: 'Meki, Oromia Region',
     area: '1,000 ha (15 Pivots)',
     type: 'Center Pivot Irrigation',
-    img: '/images/img_37cc9ecf2b11.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'Commercial Agricultural Scheme',
     duration: 'Multi-Phase Delivery',
@@ -21,10 +22,7 @@ export const projectsData = [
       'Over 40% reduction in water usage compared to surface flooding',
       'Significant increase in commercial grain and vegetable yields'
     ],
-    gallery: [
-      '/images/img_4f650875d590.webp',
-      '/images/img_7cf955102102.webp'
-    ]
+    gallery: []
   },
   {
     slug: 'consultancy-and-design-service-for-study-an-detail-design-of-gidabo-center-pivot-irrigation-for-8000-ha-farm',
@@ -32,7 +30,8 @@ export const projectsData = [
     location: 'Gidabo, Oromia Region',
     area: '8,000 ha',
     type: 'Study, Design & Consultancy',
-    img: '/images/img_ccc0369d5c2d.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Ongoing',
     client: 'Engineering Corporation of Oromia',
     duration: '4 months',
@@ -47,9 +46,7 @@ export const projectsData = [
       'Formulated value-engineered BOQ reducing initial capital expenditure',
       'Established sustainable water allocation and pump schedule model'
     ],
-    gallery: [
-      '/images/img_c8adaa3c4c93.webp'
-    ]
+    gallery: []
   },
   {
     slug: 'nettle-irrigation-project-1000ha',
@@ -58,6 +55,7 @@ export const projectsData = [
     area: '1,000 ha',
     type: 'Large-Scale Irrigation',
     img: '/images/projects/nettle-pump-manifold-crane.webp',
+    hasPhoto: true,
     tag: 'Completed',
     client: 'Commercial Agricultural Enterprise',
     duration: 'Completed',
@@ -87,6 +85,7 @@ export const projectsData = [
     location: 'Gesuba, SNNPR Region',
     type: 'Water Supply & Civil Works',
     img: '/images/projects/gesuba-water-supply-signboard.webp',
+    hasPhoto: true,
     tag: 'Completed',
     client: 'SNNPR Water, Energy & Mine Development Bureau',
     duration: '2 years',
@@ -115,7 +114,8 @@ export const projectsData = [
     location: 'Gidabo, Oromia Region',
     area: '78.5 ha',
     type: 'Center Pivot Irrigation',
-    img: '/images/img_a92dad3e2e0b.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Ongoing',
     client: 'Oromia Construction Corporation',
     duration: '5 months',
@@ -130,9 +130,7 @@ export const projectsData = [
       'Expected 50%+ boost in seasonal crop yields',
       'Integrated pressure-regulating nozzle package'
     ],
-    gallery: [
-      '/images/img_7cf955102102.webp'
-    ]
+    gallery: []
   },
   {
     slug: 'center-pivot-irrigation-system-design-installation',
@@ -141,6 +139,7 @@ export const projectsData = [
     area: '210 ha (7x 30 ha Pivots)',
     type: 'Center Pivot Irrigation',
     img: '/images/projects/shallo-pivot-tower-erection.webp',
+    hasPhoto: true,
     tag: 'Completed',
     client: 'Elfora Agro Industry',
     duration: '10 months',
@@ -171,7 +170,8 @@ export const projectsData = [
     title: 'Construction of Water Well and Pipe Supported Irrigation',
     location: 'Shallo Farm, West Arsi',
     type: 'Deep Well Drilling & Water Supply',
-    img: '/images/projects/shallo-pivot-span-alignment.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'Elfora Agro Industry',
     duration: '10 months',
@@ -186,10 +186,7 @@ export const projectsData = [
       'Extensive pipeline network delivering balanced pressure across all farm blocks',
       'Long-term water security established for Elfora agribusiness'
     ],
-    gallery: [
-      '/images/projects/shallo-pivot-pipe-assembly.webp',
-      '/images/projects/shallo-pivot-truss-assembly.webp'
-    ]
+    gallery: []
   },
   {
     slug: 'debrebrhan-university-water-supply-and-elector-mechanical-porject',
@@ -197,6 +194,7 @@ export const projectsData = [
     location: 'Debre Berhan, Amhara Region',
     type: 'Water Supply & Electromechanical',
     img: '/images/projects/debre-berhan-booster-pumps.webp',
+    hasPhoto: true,
     tag: 'Completed',
     client: 'Ethiopian Engineering Corporation (EEC) Construction Sector',
     duration: '2 years',
@@ -221,7 +219,8 @@ export const projectsData = [
     title: 'Drilling & Construction of Deep Well and Electromechanical Works',
     location: 'Industrial Zone, Ethiopia',
     type: 'Deep Well Drilling & Electromechanical',
-    img: '/images/img_3f8d10cd9593.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'Seregela Speciality Chemicals PLC',
     duration: '10 Months',
@@ -236,16 +235,15 @@ export const projectsData = [
       'Certified water quality compliance for chemical manufacturing',
       'Automated water level and dry-run pump safety systems'
     ],
-    gallery: [
-      '/images/img_c48e21cdda98.webp'
-    ]
+    gallery: []
   },
   {
     slug: 'hilton-hotel-water-well-submersible-pump',
     title: 'Supply of Submersible Pump for Hilton Hotel Water Well Project',
     location: 'Addis Ababa',
     type: 'Pump Installation & Hospitality Water Supply',
-    img: '/images/img_8062c5e4ea85.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'Ethiopian Engineering Corporation / Hilton Addis Hotel',
     duration: 'Completed',
@@ -260,16 +258,15 @@ export const projectsData = [
       'Substantial reduction in municipal water disruption risk',
       'Full compliance with international hospitality water safety standards'
     ],
-    gallery: [
-      '/images/img_ae354f01a176.webp'
-    ]
+    gallery: []
   },
   {
     slug: 'electric-motor-driven-submersible-pump-riser-pipe-power-cables',
     title: 'Electric Motor Driven Submersible Pump, Riser Pipe & Power Cables',
     location: 'Oromia Region',
     type: 'Electromechanical & Pumping',
-    img: '/images/img_a0bafc6c3687.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'Oromia Construction Corporation',
     duration: '15 days',
@@ -283,16 +280,15 @@ export const projectsData = [
       'Met urgent regional water supply emergency requirements',
       'Passed all dielectric and hydrostatic pressure acceptance tests'
     ],
-    gallery: [
-      '/images/img_0ab41cbad70e.webp'
-    ]
+    gallery: []
   },
   {
     slug: 'ecwc-submersible-pump-supply-and-fix',
     title: 'Supply and Fix of Submersible Pump',
     location: 'National Infrastructure Site, Ethiopia',
     type: 'Electromechanical & Pumping',
-    img: '/images/img_3f8d10cd9593.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'Ethiopian Construction Works Corporation (ECWC)',
     duration: 'Project Delivery',
@@ -313,7 +309,8 @@ export const projectsData = [
     title: 'Supply & Delivery of Domestic Water Booster Pump for BPD Project',
     location: 'Addis Ababa',
     type: 'Water Supply & Booster Systems',
-    img: '/images/img_3f8d10cd9593.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'Ethiopian Engineering Corporation',
     duration: 'Completed',
@@ -334,7 +331,8 @@ export const projectsData = [
     title: 'Supply & Delivery of Firefighting Pump (MOJ P-111 Project)',
     location: 'Addis Ababa',
     type: 'Firefighting & Electromechanical',
-    img: '/images/img_3f8d10cd9593.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'Ethiopian Engineering Corporation (Ministry of Justice Project)',
     duration: 'Completed',
@@ -355,7 +353,8 @@ export const projectsData = [
     title: 'Supply & Fix of Firefighting Pumping System (Addis Ababa Police Commission)',
     location: 'Addis Ababa',
     type: 'Firefighting & Electromechanical',
-    img: '/images/img_3f8d10cd9593.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'Ethiopian Construction Works Corporation (under Addis Ababa Police Commission Project)',
     duration: 'Project Delivery',
@@ -376,7 +375,8 @@ export const projectsData = [
     title: 'Manisa Drip Irrigation Supply and Installation',
     location: 'Manisa, SNNPR Region',
     type: 'Drip System',
-    img: '/images/img_0fc0e6fb7f1b.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'SNNPR Agricultural Office',
     duration: '5 months',
@@ -390,16 +390,15 @@ export const projectsData = [
       'Zero emitter clogging throughout growing seasons',
       'Elevated farmer productivity and water conservation in Manisa'
     ],
-    gallery: [
-      '/images/img_916a743effa4.webp'
-    ]
+    gallery: []
   },
   {
     slug: 'rama-construction-hdpe-pipe-welding',
     title: 'High Density Polyethylene (HDPE) Butt-Fusion Welding',
     location: 'Ethiopia',
     type: 'HDPE Piping & Welding',
-    img: '/images/img_a02a71599b3f.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'Rama Construction PLC',
     duration: 'Completed',
@@ -420,7 +419,8 @@ export const projectsData = [
     title: 'Supply & Delivery of Submersible Pump for Ethiopian Shipping Lines Project',
     location: 'Modjo Dry Port / Addis Ababa',
     type: 'Electromechanical & Pumping',
-    img: '/images/img_3f8d10cd9593.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'Ethiopian Engineering Corporation',
     duration: 'Completed',
@@ -441,6 +441,7 @@ export const projectsData = [
     location: 'Eldima, Oromia Region',
     type: 'Center Pivot Irrigation',
     img: '/images/projects/eldima-center-pivot-spraying.webp',
+    hasPhoto: true,
     tag: 'Completed',
     client: 'Oromia Construction Corporation',
     duration: '15 days',
@@ -464,6 +465,7 @@ export const projectsData = [
     location: '22 Mazoria, Addis Ababa',
     type: 'Pump Installation & Building Water Supply',
     img: '/images/projects/glory-real-estate-crane-borehole.webp',
+    hasPhoto: true,
     tag: 'Completed',
     client: '22 Glory Real Estate',
     duration: '15 days',
@@ -488,7 +490,8 @@ export const projectsData = [
     title: 'Pop-up Sprinkler System for Presidential Palace',
     location: 'Addis Ababa',
     type: 'Landscape Sprinkler System',
-    img: '/images/img_3f8d10cd9593.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'DB General Construction PLC',
     duration: '15 days',
@@ -510,7 +513,8 @@ export const projectsData = [
     location: 'Bole International Airport, Addis Ababa',
     area: '120 ha',
     type: 'Landscape Irrigation & Engineering Design',
-    img: '/images/img_055b887456f4.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'Ethiopian Airlines Group Facilities',
     duration: 'Completed',
@@ -531,7 +535,8 @@ export const projectsData = [
     title: 'Supply and Installation of Generators and Pumps',
     location: 'Jimma Welene and Dawro',
     type: 'Electromechanical & Pumping',
-    img: '/images/projects/dawro-submersible-pump-installation.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'Abinet Shewangizaw',
     duration: '6 months',
@@ -544,9 +549,7 @@ export const projectsData = [
       '100% works completed across all designated locations',
       'Reliable power and water supply established for local farming operations'
     ],
-    gallery: [
-      '/images/projects/dawro-submersible-pump-installation.webp'
-    ]
+    gallery: []
   },
   {
     slug: 'submersible-pump-supply-and-installation',
@@ -554,6 +557,7 @@ export const projectsData = [
     location: 'Tercha Town, Dawro Zone',
     type: 'Pump Installation & Municipal Water',
     img: '/images/projects/dawro-submersible-pump-installation.webp',
+    hasPhoto: true,
     tag: 'Completed',
     client: 'Tercha Town Water Service',
     duration: '20 days',
@@ -577,7 +581,8 @@ export const projectsData = [
     title: 'Design and Consultancy of KMD Agricultural Development',
     location: 'Ethiopia',
     type: 'Study, Design & Consultancy',
-    img: '/images/img_3f8d10cd9593.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'KMD Agricultural Development',
     duration: '30 days',
@@ -597,7 +602,8 @@ export const projectsData = [
     title: 'Drip Irrigation System Installation',
     location: 'Oromia Region',
     type: 'Drip System',
-    img: '/images/img_0fc0e6fb7f1b.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'Ethiopian Agricultural Transformation Agency (ATA) Oromia',
     duration: '10 days',
@@ -617,7 +623,8 @@ export const projectsData = [
     title: 'Green House Water Supply and Irrigation Project',
     location: 'Addis Ababa',
     type: 'Greenhouse Solutions',
-    img: '/images/img_3f8d10cd9593.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'SEPROB Ethiopia',
     duration: '1 month',
@@ -637,7 +644,8 @@ export const projectsData = [
     title: 'Green House System Supply and Installation',
     location: 'Addis Ababa',
     type: 'Greenhouse Solutions',
-    img: '/images/img_5786a204517f.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'SEPROB Morocco Ethiopia, Project Office',
     duration: '1 month',
@@ -657,7 +665,8 @@ export const projectsData = [
     title: 'HDPE Welding and Hydrostatic Field Pressure Testing',
     location: 'Ethiopia',
     type: 'HDPE Piping & Testing',
-    img: '/images/img_a02a71599b3f.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'Rama Construction PLC',
     duration: '21 days',
@@ -677,7 +686,8 @@ export const projectsData = [
     title: 'Irrigation System Center Pivot Design (Birhan Abuhay Agricultural Development)',
     location: 'Ethiopia',
     type: 'Study, Design & Consultancy',
-    img: '/images/img_3f8d10cd9593.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'Birhan Abuhay Mengistu Agricultural Development',
     duration: '2 months',
@@ -697,7 +707,8 @@ export const projectsData = [
     title: 'Drip System Installation',
     location: 'Addis Ababa',
     type: 'Drip System',
-    img: '/images/img_0fc0e6fb7f1b.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'SEPROB Morocco Ethiopia, Project Office',
     duration: '15 days',
@@ -717,7 +728,8 @@ export const projectsData = [
     title: 'Drip and Water Distribution System',
     location: 'Addis Ababa',
     type: 'Drip System',
-    img: '/images/img_3f8d10cd9593.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'SEPROB Ethiopia',
     duration: '15 days',
@@ -737,7 +749,8 @@ export const projectsData = [
     title: 'Center Pivot Irrigation System Demonstration Project',
     location: 'National Demonstration Site, Ethiopia',
     type: 'Center Pivot Irrigation',
-    img: '/images/img_3f8d10cd9593.webp',
+    img: '/images/photo-not-available.webp',
+    hasPhoto: false,
     tag: 'Completed',
     client: 'Ministry of Agriculture (MoA)',
     duration: '1 year',
