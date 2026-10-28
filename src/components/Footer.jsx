@@ -111,8 +111,8 @@ export default function Footer() {
         <div>
           <h4 className="font-black text-[11px] sm:text-[10px] uppercase tracking-[0.2em] text-brand-cyan mb-6 sm:mb-8">Our Company</h4>
           <ul className="space-y-3 sm:space-y-4 text-sm font-bold text-white/40">
-            {['About', 'Projects', 'Products', 'Contact'].map(s => (
-              <li key={s}><a href={`#${s.toLowerCase().replace(' ', '')}`} className="hover:text-white transition-all flex items-center gap-2 py-1 min-h-[40px] group"><span className="w-1.5 h-1.5 rounded-full bg-white/5 group-hover:bg-white" /> {s}</a></li>
+            {['About', 'Executive Team', 'Projects', 'Products', 'Contact'].map(s => (
+              <li key={s}><a href={s === 'Executive Team' ? '#team' : `#${s.toLowerCase().replace(' ', '')}`} className="hover:text-white transition-all flex items-center gap-2 py-1 min-h-[40px] group"><span className="w-1.5 h-1.5 rounded-full bg-white/5 group-hover:bg-white" /> {s}</a></li>
             ))}
           </ul>
         </div>

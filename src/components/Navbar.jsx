@@ -5,6 +5,7 @@ import { Menu, X, Sun, Moon } from 'lucide-react'
 const navLinks = [
   { label: 'Home', href: '/#home' },
   { label: 'About', href: '/#about' },
+  { label: 'Team', href: '/#team' },
   { label: 'Services', href: '/#services' },
   { label: 'Products', href: '/#products' },
   { label: 'Projects', href: '/#projects' },
@@ -26,7 +27,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
           setScrolled(window.scrollY > 50)
 
           if (pathname === '/') {
-            const sections = ['home', 'about', 'services', 'products', 'projects', 'contact']
+            const sections = ['home', 'about', 'team', 'services', 'products', 'projects', 'contact']
             let current = '/#home'
             for (const section of sections) {
               const element = document.getElementById(section)

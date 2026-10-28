@@ -3,6 +3,7 @@ import Hero from '../components/Hero'
 import Stats from '../components/Stats'
 import Partners from '../components/Partners'
 import About from '../components/About'
+import ExecutiveTeam from '../components/ExecutiveTeam'
 import Services from '../components/Services'
 import WaterEstimator from '../components/WaterEstimator'
 import ProductsPreview from '../components/ProductsPreview'
@@ -19,6 +20,7 @@ export default function Home() {
       <Partners />
       <Stats />
       <About />
+      <ExecutiveTeam />
       <Services />
       <WaterEstimator />
       <ProductsPreview />
