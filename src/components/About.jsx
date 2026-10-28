@@ -83,10 +83,25 @@ export default function About() {
             ))}
           </div>
 
-          <a href="#contact" className="btn-primary text-white font-semibold px-7 py-3.5 rounded-full inline-flex items-center justify-center gap-2 group w-full sm:w-auto min-h-[48px] active:scale-95 text-center text-sm sm:text-base">
-            Partner With Us
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <a href="#contact" className="btn-primary text-white font-semibold px-7 py-3.5 rounded-full inline-flex items-center justify-center gap-2 group w-full sm:w-auto min-h-[48px] active:scale-95 text-center text-sm sm:text-base">
+              Partner With Us
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+
+            <a href="#team" className="inline-flex items-center gap-3 group p-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-white/5 transition-all">
+              <div className="flex -space-x-2.5 overflow-hidden">
+                <img className="inline-block h-9 w-9 rounded-full ring-2 ring-white dark:ring-gray-900 object-cover object-top" src="/images/team/gulelat_sitotaw.webp" alt="Gulelat Sitotaw" />
+                <img className="inline-block h-9 w-9 rounded-full ring-2 ring-white dark:ring-gray-900 object-cover object-top" src="/images/team/fitsum_tadesse.webp" alt="Fitsum Tadesse" />
+                <img className="inline-block h-9 w-9 rounded-full ring-2 ring-white dark:ring-gray-900 object-cover object-top" src="/images/team/nahom_yiheyis.webp" alt="Nahom Yiheyis" />
+                <img className="inline-block h-9 w-9 rounded-full ring-2 ring-white dark:ring-gray-900 object-cover object-top" src="/images/team/lidiya_nigusse.webp" alt="Lidiya Nigussie" />
+              </div>
+              <div className="text-left text-xs pr-2">
+                <p className="font-bold text-gray-900 dark:text-white group-hover:text-brand-cyan transition-colors">Executive Team</p>
+                <p className="text-[11px] text-gray-500 dark:text-white/50">Meet Leadership &rarr;</p>
+              </div>
+            </a>
+          </div>
         </ScrollReveal>
       </div>
     </section>
