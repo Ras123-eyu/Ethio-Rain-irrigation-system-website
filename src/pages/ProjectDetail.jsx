@@ -22,7 +22,7 @@ export default function ProjectDetail() {
     )
   }
 
-  const { title, location, area, type, img, tag, client, duration, overview, challenge, solution, results, gallery, value, completion, hasPhoto } = project
+  const { title, location, area, type, img, tag, client, duration, overview, challenge, solution, results, gallery, completion, hasPhoto } = project
 
   return (
     <div className="pt-20 sm:pt-24 pb-20 sm:pb-24 transition-colors duration-300 dark:bg-gray-950 bg-white relative">

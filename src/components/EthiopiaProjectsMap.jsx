@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { 
   MapPin, 
@@ -13,7 +13,9 @@ import {
   Compass,
   Building2,
   Calendar,
-  Briefcase
+  Briefcase,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react'
 import ScrollReveal from './ScrollReveal'
 import { ETHIOPIA_REGIONS } from '../data/ethiopiaRegions'
@@ -53,6 +55,101 @@ export default function EthiopiaProjectsMap() {
   const handleZoomIn = () => setZoomLevel(prev => Math.min(prev + 0.25, 2))
   const handleZoomOut = () => setZoomLevel(prev => Math.max(prev - 0.25, 0.75))
   const handleResetZoom = () => setZoomLevel(1)
+  // Helper to get non-overlapping display coordinates (Spiderfy fan-out for Addis Ababa & clusters)
+  const projectsWithCoords = useMemo(() => {
+    const isAddisFocused = activeRegion.toLowerCase().includes('addis')
+
+    if (isAddisFocused) {
+      const cx = 326
+      const cy = 314
+      // Sort so Addis Central HQ is at center (index 0)
+      const sorted = [...filteredProjects].sort((a, b) => (b.isHQ ? 1 : 0) - (a.isHQ ? 1 : 0))
+      
+      return sorted.map((p, idx) => {
+        if (idx === 0) {
+          return {
+            ...p,
+            displayX: cx,
+            displayY: cy,
+            isSpiderfied: false,
+            indexNum: 1
+          }
+        }
+        let r, angle
+        if (idx <= 5) {
+          r = 48
+          angle = ((idx - 1) / 5) * 2 * Math.PI - Math.PI / 2
+        } else {
+          r = 84
+          angle = ((idx - 6) / 6) * 2 * Math.PI - Math.PI / 2 + Math.PI / 6
+        }
+        const displayX = Math.round((cx + r * Math.cos(angle)) * 10) / 10
+        const displayY = Math.round((cy + r * Math.sin(angle)) * 10) / 10
+
+        return {
+          ...p,
+          displayX,
+          displayY,
+          isSpiderfied: true,
+          connectorStartX: cx,
+          connectorStartY: cy,
+          indexNum: idx + 1
+        }
+      })
+    }
+
+    // For other regions or All Regions, detect any overlapping pins (within 12px) and offset them
+    const clusters = []
+    filteredProjects.forEach(p => {
+      let found = clusters.find(c => Math.hypot(c.center.x - p.x, c.center.y - p.y) < 12)
+      if (!found) {
+        found = { center: { x: p.x, y: p.y }, items: [] }
+        clusters.push(found)
+      }
+      found.items.push(p)
+    })
+
+    return filteredProjects.map((p, idx) => {
+      const cluster = clusters.find(c => c.items.some(item => item.id === p.id))
+      if (cluster && cluster.items.length > 1) {
+        const itemIdx = cluster.items.findIndex(item => item.id === p.id)
+        const total = cluster.items.length
+        if (p.isHQ) {
+          return { ...p, displayX: p.x, displayY: p.y, isSpiderfied: false, indexNum: idx + 1 }
+        }
+        const offsetR = total <= 4 ? 14 : 18
+        const angle = (itemIdx / total) * 2 * Math.PI - Math.PI / 2
+        const displayX = Math.round((cluster.center.x + offsetR * Math.cos(angle)) * 10) / 10
+        const displayY = Math.round((cluster.center.y + offsetR * Math.sin(angle)) * 10) / 10
+        return {
+          ...p,
+          displayX,
+          displayY,
+          isSpiderfied: true,
+          connectorStartX: cluster.center.x,
+          connectorStartY: cluster.center.y,
+          indexNum: idx + 1
+        }
+      }
+      return { ...p, displayX: p.x, displayY: p.y, isSpiderfied: false, indexNum: idx + 1 }
+    })
+  }, [filteredProjects, activeRegion])
+
+  // Current project index in filtered list for next/prev navigation
+  const currentProjectIndex = projectsWithCoords.findIndex(p => p.id === selectedProject?.id)
+
+  const handlePrevProject = () => {
+    if (projectsWithCoords.length === 0) return
+    const prevIdx = (currentProjectIndex - 1 + projectsWithCoords.length) % projectsWithCoords.length
+    setSelectedProject(projectsWithCoords[prevIdx])
+  }
+
+  const handleNextProject = () => {
+    if (projectsWithCoords.length === 0) return
+    const nextIdx = (currentProjectIndex + 1) % projectsWithCoords.length
+    setSelectedProject(projectsWithCoords[nextIdx])
+  }
+
 
   // Helper to determine if a region is currently highlighted
   const isRegionHighlighted = (regionName, regionId) => {
@@ -183,10 +280,10 @@ export default function EthiopiaProjectsMap() {
             </div>
 
             {/* SVG Interactive Canvas with Real Regions */}
-            <div className="relative w-full aspect-[800/620] overflow-hidden rounded-2xl bg-[#040812]">
+            <div className="relative w-full aspect-[800/620] overflow-hidden rounded-2xl bg-[#030712] border border-cyan-500/20 shadow-[inset_0_0_80px_rgba(0,180,255,0.08)]">
               {/* Subtle Coordinate Grid Background */}
               <div 
-                className="absolute inset-0 opacity-15 pointer-events-none"
+                className="absolute inset-0 opacity-25 pointer-events-none"
                 style={{
                   backgroundImage: 'radial-gradient(circle, #00D4FF 1px, transparent 1px)',
                   backgroundSize: '24px 24px'
@@ -203,20 +300,27 @@ export default function EthiopiaProjectsMap() {
                 >
                   <defs>
                     <linearGradient id="regionDefaultGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#0B1A35" />
-                      <stop offset="100%" stopColor="#060F22" />
+                      <stop offset="0%" stopColor="#132B52" />
+                      <stop offset="100%" stopColor="#0B1B36" />
                     </linearGradient>
 
                     <linearGradient id="regionActiveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#0E3378" />
-                      <stop offset="100%" stopColor="#091E47" />
+                      <stop offset="0%" stopColor="#0284C7" />
+                      <stop offset="100%" stopColor="#0369A1" />
                     </linearGradient>
 
                     <linearGradient id="regionHoverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#143F96" />
-                      <stop offset="100%" stopColor="#0B2356" />
+                      <stop offset="0%" stopColor="#0EA5E9" />
+                      <stop offset="100%" stopColor="#0284C7" />
                     </linearGradient>
 
+                    <filter id="pinGlow" x="-50%" y="-50%" width="200%" height="200%">
+                      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
                     <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
                       <feGaussianBlur stdDeviation="3.5" result="blur" />
                       <feComposite in="SourceGraphic" in2="blur" operator="over" />
@@ -257,8 +361,8 @@ export default function EthiopiaProjectsMap() {
                           <path
                             d={region.path}
                             fill={isHovered ? 'url(#regionHoverGrad)' : isHighlighted ? 'url(#regionActiveGrad)' : 'url(#regionDefaultGrad)'}
-                            stroke={isHovered ? '#00D4FF' : isHighlighted ? '#38BDF8' : '#1D3B6F'}
-                            strokeWidth={isHovered ? 2 : isHighlighted ? 1.8 : 1}
+                            stroke={isHovered ? '#00FFFF' : isHighlighted ? '#00D4FF' : '#38BDF8'}
+                            strokeWidth={isHovered ? 2.5 : isHighlighted ? 2.2 : 1.5} strokeOpacity={isHovered || isHighlighted ? 1 : 0.75}
                             strokeLinejoin="round"
                             className="transition-all duration-300"
                           />
@@ -268,9 +372,9 @@ export default function EthiopiaProjectsMap() {
                             x={region.cx}
                             y={region.cy}
                             textAnchor="middle"
-                            fill={isHovered ? '#00D4FF' : isHighlighted ? '#FFFFFF' : '#476599'}
-                            fontSize={region.id === 'addis-ababa' ? '7.5' : region.id === 'oromia' ? '12' : region.id === 'somali' ? '12' : '9'}
-                            fontWeight={isHovered || isHighlighted ? 'bold' : '600'}
+                            fill={isHovered ? '#00FFFF' : isHighlighted ? '#FFFFFF' : '#E2E8F0'}
+                            fontSize={region.id === 'addis-ababa' ? '8.5' : region.id === 'oromia' ? '13' : region.id === 'somali' ? '13' : '10.5'}
+                            fontWeight={isHovered || isHighlighted ? '900' : '700'}
                             letterSpacing="0.05em"
                             className="pointer-events-none transition-all duration-300"
                             style={{
@@ -285,85 +389,109 @@ export default function EthiopiaProjectsMap() {
                   </g>
 
                   {/* Water Basins (Lake Tana & Great Rift Valley indicators) */}
-                  <ellipse cx="265" cy="180" rx="16" ry="12" fill="#00D4FF" className="opacity-20 animate-pulse pointer-events-none" />
-                  <ellipse cx="316" cy="380" rx="14" ry="28" fill="#00D4FF" className="opacity-20 animate-pulse pointer-events-none" />
+                  <g className="pointer-events-none">
+                    <ellipse cx="265" cy="180" rx="18" ry="14" fill="#00D4FF" fillOpacity="0.45" stroke="#38BDF8" strokeWidth="1.5" />
+                    <text x="265" y="183" textAnchor="middle" fill="#FFFFFF" fontSize="7" fontWeight="bold" opacity="0.9">Lake Tana</text>
+                  </g>
+                  <ellipse cx="316" cy="380" rx="16" ry="30" fill="#00D4FF" fillOpacity="0.3" stroke="#38BDF8" strokeWidth="1" strokeDasharray="3 3" className="pointer-events-none" />
+
+                  {/* Spiderfy Radial Connector Rays */}
+                  <g id="spiderfy-connectors" className="pointer-events-none">
+                    {projectsWithCoords.filter(p => p.isSpiderfied).map((p) => {
+                      const isSelected = selectedProject?.id === p.id
+                      return (
+                        <line
+                          key={'line-' + p.id}
+                          x1={p.connectorStartX}
+                          y1={p.connectorStartY}
+                          x2={p.displayX}
+                          y2={p.displayY}
+                          stroke={isSelected ? '#00FFFF' : '#00D4FF'}
+                          strokeWidth={isSelected ? 1.8 : 1}
+                          strokeDasharray={isSelected ? 'none' : '3 3'}
+                          strokeOpacity={isSelected ? 0.8 : 0.4}
+                        />
+                      )
+                    })}
+                  </g>
 
                   {/* INTERACTIVE PROJECT PINS ON REGIONS */}
-                  {filteredProjects.map((p) => {
+                  {projectsWithCoords.map((p) => {
                     const isSelected = selectedProject?.id === p.id
                     const isCentralHQ = p.isHQ
+                    const shortLabel = isCentralHQ ? '★ Central HQ' : p.name.length > 22 ? p.name.slice(0, 20) + '…' : p.name
 
                     return (
                       <g
                         key={p.id}
-                        transform={`translate(${p.x}, ${p.y})`}
+                        transform={`translate(${p.displayX}, ${p.displayY})`}
                         onClick={() => setSelectedProject(p)}
                         className="cursor-pointer group"
                       >
                         {/* Outer Radar Ping for Selected or HQ */}
                         {(isSelected || isCentralHQ) && (
                           <circle
-                            r={isCentralHQ ? 22 : 16}
+                            r={isCentralHQ ? 26 : 22}
                             fill="none"
-                            stroke={isCentralHQ ? '#F59E0B' : '#00D4FF'}
-                            strokeWidth="1.5"
+                            stroke={isCentralHQ ? '#F59E0B' : '#00FFFF'}
+                            strokeWidth="1.8"
                             className="animate-ping opacity-60"
                           />
                         )}
 
                         {/* Outer Glow Halo */}
                         <circle
-                          r={isSelected ? 14 : isCentralHQ ? 12 : 8}
-                          fill={isCentralHQ ? '#F59E0B' : isSelected ? '#00D4FF' : '#0052FF'}
-                          fillOpacity={isSelected || isCentralHQ ? '0.45' : '0.2'}
+                          r={isSelected ? 18 : isCentralHQ ? 15 : 11}
+                          fill={isCentralHQ ? '#F59E0B' : isSelected ? '#00FFFF' : '#0052FF'}
+                          fillOpacity={isSelected ? 0.65 : isCentralHQ ? 0.5 : 0.35}
                         />
 
                         {/* Core Marker Pin */}
                         <circle
-                          r={isCentralHQ ? 7.5 : isSelected ? 6.5 : 4.5}
-                          fill={isCentralHQ ? '#F59E0B' : isSelected ? '#00D4FF' : '#38BDF8'}
+                          r={isCentralHQ ? 10.5 : isSelected ? 9.5 : 7.5}
+                          fill={isCentralHQ ? '#FBBF24' : isSelected ? '#00FFFF' : '#0052FF'}
                           stroke="#FFFFFF"
-                          strokeWidth={isCentralHQ ? 2 : 1.5}
-                          filter="url(#glow)"
+                          strokeWidth={2.2}
+                          filter="url(#pinGlow)"
                           className="transition-transform duration-200 group-hover:scale-125"
                         />
 
-                        {/* Central Star for Addis Ababa HQ */}
-                        {isCentralHQ && (
-                          <text
-                            y="2.5"
-                            textAnchor="middle"
-                            fill="#030712"
-                            fontSize="8"
-                            fontWeight="black"
-                          >
-                            ★
-                          </text>
-                        )}
+                        {/* Number or Star inside Pin */}
+                        <text
+                          y="3"
+                          textAnchor="middle"
+                          fill={isSelected ? '#020817' : '#FFFFFF'}
+                          fontSize={isCentralHQ ? '9' : '8'}
+                          fontWeight="900"
+                          className="pointer-events-none select-none"
+                        >
+                          {isCentralHQ ? '★' : p.indexNum}
+                        </text>
 
-                        {/* City Label Badge on Hover or when Selected */}
+                        {/* Floating Project Label on Hover or when Selected */}
                         <g 
-                          transform="translate(0, -14)" 
-                          className={isSelected || isCentralHQ ? 'opacity-100' : 'opacity-85 group-hover:opacity-100'}
+                          transform="translate(0, -16)" 
+                          className={isSelected ? 'opacity-100 z-50' : 'opacity-0 group-hover:opacity-100 transition-opacity duration-200'}
                         >
                           <rect
-                            x={- (p.city.length * 3.5 + (isCentralHQ ? 24 : 10))}
-                            y="-14"
-                            width={p.city.length * 7 + (isCentralHQ ? 48 : 20)}
-                            height="16"
-                            rx="8"
-                            fill="#060D1A"
-                            stroke={isCentralHQ ? '#F59E0B' : isSelected ? '#00D4FF' : '#334155'}
-                            strokeWidth="1"
+                            x={- (shortLabel.length * 3.6 + 12)}
+                            y="-16"
+                            width={shortLabel.length * 7.2 + 24}
+                            height="18"
+                            rx="9"
+                            fill="#020817"
+                            stroke={isCentralHQ ? '#FBBF24' : isSelected ? '#00FFFF' : '#38BDF8'}
+                            strokeWidth="1.2"
+                            filter="url(#glow)"
                           />
                           <text
-                            y="-3"
+                            y="-4"
                             textAnchor="middle"
-                            fill={isCentralHQ ? '#F59E0B' : isSelected ? '#00D4FF' : '#F1F5F9'}
-                            fontSize="8.5"
+                            fill={isCentralHQ ? '#FBBF24' : isSelected ? '#00FFFF' : '#F8FAFC'}
+                            fontSize="9"
                             fontWeight="bold"
                           >
-                            {isCentralHQ ? `★ ${p.city} (HQ)` : p.city}
+                            {shortLabel}
                           </text>
                         </g>
                       </g>
@@ -399,6 +527,71 @@ export default function EthiopiaProjectsMap() {
 
           {/* Selected Project Card & Specifications */}
           <div className="lg:col-span-5 space-y-4">
+            {/* Quick Regional Project Browser / Switcher (Solves stacking in Addis Ababa & other regions) */}
+            {filteredProjects.length > 1 && (
+              <div className="bg-[#080E1A]/95 border border-slate-800 rounded-2xl p-3.5 sm:p-4 shadow-xl">
+                <div className="flex items-center justify-between mb-2.5 pb-2 border-b border-slate-800/80">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#00D4FF] animate-pulse" />
+                    <span className="text-xs font-bold text-white">
+                      {activeRegion === 'All Regions' ? 'National Projects' : `${activeRegion} Projects`}
+                    </span>
+                    <span className="bg-[#0052FF]/30 border border-[#00D4FF]/30 text-[#00D4FF] text-[10px] font-black px-2 py-0.5 rounded-full">
+                      {filteredProjects.length} Schemes
+                    </span>
+                  </div>
+
+                  {/* Previous / Next Arrows */}
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      onClick={handlePrevProject}
+                      className="w-7 h-7 flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs transition-colors cursor-pointer active:scale-95"
+                      title="Previous scheme"
+                      aria-label="Previous scheme"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                    <span className="text-[10px] font-mono text-slate-400 font-bold px-1">
+                      {(currentProjectIndex >= 0 ? currentProjectIndex + 1 : 1)}/{filteredProjects.length}
+                    </span>
+                    <button
+                      onClick={handleNextProject}
+                      className="w-7 h-7 flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs transition-colors cursor-pointer active:scale-95"
+                      title="Next scheme"
+                      aria-label="Next scheme"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Horizontally scrollable list of project chips */}
+                <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1 touch-scroll">
+                  {projectsWithCoords.map((p) => {
+                    const isSelected = selectedProject?.id === p.id
+                    return (
+                      <button
+                        key={p.id}
+                        onClick={() => setSelectedProject(p)}
+                        className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer shrink-0 active:scale-95 ${
+                          isSelected
+                            ? 'bg-[#0052FF] text-white shadow-[0_0_15px_rgba(0,82,255,0.4)] border border-[#00FFFF]'
+                            : 'bg-slate-900/90 text-slate-300 hover:bg-slate-800 border border-slate-800 hover:text-white'
+                        }`}
+                      >
+                        <span className={`w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-black ${
+                          isSelected ? 'bg-white text-[#0052FF]' : 'bg-slate-800 text-slate-300'
+                        }`}>
+                          {p.isHQ ? '★' : p.indexNum}
+                        </span>
+                        <span className="max-w-[150px] truncate text-left">{p.name}</span>
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+            )}
+
             {selectedProject ? (
               <div className="bg-[#0B1528] border border-slate-800 hover:border-[#00D4FF]/40 transition-colors rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl relative overflow-hidden animate-fade-in">
                 {/* Image Preview with Badge */}

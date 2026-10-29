@@ -1,6 +1,20 @@
 import { useState } from 'react'
-import { Droplets, TrendingUp, Sun, ArrowRight, ShieldCheck, Sparkles, FileDown, Check, Activity, Gauge } from 'lucide-react'
+import { Droplets, TrendingUp, Sun, ArrowRight, ShieldCheck, Sparkles, FileDown, Check, Activity, Gauge, Zap, CheckCircle2 } from 'lucide-react'
 import ScrollReveal from './ScrollReveal'
+
+const CROP_PRESETS = [
+  { name: '🌾 Wheat / Grains (50 ha)', farm: 'Oromia Cereal Farm', crop: 'Wheat / Grains', ha: 50, method: 'CenterPivot', source: 'Deep Production Borehole', power: 'Solar PV Pumping Station' },
+  { name: '🥑 Avocado / Orchards (25 ha)', farm: 'Rift Valley Avocado Estate', crop: 'Coffee / Avocado', ha: 25, method: 'Drip', source: 'River / Lake Intake', power: 'Solar PV Pumping Station' },
+  { name: '🌽 Commercial Maize (120 ha)', farm: 'Awash Basin Maize Scheme', crop: 'Wheat / Grains', ha: 120, method: 'CenterPivot', source: 'River / Lake Intake', power: 'Synchronized Diesel Generator' },
+  { name: '☕ Coffee Plantation (40 ha)', farm: 'Sidama Coffee Growers Block', crop: 'Coffee / Avocado', ha: 40, method: 'Drip', source: 'Canal / Gravity Scheme', power: 'National Grid Electromechanical' },
+  { name: '🍅 Greenhouse Veggies (10 ha)', farm: 'Bishoftu Floriculture & Veg', crop: 'Horticulture / Fruits', ha: 10, method: 'Drip', source: 'Deep Production Borehole', power: 'Solar PV Pumping Station' },
+]
+
+const METHODS = [
+  { id: 'CenterPivot', label: 'Center Pivot', efficiency: '95% Uniformity', badge: 'High Yield', desc: 'Automated circular spans for extensive grain & maize farms' },
+  { id: 'Drip', label: 'Precision Drip', efficiency: '98% Efficiency', badge: 'Max Water Saver', desc: 'Direct root-zone delivery for orchards, vegetables & coffee' },
+  { id: 'Sprinkler', label: 'Sprinklers & Guns', efficiency: '85% Coverage', badge: 'Flexible', desc: 'Mobile travelling guns and portable impact sprinklers' }
+]
 
 export default function WaterEstimator() {
   const [farmName, setFarmName] = useState('Abyssinia Commercial Farm')
@@ -13,9 +27,12 @@ export default function WaterEstimator() {
   const [pdfSuccess, setPdfSuccess] = useState(false)
 
   // Dynamic Savings & Flow Rate Calculations
-  const efficiencyRate = irrigationMethod === 'Drip' ? 0.45 : irrigationMethod === 'CenterPivot' ? 0.38 : 0.30
+  const efficiencyRate = irrigationMethod === 'Drip' ? 0.48 : irrigationMethod === 'CenterPivot' ? 0.40 : 0.30
   const waterSavedM3 = Math.round(hectares * 2400 * efficiencyRate)
-  const yieldBoostPercent = cropType === 'Horticulture / Fruits' ? 38 : cropType === 'Coffee / Avocado' ? 32 : cropType === 'Sugarcane / Cotton' ? 30 : 28
+  const traditionalWaterM3 = Math.round(hectares * 2400 * 1.5)
+  const ethioRainWaterM3 = traditionalWaterM3 - waterSavedM3
+
+  const yieldBoostPercent = cropType === 'Horticulture / Fruits' ? 38 : cropType === 'Coffee / Avocado' ? 34 : cropType === 'Sugarcane / Cotton' ? 30 : 28
   const dieselSavedLiters = Math.round(hectares * (powerSource.includes('Solar') ? 220 : 110))
   const estPowerKw = Math.round(hectares * 1.8)
   
@@ -28,6 +45,15 @@ export default function WaterEstimator() {
     : irrigationMethod === 'Drip' 
     ? 'Inline Pressure-Compensating Drip' 
     : 'Rain Bird Sprinkler & Gun System'
+
+  const handleApplyPreset = (p) => {
+    setFarmName(p.farm)
+    setCropType(p.crop)
+    setHectares(p.ha)
+    setIrrigationMethod(p.method)
+    setWaterSource(p.source)
+    setPowerSource(p.power)
+  }
 
   const handleDownloadPDF = async () => {
     setIsGeneratingPdf(true)
@@ -75,21 +101,37 @@ export default function WaterEstimator() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <ScrollReveal animation="fade-up">
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
             <div className="inline-flex items-center gap-2 bg-[#00D4FF]/10 border border-[#00D4FF]/30 rounded-full px-3.5 sm:px-4 py-1.5 mb-3 sm:mb-4 shadow-[0_0_15px_rgba(0,212,255,0.2)]">
               <Sparkles className="w-3.5 h-3.5 text-[#00D4FF]" />
               <span className="text-[#00D4FF] text-[11px] sm:text-xs font-bold uppercase tracking-widest">
-                Interactive Engineering Tool
+                Interactive Feasibility & Spec Calculator
               </span>
             </div>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight">
               Instant Preliminary <span className="gradient-text">Project Spec & PDF</span>
             </h2>
             <p className="text-slate-300 mt-3 sm:mt-4 text-sm sm:text-base md:text-lg leading-relaxed">
-              Configure your land size, water source, and power setup to generate an engineering feasibility estimate and download a corporate specification sheet in seconds.
+              Select one-click crop presets, slide farm dimensions, and choose your technology to simulate real-time water savings and export a corporate spec sheet.
             </p>
           </div>
         </ScrollReveal>
+
+        {/* Quick Crop Presets Ribbon */}
+        <div className="mb-6 sm:mb-8 flex items-center gap-2 overflow-x-auto no-scrollbar touch-scroll pb-1">
+          <span className="text-[10px] sm:text-xs font-black uppercase text-slate-400 tracking-wider shrink-0 bg-slate-900/80 px-2.5 py-1.5 rounded-lg border border-slate-800">
+            ⚡ Quick Presets:
+          </span>
+          {CROP_PRESETS.map((preset) => (
+            <button
+              key={preset.name}
+              onClick={() => handleApplyPreset(preset)}
+              className="px-3 py-1.5 text-xs font-bold rounded-xl bg-slate-900 hover:bg-[#0052FF] text-slate-300 hover:text-white border border-slate-800 hover:border-cyan-400/40 transition-all shrink-0 cursor-pointer active:scale-95 shadow-sm"
+            >
+              {preset.name}
+            </button>
+          ))}
+        </div>
 
         <ScrollReveal animation="fade-up" delay={150}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start bg-[#0B172B]/95 backdrop-blur-2xl border border-[#00D4FF]/20 rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 shadow-2xl">
@@ -114,7 +156,7 @@ export default function WaterEstimator() {
                 <div className="flex justify-between items-center mb-3">
                   <label className="text-sm font-bold text-slate-200">Cultivated Farm Area</label>
                   <span className="text-lg font-black text-[#00D4FF] bg-[#0038E2]/30 px-3.5 py-1 rounded-xl border border-[#00D4FF]/40 shadow-[0_0_12px_rgba(0,212,255,0.25)]">
-                    {hectares} Hectares
+                    {hectares} Hectares (~{Math.round(hectares * 2.471)} Acres)
                   </span>
                 </div>
                 <input
@@ -133,11 +175,45 @@ export default function WaterEstimator() {
                 </div>
               </div>
 
-              {/* Crop & Irrigation Technology Dropdowns */}
+              {/* Interactive Irrigation System Visual Selector */}
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                  Irrigation System Model
+                </label>
+                <div className="grid grid-cols-3 gap-2">
+                  {METHODS.map(m => {
+                    const isSelected = irrigationMethod === m.id
+                    return (
+                      <button
+                        key={m.id}
+                        type="button"
+                        onClick={() => setIrrigationMethod(m.id)}
+                        className={`p-2.5 sm:p-3 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                          isSelected
+                            ? 'bg-[#0052FF]/25 border-cyan-400 shadow-[0_0_15px_rgba(0,212,255,0.2)]'
+                            : 'bg-[#060D1A] border-slate-800 hover:border-slate-700'
+                        }`}
+                      >
+                        <div>
+                          <span className={`text-[8px] sm:text-[9px] uppercase font-black px-1.5 py-0.5 rounded ${
+                            isSelected ? 'bg-cyan-400 text-slate-950 font-black' : 'bg-slate-800 text-slate-400'
+                          }`}>
+                            {m.badge}
+                          </span>
+                          <div className="font-bold text-xs sm:text-sm text-white mt-1.5">{m.label}</div>
+                        </div>
+                        <div className="text-[10px] text-cyan-300 font-mono mt-2">{m.efficiency}</div>
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+
+              {/* Crop & Water & Power Sources */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
-                    Primary Crop
+                    Primary Crop Cultivar
                   </label>
                   <select
                     value={cropType}
@@ -154,25 +230,7 @@ export default function WaterEstimator() {
 
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
-                    Irrigation System
-                  </label>
-                  <select
-                    value={irrigationMethod}
-                    onChange={(e) => setIrrigationMethod(e.target.value)}
-                    className="w-full bg-[#060D1A] border border-slate-700 rounded-xl p-3 text-white text-base md:text-sm focus:border-[#00D4FF] focus:outline-none"
-                  >
-                    <option value="CenterPivot">Valley Center Pivot</option>
-                    <option value="Drip">Precision Drip Irrigation</option>
-                    <option value="Sprinkler">Rain Bird Sprinklers & Guns</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Water Source & Power Source */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
-                    Water Source
+                    Water Intake Source
                   </label>
                   <select
                     value={waterSource}
@@ -185,21 +243,21 @@ export default function WaterEstimator() {
                     <option value="Earth Dam / Storage Reservoir">Earth Dam / Reservoir</option>
                   </select>
                 </div>
+              </div>
 
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
-                    Power Infrastructure
-                  </label>
-                  <select
-                    value={powerSource}
-                    onChange={(e) => setPowerSource(e.target.value)}
-                    className="w-full bg-[#060D1A] border border-slate-700 rounded-xl p-3 text-white text-base md:text-sm focus:border-[#00D4FF] focus:outline-none"
-                  >
-                    <option value="Solar PV Pumping Station">Solar PV Array (Off-Grid)</option>
-                    <option value="Synchronized Diesel Generator">Heavy Diesel Generator</option>
-                    <option value="National Grid Electromechanical">National Grid Substation</option>
-                  </select>
-                </div>
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                  Power Infrastructure
+                </label>
+                <select
+                  value={powerSource}
+                  onChange={(e) => setPowerSource(e.target.value)}
+                  className="w-full bg-[#060D1A] border border-slate-700 rounded-xl p-3 text-white text-base md:text-sm focus:border-[#00D4FF] focus:outline-none"
+                >
+                  <option value="Solar PV Pumping Station">Solar PV Array (Off-Grid Clean Energy)</option>
+                  <option value="Synchronized Diesel Generator">Heavy Diesel Generator Station</option>
+                  <option value="National Grid Electromechanical">National Grid Substation Connection</option>
+                </select>
               </div>
 
               <div className="flex items-center gap-2.5 text-xs text-slate-400 pt-2 border-t border-slate-800">
@@ -210,6 +268,43 @@ export default function WaterEstimator() {
 
             {/* Results & Actions Column */}
             <div className="lg:col-span-6 space-y-4">
+              {/* Interactive Comparative Water Savings Visual Bar */}
+              <div className="bg-[#060D1A] p-4 rounded-xl border border-cyan-500/20 shadow-inner">
+                <div className="flex items-center justify-between text-xs mb-2">
+                  <span className="font-bold text-slate-300 flex items-center gap-1.5">
+                    <Droplets className="w-4 h-4 text-cyan-400" />
+                    Water Efficiency vs Traditional Furrow Flooding
+                  </span>
+                  <span className="text-emerald-400 font-black">{Math.round(efficiencyRate * 100)}% Conserved</span>
+                </div>
+
+                {/* Dual Progress Bar */}
+                <div className="space-y-1.5">
+                  <div>
+                    <div className="flex justify-between text-[10px] text-slate-400 mb-0.5">
+                      <span>Traditional Flooding Demand</span>
+                      <span className="text-rose-400 font-mono">{traditionalWaterM3.toLocaleString()} m³</span>
+                    </div>
+                    <div className="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                      <div className="h-full bg-rose-500/70 w-full" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-[10px] text-slate-400 mb-0.5">
+                      <span>Ethio-Rain Precision Demand</span>
+                      <span className="text-emerald-400 font-mono font-bold">{ethioRainWaterM3.toLocaleString()} m³</span>
+                    </div>
+                    <div className="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 transition-all duration-500" 
+                        style={{ width: `${Math.round((ethioRainWaterM3 / traditionalWaterM3) * 100)}%` }} 
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* Engineering Metrics Grid */}
               <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
                 <div className="bg-[#060D1A] p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-[#00D4FF]/20 flex flex-col justify-between hover:border-[#00D4FF]/40 transition-colors">
@@ -258,7 +353,7 @@ export default function WaterEstimator() {
               </div>
 
               {/* Action Buttons Box */}
-              <div className="bg-gradient-to-br from-[#0B1528] to-[#060D1A] border border-[#00D4FF]/30 p-4 sm:p-6 rounded-xl sm:rounded-2xl space-y-4">
+              <div className="bg-gradient-to-br from-[#0B1528] to-[#060D1A] border border-[#00D4FF]/30 p-4 sm:p-6 rounded-xl sm:rounded-2xl space-y-4 shadow-xl">
                 <div className="flex items-start justify-between">
                   <div>
                     <span className="text-[10px] uppercase font-black tracking-widest text-[#00D4FF]">
