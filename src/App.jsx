@@ -12,6 +12,7 @@ const ServiceDetail = lazy(() => import('./pages/ServiceDetail'))
 const ProjectDetail = lazy(() => import('./pages/ProjectDetail'))
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'))
 const Products = lazy(() => import('./pages/Products'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 function PageFallback() {
   return (
@@ -57,6 +58,7 @@ export default function App() {
               <Route path="/project/:slug" element={<ProjectDetail />} />
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/products" element={<Products />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
         </main>

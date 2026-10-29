@@ -205,7 +205,7 @@ export default function ExecutiveTeam() {
             </div>
             <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
               <a 
-                href="#contact" 
+                href="/#contact" 
                 className="btn-primary text-white font-bold px-7 py-3.5 min-h-[48px] rounded-full flex items-center justify-center gap-2 text-xs sm:text-sm uppercase tracking-wider shadow-lg active:scale-95 text-center"
               >
                 Request Consultation <ArrowRight className="w-4 h-4" />
@@ -250,6 +250,7 @@ export default function ExecutiveTeam() {
                     <img 
                       src={selectedMember.image} 
                       alt={selectedMember.name}
+                      loading="lazy"
                       className="w-full h-full object-cover object-top"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none'
@@ -318,7 +319,7 @@ export default function ExecutiveTeam() {
               {/* CTA in Modal */}
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
-                  href="#contact"
+                  href="/#contact"
                   onClick={() => setSelectedMember(null)}
                   className="btn-primary text-white font-bold py-3.5 px-6 rounded-2xl flex-1 flex items-center justify-center gap-2 text-xs uppercase tracking-wider text-center min-h-[48px] active:scale-95"
                 >

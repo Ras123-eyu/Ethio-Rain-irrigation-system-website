@@ -27,7 +27,7 @@ export default function Services() {
               className="card-hover group rounded-2xl sm:rounded-3xl overflow-hidden dark:bg-gray-800 bg-white border dark:border-gray-700 border-gray-100 shadow-sm transition-all duration-300"
             >
               <div className="relative overflow-hidden h-44 sm:h-48">
-                <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src={img} alt={title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-linear-to-t from-black/80 to-transparent" />
                 <span className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 bg-brand-blue text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 sm:px-3 py-1 rounded-full backdrop-blur-md">
                   {tag}

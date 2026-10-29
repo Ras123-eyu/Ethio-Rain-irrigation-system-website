@@ -20,17 +20,20 @@ export default function About() {
             <img
               src="/images/img_f4fc84da4ae0.webp"
               alt="Farm irrigation"
+              loading="lazy"
               className="rounded-2xl sm:rounded-3xl object-cover h-56 sm:h-72 w-full shadow-xl dark:shadow-green-900/20"
             />
             <div className="flex flex-col gap-3 sm:gap-4 mt-4 sm:mt-8">
               <img
                 src="/images/img_cbfe287c3a29.webp"
                 alt="Water sprinkler"
+                loading="lazy"
                 className="rounded-2xl sm:rounded-3xl object-cover h-28 sm:h-40 w-full shadow-lg dark:shadow-green-900/10"
               />
               <img
                 src="/images/img_aa679fa269f4.webp"
                 alt="Lush crops"
+                loading="lazy"
                 className="rounded-2xl sm:rounded-3xl object-cover h-24 sm:h-[116px] w-full shadow-lg dark:shadow-green-900/10"
               />
             </div>
@@ -84,17 +87,17 @@ export default function About() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <a href="#contact" className="btn-primary text-white font-semibold px-7 py-3.5 rounded-full inline-flex items-center justify-center gap-2 group w-full sm:w-auto min-h-[48px] active:scale-95 text-center text-sm sm:text-base">
+            <a href="/#contact" className="btn-primary text-white font-semibold px-7 py-3.5 rounded-full inline-flex items-center justify-center gap-2 group w-full sm:w-auto min-h-[48px] active:scale-95 text-center text-sm sm:text-base">
               Partner With Us
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
 
-            <a href="#team" className="inline-flex items-center gap-3 group p-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-white/5 transition-all">
+            <a href="/#team" className="inline-flex items-center gap-3 group p-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-white/5 transition-all">
               <div className="flex -space-x-2.5 overflow-hidden">
-                <img className="inline-block h-9 w-9 rounded-full ring-2 ring-white dark:ring-gray-900 object-cover object-top" src="/images/team/gulelat_sitotaw.webp" alt="Gulelat Sitotaw" />
-                <img className="inline-block h-9 w-9 rounded-full ring-2 ring-white dark:ring-gray-900 object-cover object-top" src="/images/team/fitsum_tadesse.webp" alt="Fitsum Tadesse" />
-                <img className="inline-block h-9 w-9 rounded-full ring-2 ring-white dark:ring-gray-900 object-cover object-top" src="/images/team/nahom_yiheyis.webp" alt="Nahom Yiheyis" />
-                <img className="inline-block h-9 w-9 rounded-full ring-2 ring-white dark:ring-gray-900 object-cover object-top" src="/images/team/lidiya_nigusse.webp" alt="Lidiya Nigussie" />
+                <img className="inline-block h-9 w-9 rounded-full ring-2 ring-white dark:ring-gray-900 object-cover object-top" src="/images/team/gulelat_sitotaw.webp" alt="Gulelat Sitotaw" loading="lazy" />
+                <img className="inline-block h-9 w-9 rounded-full ring-2 ring-white dark:ring-gray-900 object-cover object-top" src="/images/team/fitsum_tadesse.webp" alt="Fitsum Tadesse" loading="lazy" />
+                <img className="inline-block h-9 w-9 rounded-full ring-2 ring-white dark:ring-gray-900 object-cover object-top" src="/images/team/nahom_yiheyis.webp" alt="Nahom Yiheyis" loading="lazy" />
+                <img className="inline-block h-9 w-9 rounded-full ring-2 ring-white dark:ring-gray-900 object-cover object-top" src="/images/team/lidiya_nigusse.webp" alt="Lidiya Nigussie" loading="lazy" />
               </div>
               <div className="text-left text-xs pr-2">
                 <p className="font-bold text-gray-900 dark:text-white group-hover:text-brand-cyan transition-colors">Executive Team</p>

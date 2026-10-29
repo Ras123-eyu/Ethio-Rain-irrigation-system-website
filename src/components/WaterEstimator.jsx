@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Droplets, TrendingUp, Sun, ArrowRight, ShieldCheck, Sparkles, FileDown, Check, Activity, Gauge } from 'lucide-react'
 import ScrollReveal from './ScrollReveal'
-import { generateProjectSpecPDF } from '../utils/generateProjectSpecPDF'
 
 export default function WaterEstimator() {
   const [farmName, setFarmName] = useState('Abyssinia Commercial Farm')
@@ -30,31 +29,30 @@ export default function WaterEstimator() {
     ? 'Inline Pressure-Compensating Drip' 
     : 'Rain Bird Sprinkler & Gun System'
 
-  const handleDownloadPDF = () => {
+  const handleDownloadPDF = async () => {
     setIsGeneratingPdf(true)
-    setTimeout(() => {
-      try {
-        generateProjectSpecPDF({
-          farmName: farmName || 'Commercial Agricultural Project',
-          hectares,
-          cropType,
-          irrigationMethod: methodDisplayName,
-          waterSource,
-          powerSource,
-          waterSavedM3,
-          yieldBoostPercent,
-          dieselSavedLiters,
-          flowRateM3h,
-          pipeSize: recommendedPipe
-        })
-        setPdfSuccess(true)
-        setTimeout(() => setPdfSuccess(false), 4000)
-      } catch (err) {
-        console.error('PDF generation error:', err)
-      } finally {
-        setIsGeneratingPdf(false)
-      }
-    }, 600)
+    try {
+      const { generateProjectSpecPDF } = await import('../utils/generateProjectSpecPDF')
+      generateProjectSpecPDF({
+        farmName: farmName || 'Commercial Agricultural Project',
+        hectares,
+        cropType,
+        irrigationMethod: methodDisplayName,
+        waterSource,
+        powerSource,
+        waterSavedM3,
+        yieldBoostPercent,
+        dieselSavedLiters,
+        flowRateM3h,
+        pipeSize: recommendedPipe
+      })
+      setPdfSuccess(true)
+      setTimeout(() => setPdfSuccess(false), 4000)
+    } catch (err) {
+      console.error('PDF generation error:', err)
+    } finally {
+      setIsGeneratingPdf(false)
+    }
   }
 
   const handlePrefillQuote = () => {

@@ -161,7 +161,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
               </a>
             )
           )}
-          <a href="#contact" className="btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full text-center" onClick={() => setMenuOpen(false)}>
+          <a href="/#contact" className="btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full text-center" onClick={() => setMenuOpen(false)}>
             Get a Quote
           </a>
         </div>

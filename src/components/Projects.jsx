@@ -28,7 +28,7 @@ export default function Projects() {
               className="card-hover group rounded-2xl sm:rounded-[2.5rem] overflow-hidden dark:bg-brand-dark bg-white shadow-xl border dark:border-white/5 border-gray-100 transition-all duration-300"
             >
               <div className="relative overflow-hidden h-52 sm:h-72">
-                <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src={img} alt={title} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-linear-to-t from-brand-black/90 via-brand-black/20 to-transparent" />
                 <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
                   <span className={`text-[9px] sm:text-[10px] uppercase tracking-widest font-black px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-2 sm:mb-3 inline-block shadow-2xl backdrop-blur-md ${tag === 'Completed' ? 'bg-brand-blue text-white' : 'bg-brand-cyan text-brand-black'

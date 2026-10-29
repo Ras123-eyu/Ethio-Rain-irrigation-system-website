@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import ScrollReveal from './ScrollReveal'
 
 const partners = [
@@ -17,6 +18,28 @@ const partners = [
     logo: '/wilo-logo.svg' 
   },
 ]
+
+function PartnerLogo({ partner }) {
+  const [failed, setFailed] = useState(false)
+
+  if (failed) {
+    return (
+      <span className="text-2xl sm:text-3xl font-black gradient-text">
+        {partner.name.charAt(0)}
+      </span>
+    )
+  }
+
+  return (
+    <img
+      src={partner.logo}
+      alt={partner.name}
+      loading="lazy"
+      className="w-full h-full object-contain opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 rounded-md"
+      onError={() => setFailed(true)}
+    />
+  )
+}
 
 export default function Partners() {
   return (
@@ -40,15 +63,7 @@ export default function Partners() {
             <ScrollReveal key={partner.name} animation="fade-up" delay={i * 150}>
               <div className="group flex flex-col items-center gap-3 sm:gap-4">
                 <div className="w-28 h-28 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-xl sm:rounded-2xl dark:bg-gray-800 bg-gray-50 border dark:border-white/5 border-gray-100 flex items-center justify-center p-4 sm:p-6 transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-brand-cyan/10 group-hover:border-brand-cyan/30">
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="w-full h-full object-contain opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 rounded-md"
-                    onError={(e) => {
-                      e.target.style.display = 'none'
-                      e.target.parentElement.innerHTML = `<span class="text-2xl sm:text-3xl font-black gradient-text">${partner.name.charAt(0)}</span>`
-                    }}
-                  />
+                  <PartnerLogo partner={partner} />
                 </div>
                 <div className="text-center">
                   <span className="block text-xs sm:text-sm font-bold uppercase tracking-wider dark:text-white/80 text-gray-800 group-hover:text-brand-cyan transition-colors duration-300">

@@ -29,10 +29,42 @@ export async function sendTelegramQuotation(data) {
 ⏰ <b>Time (EAT):</b> ${timestamp}
 `
 
-  // If credentials are not configured in .env yet
+  // Attempt 1: Call secure Netlify Serverless Function
+  try {
+    const netlifyRes = await fetch('/.netlify/functions/send-telegram', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+
+    if (netlifyRes.ok) {
+      const netlifyJson = await netlifyRes.json()
+      if (netlifyJson.success) return { success: true }
+    }
+  } catch {
+    // Continue to next handler
+  }
+
+  // Attempt 2: Call secure Vercel Serverless Function
+  try {
+    const vercelRes = await fetch('/api/send-telegram', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+
+    if (vercelRes.ok) {
+      const vercelJson = await vercelRes.json()
+      if (vercelJson.success) return { success: true }
+    }
+  } catch {
+    // Continue to local fallback
+  }
+
+  // Fallback for local development or direct client dispatch if VITE_ keys exist
   if (!botToken || !chatId) {
     console.warn(
-      '[Telegram Service] VITE_TELEGRAM_BOT_TOKEN or VITE_TELEGRAM_CHAT_ID not configured in .env.'
+      '[Telegram Service] Telegram not yet configured via serverless function or local .env'
     )
     return {
       success: false,

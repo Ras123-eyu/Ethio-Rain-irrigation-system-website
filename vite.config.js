@@ -18,6 +18,9 @@ export default defineConfig({
             if (id.includes('lucide-react')) {
               return 'vendor-icons'
             }
+            if (id.includes('jspdf')) {
+              return 'vendor-jspdf'
+            }
             if (id.includes('react-helmet-async')) {
               return 'vendor-helmet'
             }

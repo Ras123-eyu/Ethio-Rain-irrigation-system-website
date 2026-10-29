@@ -26,11 +26,18 @@ const LinkedinIcon = () => (
   </svg>
 )
 
+const TelegramIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.77-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z" />
+  </svg>
+)
+
 const socialLinks = [
-  { icon: FacebookIcon, name: 'Facebook', href: 'https://facebook.com' },
-  { icon: TwitterIcon, name: 'X (Twitter)', href: 'https://twitter.com' },
-  { icon: InstagramIcon, name: 'Instagram', href: 'https://instagram.com' },
-  { icon: LinkedinIcon, name: 'LinkedIn', href: 'https://linkedin.com' },
+  { icon: TelegramIcon, name: 'Telegram', href: 'https://t.me/Ethiorain_Quotation_bot' },
+  { icon: FacebookIcon, name: 'Facebook', href: 'https://facebook.com/ethiorain' },
+  { icon: LinkedinIcon, name: 'LinkedIn', href: 'https://linkedin.com/company/ethio-rain' },
+  { icon: TwitterIcon, name: 'X (Twitter)', href: 'https://twitter.com/ethiorain' },
+  { icon: InstagramIcon, name: 'Instagram', href: 'https://instagram.com/ethiorain' },
 ]
 
 export default function Footer() {
@@ -47,7 +54,7 @@ export default function Footer() {
             <p className="text-white/80 text-base sm:text-lg font-medium">Partner with Ethiopia's leading Grade-1 Water Works Contractor.</p>
           </div>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full md:w-auto">
-            <a href="#contact" className="bg-white text-brand-blue font-black px-8 sm:px-10 py-4 sm:py-5 min-h-[48px] rounded-full hover:scale-105 active:scale-95 transition-all shadow-2xl flex items-center justify-center gap-2 text-center text-base">
+            <a href="/#contact" className="bg-white text-brand-blue font-black px-8 sm:px-10 py-4 sm:py-5 min-h-[48px] rounded-full hover:scale-105 active:scale-95 transition-all shadow-2xl flex items-center justify-center gap-2 text-center text-base">
               Request Quotation
             </a>
             <a href="tel:+251901864466" className="border-2 border-white/30 text-white font-black px-8 sm:px-10 py-4 sm:py-5 min-h-[48px] rounded-full hover:bg-white/10 active:scale-95 transition-all backdrop-blur-sm flex items-center justify-center text-center text-base">
@@ -64,6 +71,7 @@ export default function Footer() {
             <img
               src="/images/img_4f6613efa42b.webp"
               alt="Ethio-Rain Logo"
+              loading="lazy"
               className="h-12 sm:h-14 w-auto object-contain"
             />
             <div>
@@ -103,7 +111,7 @@ export default function Footer() {
               'HDPE Piping & Welding',
               'Solar Power Systems Supply'
             ].map(s => (
-              <li key={s}><a href="#services" className="hover:text-white transition-all flex items-center gap-2 py-1 min-h-[40px] group"><span className="w-1.5 h-1.5 rounded-full bg-brand-cyan/20 group-hover:bg-brand-cyan" /> {s}</a></li>
+              <li key={s}><a href="/#services" className="hover:text-white transition-all flex items-center gap-2 py-1 min-h-[40px] group"><span className="w-1.5 h-1.5 rounded-full bg-brand-cyan/20 group-hover:bg-brand-cyan" /> {s}</a></li>
             ))}
           </ul>
         </div>
@@ -112,7 +120,7 @@ export default function Footer() {
           <h4 className="font-black text-[11px] sm:text-[10px] uppercase tracking-[0.2em] text-brand-cyan mb-6 sm:mb-8">Our Company</h4>
           <ul className="space-y-3 sm:space-y-4 text-sm font-bold text-white/40">
             {['About', 'Executive Team', 'Projects', 'Products', 'Contact'].map(s => (
-              <li key={s}><a href={s === 'Executive Team' ? '#team' : `#${s.toLowerCase().replace(' ', '')}`} className="hover:text-white transition-all flex items-center gap-2 py-1 min-h-[40px] group"><span className="w-1.5 h-1.5 rounded-full bg-white/5 group-hover:bg-white" /> {s}</a></li>
+              <li key={s}><a href={s === 'Executive Team' ? '/#team' : `/#${s.toLowerCase().replace(' ', '')}`} className="hover:text-white transition-all flex items-center gap-2 py-1 min-h-[40px] group"><span className="w-1.5 h-1.5 rounded-full bg-white/5 group-hover:bg-white" /> {s}</a></li>
             ))}
           </ul>
         </div>
