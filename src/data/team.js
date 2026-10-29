@@ -35,11 +35,18 @@ export const executiveTeam = [
     avatarGradient: 'from-blue-600 via-indigo-600 to-cyan-500',
     image: '/images/team/gulelat_sitotaw.webp',
     bio: 'General Manager and Cofounder of Ethio-Rain Irrigation Systems PLC since 2003 E.C. He has guided the company to become one of Ethiopia’s premier Grade-1 Water Works Contractors, driving partnerships with federal water development bureaus and commercial agricultural investors.',
+    responsibilitiesHeading: 'Executive Management & Governance Responsibilities',
+    responsibilities: [
+      'Strategic Corporate Governance & Long-Term Company Direction',
+      'Grade-1 Water Works Contract Management & Statutory Compliance',
+      'High-Level Stakeholder Alignment with Federal & Regional Water Bureaus',
+      'Turnkey Project Execution, Financial Governance & Resource Allocation'
+    ],
     specialties: [
       'Strategic Corporate Governance',
+      'Grade-1 Contract Compliance',
       'Turnkey Project Execution',
-      'Grade-1 Water Works Contracting',
-      'Inter-Agency Stakeholder Alignment'
+      'Stakeholder Alignment'
     ],
     featured: true,
   },
@@ -57,8 +64,15 @@ export const executiveTeam = [
     avatarGradient: 'from-cyan-500 via-teal-600 to-blue-700',
     image: '/images/team/fitsum_tadesse.webp',
     bio: 'Technical Managing Director and Co-founder. Has extensive specialized training from South Africa in center pivot design, manufacturing, installation, automation, and pressure-regulated water distribution schemes.',
+    responsibilitiesHeading: 'Core Engineering & Technical Responsibilities',
+    responsibilities: [
+      'Center Pivot & Mechanical Irrigation System Design & Manufacturing',
+      'Electromechanical Pumping Station Engineering & SCADA Automation',
+      'Hydraulic Pipeline Network Modeling & Field Pressure Testing',
+      'On-Site Technical Commissioning, QA/QC Supervision & Operator Training'
+    ],
     specialties: [
-      'Center Pivot System Design',
+      'Center Pivot Engineering',
       'Electromechanical Automation',
       'Hydraulic Pipeline Modeling',
       'Pumping Station Engineering'
@@ -79,11 +93,18 @@ export const executiveTeam = [
     avatarGradient: 'from-teal-500 via-emerald-600 to-blue-600',
     image: '/images/team/nahom_yiheyis.webp',
     bio: 'Sales Manager directing Ethio-Rain’s specialized retail and bulk equipment supply chain, ensuring fast delivery of electrofusion fittings, drip lines, sprinkler nozzles, and solar surface & submersible pumps across Ethiopia.',
+    responsibilitiesHeading: 'Commercial & Sales Management Responsibilities',
+    responsibilities: [
+      'Commercial Sales Strategy & Nationwide Equipment Supply Execution',
+      'Client Irrigation Needs Assessment & Technical Quotation Preparation',
+      'HDPE Pipes, Fittings, Drip Lines & Pump Inventory Coordination',
+      'Spare Parts Supply Logistics & Regional Agribusiness Account Support'
+    ],
     specialties: [
-      'Drip & Sprinkler Hardware Supply',
-      'HDPE Butt & Electrofusion Fittings',
-      'Solar Surface & Submersible Pumps',
-      'After-Sales Spare Parts Logistics'
+      'Commercial Equipment Sales',
+      'Supply Chain Coordination',
+      'Technical Quotations & Bids',
+      'Spare Parts & Logistics'
     ],
     featured: true,
   },
@@ -101,11 +122,18 @@ export const executiveTeam = [
     avatarGradient: 'from-purple-600 via-pink-600 to-indigo-600',
     image: '/images/team/lidiya_nigusse.webp',
     bio: 'Marketing Manager directing client strategy and global OEM partnerships with world-renowned manufacturers including Valley Irrigation, Rain Bird, and Wilo, aligning cutting-edge irrigation technologies with Ethiopian farm needs.',
+    responsibilitiesHeading: 'Marketing & Strategic Partnerships Responsibilities',
+    responsibilities: [
+      'Global OEM Strategic Partnerships & Manufacturer Alliances (Wilo, Rain Bird, Valley)',
+      'Market Expansion, Ag-Tech Promotion & Commercial Campaign Strategy',
+      'Client Feasibility Consultations & Technical Bid Proposal Architecture',
+      'Brand Positioning, Agronomic Industry Forums & Customer Relations'
+    ],
     specialties: [
-      'Global OEM Technology Alliances',
-      'Client Irrigation Feasibility',
-      'Technical Bid Proposal Architecture',
-      'Solar & Electric Hybrid Systems'
+      'Global OEM Alliances',
+      'Market Expansion Strategy',
+      'Technical Bid Architecture',
+      'Client Feasibility Planning'
     ],
     featured: true,
   }

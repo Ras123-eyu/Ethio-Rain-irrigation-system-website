@@ -303,32 +303,25 @@ export default function ExecutiveTeam() {
                 {selectedMember.bio}
               </p>
 
-              {/* Core Engineering Disciplines */}
+              {/* Position Responsibilities */}
               <h4 className="text-xs font-black uppercase tracking-widest dark:text-brand-cyan text-brand-blue mb-3">
-                Core Engineering & Management Responsibilities
+                {selectedMember.responsibilitiesHeading || 'Core Responsibilities'}
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8">
-                {selectedMember.specialties.map((spec, i) => (
-                  <div key={i} className="flex items-center gap-2 p-2.5 rounded-xl dark:bg-gray-800 bg-gray-50 border dark:border-white/5 border-gray-100 text-xs font-semibold dark:text-gray-200 text-gray-700">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>{spec}</span>
+                {(selectedMember.responsibilities || selectedMember.specialties).map((spec, i) => (
+                  <div key={i} className="flex items-start gap-2.5 p-3 rounded-xl dark:bg-gray-800 bg-gray-50 border dark:border-white/5 border-gray-100 text-xs font-semibold dark:text-gray-200 text-gray-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">{spec}</span>
                   </div>
                 ))}
               </div>
 
-              {/* CTA in Modal */}
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href="/#contact"
-                  onClick={() => setSelectedMember(null)}
-                  className="btn-primary text-white font-bold py-3.5 px-6 rounded-2xl flex-1 flex items-center justify-center gap-2 text-xs uppercase tracking-wider text-center min-h-[48px] active:scale-95"
-                >
-                  <span>Connect With Leadership</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+              {/* Modal Close Action */}
+              <div className="flex justify-end">
                 <button
+                  type="button"
                   onClick={() => setSelectedMember(null)}
-                  className="p-3.5 rounded-2xl dark:bg-gray-800 bg-gray-100 dark:text-white text-gray-800 font-bold text-xs uppercase tracking-wider min-h-[48px] active:scale-95"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-2xl dark:bg-gray-800 bg-gray-100 dark:text-white text-gray-800 hover:dark:bg-gray-700 hover:bg-gray-200 font-bold text-xs uppercase tracking-wider min-h-[48px] active:scale-95 transition-colors cursor-pointer text-center"
                 >
                   Close Profile
                 </button>
