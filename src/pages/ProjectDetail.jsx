@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { projectsData } from '../data/projects'
-import { ArrowLeft, CheckCircle, Mail, Phone, ChevronRight, X, Search, MapPin, User, Clock, AlertTriangle, Lightbulb, Banknote, Percent, CameraOff } from 'lucide-react'
+import { ArrowLeft, CheckCircle, Mail, Phone, ChevronRight, X, Search, MapPin, User, Clock, AlertTriangle, Lightbulb, Percent, CameraOff } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import SEO from '../components/SEO'
 
@@ -170,16 +170,6 @@ export default function ProjectDetail() {
                   <div>
                     <div className="text-[9px] sm:text-[10px] text-gray-500 dark:text-white/40 uppercase tracking-widest font-bold">Area Size</div>
                     <div className="font-bold text-gray-800 dark:text-white/80">{area}</div>
-                  </div>
-                </div>
-              )}
-
-              {value && (
-                <div className="flex items-start gap-3.5">
-                  <Banknote className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 shrink-0 mt-0.5" />
-                  <div>
-                    <div className="text-[9px] sm:text-[10px] text-gray-500 dark:text-white/40 uppercase tracking-widest font-bold">Value of Works</div>
-                    <div className="font-bold text-emerald-600 dark:text-emerald-400 font-mono">{value}</div>
                   </div>
                 </div>
               )}

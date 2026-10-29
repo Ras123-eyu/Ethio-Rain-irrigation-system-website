@@ -18,7 +18,9 @@ export async function handler(event) {
     }
   }
 
+  // eslint-disable-next-line no-undef
   const botToken = process.env.TELEGRAM_BOT_TOKEN
+  // eslint-disable-next-line no-undef
   const chatId = process.env.TELEGRAM_CHAT_ID
 
   if (!botToken || !chatId) {
@@ -107,6 +109,7 @@ export async function handler(event) {
 function escapeHtml(str) {
   if (!str) return ''
   return String(str)
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '')
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')

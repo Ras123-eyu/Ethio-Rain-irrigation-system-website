@@ -421,13 +421,12 @@ export default function EthiopiaProjectsMap() {
                     )}
                   </div>
 
-                  <div className="absolute bottom-2.5 sm:bottom-3 left-2.5 sm:left-3 right-2.5 sm:right-3 flex items-center justify-between text-white text-[11px] sm:text-xs">
-                    <span className="font-mono bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-md text-emerald-400 font-bold border border-emerald-500/30">
-                      {selectedProject.value}
-                    </span>
-                    <span className="bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-md text-slate-200 font-semibold border border-white/10">
-                      {selectedProject.area}
-                    </span>
+                  <div className="absolute bottom-2.5 sm:bottom-3 right-2.5 sm:right-3 text-white text-[11px] sm:text-xs">
+                    {selectedProject.area && (
+                      <span className="bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-md text-slate-200 font-semibold border border-white/10">
+                        {selectedProject.area}
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -493,7 +492,7 @@ export default function EthiopiaProjectsMap() {
         </div>
 
         {/* Statistical Credentials Ribbon */}
-        <div className="mt-10 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
+        <div className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-4">
           <div className="bg-[#080E1A]/80 border border-slate-800/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-5 text-center">
             <div className="text-xl sm:text-2xl md:text-3xl font-black text-[#00D4FF]">10,000+ ha</div>
             <div className="text-[10px] sm:text-xs text-slate-400 font-medium mt-1 uppercase tracking-wider">Hectares Irrigated</div>
@@ -505,10 +504,6 @@ export default function EthiopiaProjectsMap() {
           <div className="bg-[#080E1A]/80 border border-slate-800/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-5 text-center">
             <div className="text-xl sm:text-2xl md:text-3xl font-black text-white">All 11 Regions</div>
             <div className="text-[10px] sm:text-xs text-slate-400 font-medium mt-1 uppercase tracking-wider">Complete National Presence</div>
-          </div>
-          <div className="bg-[#080E1A]/80 border border-slate-800/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-5 text-center">
-            <div className="text-xl sm:text-2xl md:text-3xl font-black text-[#0052FF]">ETB 240M+</div>
-            <div className="text-[10px] sm:text-xs text-slate-400 font-medium mt-1 uppercase tracking-wider">Delivered Value of Works</div>
           </div>
         </div>
       </div>
