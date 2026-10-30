@@ -8,7 +8,7 @@ export default function Contact() {
     name: '',
     phone: '',
     email: '',
-    systemType: 'Center Pivot Irrigation',
+    systemType: '',
     farmArea: '',
     location: '',
     message: ''
@@ -66,7 +66,7 @@ export default function Contact() {
 
   const handleWhatsAppRedirect = () => {
     const text = encodeURIComponent(
-      `Hello Ethio-Rain Team,\n\nI am requesting a quotation for:\n- Name: ${formData.name || 'Interested Client'}\n- Phone: ${formData.phone || 'N/A'}\n- System: ${formData.systemType}\n- Land Area: ${formData.farmArea || 'N/A'} Ha\n- Location: ${formData.location || 'Ethiopia'}\n\nPlease contact me.`
+      `Hello Ethio-Rain Team,\n\nI am requesting a quotation for:\n- Name: ${formData.name || 'Interested Client'}\n- Phone: ${formData.phone || 'N/A'}\n- System: ${formData.systemType || 'General Consultation'}\n- Land Area: ${formData.farmArea || 'N/A'} Ha\n- Location: ${formData.location || 'Ethiopia'}\n\nPlease contact me.`
     )
     window.open(`https://wa.me/251910615757?text=${text}`, '_blank', 'noopener,noreferrer')
   }
@@ -149,7 +149,7 @@ export default function Contact() {
                         name: '',
                         phone: '',
                         email: '',
-                        systemType: 'Center Pivot Irrigation',
+                        systemType: '',
                         farmArea: '',
                         location: '',
                         message: ''
@@ -236,6 +236,7 @@ export default function Contact() {
                       onChange={(e) => setFormData({ ...formData, systemType: e.target.value })}
                       className="w-full bg-[#060D1A] border border-slate-700 focus:border-[#00D4FF] rounded-xl px-4 py-3 text-white text-base md:text-sm outline-none transition"
                     >
+                      <option value="">Select System Type</option>
                       <option value="Center Pivot Irrigation">Center Pivot Irrigation</option>
                       <option value="Precision Drip System">Precision Drip System</option>
                       <option value="Solar Powered Submersible Pump">Solar Powered Submersible Pump</option>
