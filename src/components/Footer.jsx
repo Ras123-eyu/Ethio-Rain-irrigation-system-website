@@ -66,7 +66,7 @@ export default function Footer() {
       </div>
 
       {/* Main footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-24 grid sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-24 grid sm:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-16">
         <div className="animate-fade-in">
           <div className="flex items-center gap-4 mb-6 sm:mb-8">
             <img
@@ -80,7 +80,7 @@ export default function Footer() {
               <div className="gradient-text text-[10px] uppercase tracking-[0.3em] font-black">Irrigation Systems</div>
             </div>
           </div>
-          <p className="text-white/40 text-sm leading-relaxed sm:leading-loose mb-8 sm:mb-10 font-medium">
+          <p className="text-white/40 text-sm leading-relaxed sm:leading-loose mb-8 sm:mb-10 font-medium max-w-sm">
             Grade-1 Water Works Contractor & Special Purpose Machinery Manufacturer established in 2003 E.C. Delivering precision irrigation, electromechanical systems, and sustainable water solutions across Ethiopia.
           </p>
           <div className="flex gap-3 sm:gap-4">
@@ -97,24 +97,6 @@ export default function Footer() {
               </a>
             ))}
           </div>
-        </div>
-
-        <div>
-          <h4 className="font-black text-[11px] sm:text-[10px] uppercase tracking-[0.2em] text-brand-cyan mb-6 sm:mb-8">Our Services</h4>
-          <ul className="space-y-3 sm:space-y-4 text-sm font-bold text-white/40">
-            {[
-              'Water Supply & Electromechanical',
-              'Center Pivot & Sprinkler Systems',
-              'Drip Irrigation Systems',
-              'Complete Greenhouse Solutions',
-              'Study, Design & Feasibility',
-              'Submersible Pumping & Drilling',
-              'HDPE Piping & Welding',
-              'Solar Power Systems Supply'
-            ].map(s => (
-              <li key={s}><a href="/#services" className="hover:text-white transition-all flex items-center gap-2 py-1 min-h-[40px] group"><span className="w-1.5 h-1.5 rounded-full bg-brand-cyan/20 group-hover:bg-brand-cyan" /> {s}</a></li>
-            ))}
-          </ul>
         </div>
 
         <div>
