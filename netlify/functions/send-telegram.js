@@ -18,9 +18,7 @@ export async function handler(event) {
     }
   }
 
-  // eslint-disable-next-line no-undef
   const botToken = process.env.TELEGRAM_BOT_TOKEN
-  // eslint-disable-next-line no-undef
   const chatId = process.env.TELEGRAM_CHAT_ID
 
   if (!botToken || !chatId) {

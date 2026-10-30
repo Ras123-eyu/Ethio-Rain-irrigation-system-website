@@ -68,6 +68,7 @@ export default async function handler(req, res) {
 function escapeHtml(str) {
   if (!str) return ''
   return String(str)
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '')
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')

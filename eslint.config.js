@@ -34,4 +34,12 @@ export default defineConfig([
       ],
     },
   },
+  {
+    files: ['api/**/*.{js,jsx}', 'netlify/**/*.{js,jsx}'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
 ])
